@@ -6,8 +6,44 @@ import sys
 import os
 
 
+def validate_sentence_text(sent, language):
+    token_text = ""
+    need_space = False
+    last_mwt_id = 0
+    for token in sent:
+        if type(token['id']) is int:
+            if need_space:
+                token_text += " "
+            if last_mwt_id > token['id']:
+                need_space = False
+            else:
+                need_space = conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'Yes'
+                if last_mwt_id < token['id']:
+                    token_text += token['form']
+        elif '-' in token['id']:
+            if need_space:
+                token_text += " "
+                need_space = False
+            last_mwt_id = token['id'][2]
+            token_text += token['form']
+
+    sent_id = sent.metadata['sent_id']
+    if 'text' in sent.metadata:
+        if token_text != sent.metadata['text']:
+            print(f"ERROR: Sentence {sent_id} text does not match the token sequence.")
+            print(f"... Expect: {sent.metadata['text']}")
+            print(f"... Actual: {token_text}")
+    else:
+        print(f"ERROR: Sentence {sent_id} is missing sentence text.")
+
+
 def validate_conllu(filename):
     print(f"INFO: validating {filename}")
+    language = 'und'
+    for sent in conllutil.parse_conllu(filename):
+        if 'newdoc' in sent.metadata or 'newdoc id' in sent.metadata:
+            language = sent.metadata.get('dc:language', 'und').split('-')[0]
+        validate_sentence_text(sent, language)
 
 
 def validate_files(filename):
