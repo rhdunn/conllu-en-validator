@@ -8,21 +8,25 @@ import os
 
 def validate_sentence_text(sent, language):
     token_text = ""
+    word_text = ""
     need_space = False
     last_mwt_id = 0
     for token in sent:
         if type(token['id']) is int:
             if need_space:
                 token_text += " "
+                word_text += " "
             if last_mwt_id > token['id']:
                 need_space = False
             else:
                 need_space = conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'Yes'
                 if last_mwt_id < token['id']:
                     token_text += token['form']
+            word_text += token['form']
         elif '-' in token['id']:
             if need_space:
                 token_text += " "
+                word_text += " "
                 need_space = False
             last_mwt_id = token['id'][2]
             token_text += token['form']
@@ -33,6 +37,10 @@ def validate_sentence_text(sent, language):
             print(f"ERROR: Sentence {sent_id} text does not match the token sequence.")
             print(f"... Expect: {sent.metadata['text']}")
             print(f"... Actual: {token_text}")
+        if language == 'en' and word_text != sent.metadata['text']:
+            print(f"ERROR: Sentence {sent_id} text does not match the word sequence.")
+            print(f"... Expect: {sent.metadata['text']}")
+            print(f"... Actual: {word_text}")
     else:
         print(f"ERROR: Sentence {sent_id} is missing sentence text.")
 
