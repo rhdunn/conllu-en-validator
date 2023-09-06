@@ -6,6 +6,31 @@ import sys
 import os
 
 
+upos_values = [
+    '_',      # missing
+    # open class words
+    'ADJ',    # adjective
+    'ADV',    # adverb
+    'INTJ',   # interjection
+    'NOUN',   # noun
+    'PROPN',  # proper noun
+    'VERB',   # verb
+    # closed class words
+    'ADP',    # adposition
+    'AUX',    # auxiliary verb
+    'CCONJ',  # coordinating conjunction
+    'DET',    # determiner
+    'NUM',    # number
+    'PART',   # part
+    'PRON',   # pronoun
+    'SCONJ',  # subordinating conjunction
+    # other
+    'PUNCT',  # punctuation
+    'SYM',    # symbol
+    'X',      # other
+]
+
+
 def validate_sentence_text(sent, language):
     token_text = ""
     word_text = ""
@@ -50,13 +75,24 @@ def validate_sentence_text(sent, language):
         print(f"ERROR: Sentence {sent_id} is missing sentence text.")
 
 
+def validate_pos_tags(sent, language):
+    sent_id = sent.metadata['sent_id']
+    for token in sent:
+        if type(token['id']) is int:
+            upos = token['upos']
+            if upos not in upos_values:
+                print(f"ERROR: Sentence {sent_id} token {token['id']} has unknown UPOS value '{upos}'.")
+
+
 def validate_conllu(filename):
     print(f"INFO: validating {filename}")
     language = 'und'
     for sent in conllutil.parse_conllu(filename):
         if 'newdoc' in sent.metadata or 'newdoc id' in sent.metadata:
             language = sent.metadata.get('dc:language', 'und').split('-')[0]
+
         validate_sentence_text(sent, language)
+        validate_pos_tags(sent, language)
 
 
 def validate_files(filename):
