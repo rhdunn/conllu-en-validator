@@ -30,6 +30,30 @@ upos_values = [
     'X',      # other
 ]
 
+upenn_xpos_values = [
+    "ADD", "AFX",
+    "CC", "CD",
+    "DT",
+    "EX",
+    "FW",
+    "GW",
+    "HYPH",
+    "IN",
+    "JJ", "JJR", "JJS",
+    "LS",
+    "MD",
+    "NFP", "NN", "NNP", "NNPS", "NNS",
+    "PDT", "POS", "PRP", "PRP$",
+    "RB", "RBR", "RBS", "RP",
+    "SYM",
+    "TO",
+    "UH",
+    "VB", "VBD", "VBG", "VBN", "VBP", "VBZ",
+    "WDT", "WP", "WP$", "WRB",
+    "$", ".", ",", ":", "``", "''",
+    "-LCB-", "-RCB-", "-LRB-", "-RRB-", "-LSB-", "-RSB-",
+]
+
 
 def validate_sentence_text(sent, language):
     token_text = ""
@@ -80,8 +104,11 @@ def validate_pos_tags(sent, language):
     for token in sent:
         if type(token['id']) is int:
             upos = token['upos']
+            xpos = token['xpos']
             if upos not in upos_values:
                 print(f"ERROR: Sentence {sent_id} token {token['id']} has unknown UPOS value '{upos}'.")
+            if language == 'en' and xpos not in upenn_xpos_values:
+                print(f"ERROR: Sentence {sent_id} token {token['id']} has unknown XPOS value '{xpos}'.")
 
 
 def validate_conllu(filename):
