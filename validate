@@ -11,13 +11,17 @@ def validate_sentence_text(sent, language):
     word_text = ""
     need_space = False
     last_mwt_id = 0
+    need_mwt_space = False
     for token in sent:
         if type(token['id']) is int:
             if need_space:
                 token_text += " "
                 word_text += " "
-            if last_mwt_id > token['id']:
-                need_space = False
+            if last_mwt_id >= token['id']:
+                if last_mwt_id == token['id']:
+                    need_space = need_mwt_space
+                else:
+                    need_space = False
             else:
                 need_space = conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'Yes'
                 if last_mwt_id < token['id']:
@@ -29,6 +33,7 @@ def validate_sentence_text(sent, language):
                 word_text += " "
                 need_space = False
             last_mwt_id = token['id'][2]
+            need_mwt_space = conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'Yes'
             token_text += token['form']
 
     sent_id = sent.metadata['sent_id']
