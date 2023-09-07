@@ -3,7 +3,8 @@
 
 Usage:
 ```
-validate input.conllu | tee output.log
+./validate input.conllu | tee output.log
+./validate en input.conllu | tee output.log
 ```
 
 ## License

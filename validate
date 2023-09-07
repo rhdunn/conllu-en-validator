@@ -111,29 +111,32 @@ def validate_pos_tags(sent, language):
                 print(f"ERROR: Sentence {sent_id} token {token['id']} has unknown XPOS value '{xpos}'.")
 
 
-def validate_conllu(filename):
+def validate_conllu(filename, default_language):
     print(f"INFO: validating {filename}")
-    language = 'und'
+    language = default_language
     for sent in conllutil.parse_conllu(filename):
         if 'newdoc' in sent.metadata or 'newdoc id' in sent.metadata:
-            language = sent.metadata.get('dc:language', 'und').split('-')[0]
+            language = sent.metadata.get('dc:language', default_language).split('-')[0]
 
         validate_sentence_text(sent, language)
         validate_pos_tags(sent, language)
 
 
-def validate_files(filename):
+def validate_files(filename, default_language):
     if filename.endswith('.lst'):
         dirname = os.path.dirname(filename)
         for file in conllutil.parse_filelist(filename):
             conllu_filename = os.path.join(dirname, file)
-            validate_conllu(conllu_filename)
+            validate_conllu(conllu_filename, default_language)
     else:
-        validate_conllu(filename)
+        validate_conllu(filename, default_language)
 
 
 def main():
-    validate_files(sys.argv[1])
+    if len(sys.argv) == 2:
+        validate_files(sys.argv[1], default_language='und')
+    else:
+        validate_files(sys.argv[2], default_language=sys.argv[1])
 
 
 if __name__ == '__main__':
