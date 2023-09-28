@@ -111,25 +111,29 @@ def validate_pos_tags(sent, language):
                 print(f"ERROR: Sentence {sent_id} token {token['id']} has unknown XPOS value '{xpos}'.")
 
 
-def validate_conllu(filename, default_language):
+def validate_conllu(filename, default_language, validator):
     print(f"INFO: validating {filename}")
     language = default_language
     for sent in conllutil.parse_conllu(filename):
         if 'newdoc' in sent.metadata or 'newdoc id' in sent.metadata:
             language = sent.metadata.get('dc:language', default_language).split('-')[0]
-
-        validate_sentence_text(sent, language)
-        validate_pos_tags(sent, language)
+        validator(sent, language)
 
 
-def validate_files(filename, default_language):
+def validate_files(filename, default_language, validator):
     if filename.endswith('.lst'):
         dirname = os.path.dirname(filename)
         for file in conllutil.parse_filelist(filename):
             conllu_filename = os.path.join(dirname, file)
-            validate_conllu(conllu_filename, default_language)
+            validate_conllu(conllu_filename, default_language, validator)
     else:
-        validate_conllu(filename, default_language)
+        validate_conllu(filename, default_language, validator)
+
+
+validators = {
+    'sentence-text': validate_sentence_text,
+    'pos-tags': validate_pos_tags,
+}
 
 
 def build_argparse():
@@ -139,13 +143,17 @@ def build_argparse():
 
     parser.add_argument('--language', default='und', type=str,
                         help='The language to use for the document if none is specified in the metadata.')
+    parser.add_argument('--validator', default='sentence-text', type=str,
+                        help='The validation tests to run.')
 
     return parser
 
 
 def main():
     args = build_argparse().parse_args()
-    validate_files(args.input, default_language=args.language)
+    validate_files(args.input,
+                   default_language=args.language,
+                   validator=validators[args.validator])
 
 
 if __name__ == '__main__':
