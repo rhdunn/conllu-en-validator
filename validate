@@ -2,7 +2,7 @@
 # Copyright (C) 2023 Reece H. Dunn. SPDX-License-Identifier: Apache-2.0
 
 import conllutil
-import sys
+import argparse
 import os
 
 
@@ -132,11 +132,20 @@ def validate_files(filename, default_language):
         validate_conllu(filename, default_language)
 
 
+def build_argparse():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('input',
+                        help='The CoNLL-U file to validate.')
+
+    parser.add_argument('--language', default='und', type=str,
+                        help='The language to use for the document if none is specified in the metadata.')
+
+    return parser
+
+
 def main():
-    if len(sys.argv) == 2:
-        validate_files(sys.argv[1], default_language='und')
-    else:
-        validate_files(sys.argv[2], default_language=sys.argv[1])
+    args = build_argparse().parse_args()
+    validate_files(args.input, default_language=args.language)
 
 
 if __name__ == '__main__':

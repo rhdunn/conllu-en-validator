@@ -3,9 +3,10 @@
 
 Usage:
 ```
-./validate input.conllu | tee output.log
-./validate en input.conllu | tee output.log
+./validate input.conllu OPTIONS | tee output.log
 ```
+
+- `--language LANG` -- The default language to use if none is specified in the document metadata.
 
 ## License
 Copyright (C) 2023 Reece H. Dunn
