@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (C) 2023 Reece H. Dunn. SPDX-License-Identifier: Apache-2.0
+import sys
 
 import conllutil
 import argparse
@@ -54,8 +55,13 @@ upenn_xpos_values = [
     "-LCB-", "-RCB-", "-LRB-", "-RRB-", "-LSB-", "-RSB-",
 ]
 
+error_count = 0
+
 
 def error(sent, token, message, expect=None, actual=None):
+    global error_count
+
+    error_count = error_count + 1
     if token is None:
         print(f"ERROR: Sentence {sent.metadata['sent_id']} -- {message}")
     else:
@@ -161,6 +167,8 @@ def main():
     validate_files(args.input,
                    default_language=args.language,
                    validator=validators[args.validator])
+    if error_count > 0:
+        sys.exit(1)
 
 
 if __name__ == '__main__':
