@@ -76,7 +76,7 @@ def is_mwt_start(form):
 
 
 def is_mwt_end(form):
-    if form[0] in ['\'']:
+    if form[0] in ['\'', '’']:
         for c in form:
             if c.isalpha():
                 return True
