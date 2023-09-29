@@ -71,6 +71,18 @@ def error(sent, token, message, expect=None, actual=None):
         print(f"... Actual: {actual}")
 
 
+def is_mwt_start(form):
+    return form[-1].isalpha()
+
+
+def is_mwt_end(form):
+    if form[0] in ['\'']:
+        for c in form:
+            if c.isalpha():
+                return True
+    return form[0].isalpha()
+
+
 def validate_sentence_text(sent, language):
     token_text = ""
     word_text = ""
@@ -125,6 +137,26 @@ def validate_pos_tags(sent, language):
                 error(sent, token, f"unknown XPOS value '{xpos}'")
 
 
+def validate_mwt_tokens(sent, language):
+    last_mwt_id = 0
+    prev_form = ' '
+    for token in sent:
+        if type(token['id']) is int:
+            form = token['form']
+            if last_mwt_id < token['id']:
+                if is_mwt_start(prev_form) and is_mwt_end(form) and not token['deprel'] == 'reparandum':
+                    error(sent, token, f"multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
+
+            if conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'Yes':
+                prev_form = ' '
+            elif conllutil.get_misc(token, 'CorrectSpaceAfter', 'No') == 'Yes':
+                prev_form = ' '
+            else:
+                prev_form = form
+        else:
+            last_mwt_id = token['id'][2]
+
+
 def validate_conllu(filename, default_language, validator):
     language = default_language
     for sent in conllutil.parse_conllu(filename):
@@ -146,6 +178,7 @@ def validate_files(filename, default_language, validator):
 validators = {
     'sentence-text': validate_sentence_text,
     'pos-tags': validate_pos_tags,
+    'mwt-tokens': validate_mwt_tokens,
 }
 
 
