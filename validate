@@ -55,6 +55,16 @@ upenn_xpos_values = [
 ]
 
 
+def error(sent, token, message, expect=None, actual=None):
+    if token is None:
+        print(f"ERROR: Sentence {sent.metadata['sent_id']} -- {message}")
+    else:
+        print(f"ERROR: Sentence {sent.metadata['sent_id']} token {token['id']} -- {message}")
+    if expect is not None and actual is not None:
+        print(f"... Expect: {expect}")
+        print(f"... Actual: {actual}")
+
+
 def validate_sentence_text(sent, language):
     token_text = ""
     word_text = ""
@@ -85,34 +95,31 @@ def validate_sentence_text(sent, language):
             need_mwt_space = conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'Yes'
             token_text += token['form']
 
-    sent_id = sent.metadata['sent_id']
     if 'text' in sent.metadata:
         if token_text != sent.metadata['text']:
-            print(f"ERROR: Sentence {sent_id} text does not match the token sequence.")
-            print(f"... Expect: {sent.metadata['text']}")
-            print(f"... Actual: {token_text}")
+            error(sent, None, "text does not match the token sequence",
+                  expect=sent.metadata['text'],
+                  actual=token_text)
         if language == 'en' and word_text != sent.metadata['text']:
-            print(f"ERROR: Sentence {sent_id} text does not match the word sequence.")
-            print(f"... Expect: {sent.metadata['text']}")
-            print(f"... Actual: {word_text}")
+            error(sent, None, "text does not match the word sequence",
+                  expect=sent.metadata['text'],
+                  actual=word_text)
     else:
-        print(f"ERROR: Sentence {sent_id} is missing sentence text.")
+        error(sent, None, "sentence text is missing")
 
 
 def validate_pos_tags(sent, language):
-    sent_id = sent.metadata['sent_id']
     for token in sent:
         if type(token['id']) is int:
             upos = token['upos']
             xpos = token['xpos']
             if upos not in upos_values:
-                print(f"ERROR: Sentence {sent_id} token {token['id']} has unknown UPOS value '{upos}'.")
+                error(sent, token, f"unknown UPOS value '{upos}'")
             if language == 'en' and xpos not in upenn_xpos_values:
-                print(f"ERROR: Sentence {sent_id} token {token['id']} has unknown XPOS value '{xpos}'.")
+                error(sent, token, f"unknown XPOS value '{xpos}'")
 
 
 def validate_conllu(filename, default_language, validator):
-    print(f"INFO: validating {filename}")
     language = default_language
     for sent in conllutil.parse_conllu(filename):
         if 'newdoc' in sent.metadata or 'newdoc id' in sent.metadata:
