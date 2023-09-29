@@ -146,6 +146,8 @@ def validate_mwt_tokens(sent, language):
             if last_mwt_id < token['id']:
                 if is_mwt_start(prev_form) and is_mwt_end(form) and not token['deprel'] == 'reparandum':
                     error(sent, token, f"multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
+            elif conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'No':
+                error(sent, token, f"multi-word token contains a SpaceAfter=No annotation")
 
             if conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'Yes':
                 prev_form = ' '
