@@ -138,12 +138,13 @@ def validate_pos_tags(sent, language):
 
 
 def validate_mwt_tokens(sent, language):
+    first_mwt_id = 0
     last_mwt_id = 0
     prev_form = ' '
     for token in sent:
         if type(token['id']) is int:
             form = token['form']
-            if last_mwt_id < token['id']:
+            if last_mwt_id < token['id'] or first_mwt_id == token['id']:
                 if is_mwt_start(prev_form) and is_mwt_end(form) and not token['deprel'] == 'reparandum':
                     error(sent, token, f"multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
             elif conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'No':
@@ -156,6 +157,7 @@ def validate_mwt_tokens(sent, language):
             else:
                 prev_form = form
         else:
+            first_mwt_id = token['id'][0]
             last_mwt_id = token['id'][2]
 
 
