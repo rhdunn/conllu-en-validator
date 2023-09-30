@@ -58,14 +58,20 @@ upenn_xpos_values = [
 error_count = 0
 
 
-def error(sent, token, message, expect=None, actual=None):
-    global error_count
+class LogLevel:
+    ERROR = 'ERROR'
 
-    error_count = error_count + 1
+
+def log(level, sent, token, message, expect=None, actual=None):
+    if level == LogLevel.ERROR:
+        global error_count
+        error_count = error_count + 1
+
     if token is None:
-        print(f"ERROR: Sentence {sent.metadata['sent_id']} -- {message}")
+        print(f"{level}: Sentence {sent.metadata['sent_id']} -- {message}")
     else:
-        print(f"ERROR: Sentence {sent.metadata['sent_id']} token {token['id']} -- {message}")
+        print(f"{level}: Sentence {sent.metadata['sent_id']} token {token['id']} -- {message}")
+
     if expect is not None and actual is not None:
         print(f"... Expect: {expect}")
         print(f"... Actual: {actual}")
@@ -115,15 +121,15 @@ def validate_sentence_text(sent, language):
 
     if 'text' in sent.metadata:
         if token_text != sent.metadata['text']:
-            error(sent, None, "text does not match the token sequence",
-                  expect=sent.metadata['text'],
-                  actual=token_text)
+            log(LogLevel.ERROR, sent, None, "text does not match the token sequence",
+                expect=sent.metadata['text'],
+                actual=token_text)
         if language == 'en' and word_text != sent.metadata['text']:
-            error(sent, None, "text does not match the word sequence",
-                  expect=sent.metadata['text'],
-                  actual=word_text)
+            log(LogLevel.ERROR, sent, None, "text does not match the word sequence",
+                expect=sent.metadata['text'],
+                actual=word_text)
     else:
-        error(sent, None, "sentence text is missing")
+        log(LogLevel.ERROR, sent, None, "sentence text is missing")
 
 
 def validate_pos_tags(sent, language):
@@ -132,9 +138,9 @@ def validate_pos_tags(sent, language):
             upos = token['upos']
             xpos = token['xpos']
             if upos not in upos_values:
-                error(sent, token, f"unknown UPOS value '{upos}'")
+                log(LogLevel.ERROR, sent, token, f"unknown UPOS value '{upos}'")
             if language == 'en' and xpos not in upenn_xpos_values:
-                error(sent, token, f"unknown XPOS value '{xpos}'")
+                log(LogLevel.ERROR, sent, token, f"unknown XPOS value '{xpos}'")
 
 
 def validate_mwt_tokens(sent, language):
@@ -146,9 +152,10 @@ def validate_mwt_tokens(sent, language):
             form = token['form']
             if last_mwt_id < token['id'] or first_mwt_id == token['id']:
                 if is_mwt_start(prev_form) and is_mwt_end(form) and not token['deprel'] == 'reparandum':
-                    error(sent, token, f"multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
+                    log(LogLevel.ERROR, sent, token,
+                        f"multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
             elif conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'No':
-                error(sent, token, f"multi-word token contains a SpaceAfter=No annotation")
+                log(LogLevel.ERROR, sent, token, f"multi-word token contains a SpaceAfter=No annotation")
 
             if conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'Yes':
                 prev_form = ' '
