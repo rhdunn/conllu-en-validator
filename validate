@@ -60,6 +60,7 @@ error_count = 0
 
 class LogLevel:
     ERROR = 'ERROR'
+    WARN = 'WARN'
 
 
 def log(level, sent, token, message, expect=None, actual=None):
@@ -81,12 +82,16 @@ def is_mwt_start(form):
     return form[-1].isalpha()
 
 
-def is_mwt_end(form):
+def is_mwt_end(form, prev_form):
     if form[0] in ['\'', '’']:
         for c in form:
             if c.isalpha():
-                return True
-    return form[0].isalpha()
+                return LogLevel.ERROR
+        if len(form) == 1 and prev_form[-1] in ['s', 'S']:
+            return LogLevel.WARN  # possessive or end quote
+    if form[0].isalpha():
+        return LogLevel.ERROR
+    return None
 
 
 def validate_sentence_text(sent, language):
@@ -151,9 +156,14 @@ def validate_mwt_tokens(sent, language):
         if type(token['id']) is int:
             form = token['form']
             if last_mwt_id < token['id'] or first_mwt_id == token['id']:
-                if is_mwt_start(prev_form) and is_mwt_end(form) and not token['deprel'] == 'reparandum':
-                    log(LogLevel.ERROR, sent, token,
-                        f"multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
+                mwt_end = is_mwt_end(form, prev_form)
+                if is_mwt_start(prev_form) and mwt_end is not None and not token['deprel'] == 'reparandum':
+                    if mwt_end == LogLevel.ERROR:
+                        log(mwt_end, sent, token,
+                            f"multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
+                    else:
+                        log(mwt_end, sent, token,
+                            f"possible multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
             elif conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'No':
                 log(LogLevel.ERROR, sent, token, f"multi-word token contains a SpaceAfter=No annotation")
 
