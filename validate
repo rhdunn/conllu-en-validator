@@ -70,8 +70,10 @@ def log(level, sent, token, message, expect=None, actual=None):
 
     if token is None:
         print(f"{level}: Sentence {sent.metadata['sent_id']} -- {message}")
-    else:
+    elif isinstance(token['id'], int):
         print(f"{level}: Sentence {sent.metadata['sent_id']} token {token['id']} -- {message}")
+    else:
+        print(f"{level}: Sentence {sent.metadata['sent_id']} token {token['id'][0]}-{token['id'][2]} -- {message}")
 
     if expect is not None and actual is not None:
         print(f"... Expect: {expect}")
@@ -176,6 +178,8 @@ def validate_mwt_tokens(sent, language):
         else:
             first_mwt_id = token['id'][0]
             last_mwt_id = token['id'][2]
+            if first_mwt_id == last_mwt_id:
+                log(LogLevel.ERROR, sent, token, f"multi-word token of length 1 is redundant")
 
 
 def validate_conllu(filename, default_language, validator):
