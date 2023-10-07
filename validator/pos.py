@@ -1,6 +1,6 @@
 # Copyright (C) 2023 Reece H. Dunn. SPDX-License-Identifier: Apache-2.0
 
-from validator import conllutil
+from validator.validator import Validator
 from validator.logger import log, LogLevel
 
 upos_values = [
@@ -52,12 +52,14 @@ upenn_xpos_values = [
 ]
 
 
-def validate_pos_tags(sent, language):
-    for token in sent:
-        if type(token['id']) is int:
-            upos = token['upos']
-            xpos = token['xpos']
-            if upos not in upos_values:
-                log(LogLevel.ERROR, sent, token, f"unknown UPOS value '{upos}'")
-            if language == 'en' and xpos not in upenn_xpos_values:
-                log(LogLevel.ERROR, sent, token, f"unknown XPOS value '{xpos}'")
+class PosTagValidator(Validator):
+    def __init__(self, language):
+        super().__init__(language)
+
+    def validate_token(self, sent, token):
+        upos = token['upos']
+        xpos = token['xpos']
+        if upos not in upos_values:
+            log(LogLevel.ERROR, sent, token, f"unknown UPOS value '{upos}'")
+        if self.language == 'en' and xpos not in upenn_xpos_values:
+            log(LogLevel.ERROR, sent, token, f"unknown XPOS value '{xpos}'")
