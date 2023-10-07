@@ -4,6 +4,9 @@ class Validator:
     def __init__(self, language):
         self.language = language
 
+    def switch_language(self, language):
+        self.language = language
+
     def validate_sentence(self, sent):
         for token in sent:
             if type(token['id']) is int:
