@@ -8,7 +8,7 @@ import os
 from validator import conllutil
 from validator.logger import error_count
 
-from validator.mwt import validate_mwt_tokens
+from validator.mwt import MwtTokenValidator
 from validator.pos import PosTagValidator
 from validator.sentence import validate_sentence_text
 
@@ -34,7 +34,7 @@ def validate_files(filename, default_language, validator):
 validators = {
     'sentence-text': validate_sentence_text,
     'pos-tags': lambda sent, language: PosTagValidator(language).validate_sentence(sent),
-    'mwt-tokens': validate_mwt_tokens,
+    'mwt-tokens': lambda sent, language: MwtTokenValidator(language).validate_sentence(sent),
 }
 
 
