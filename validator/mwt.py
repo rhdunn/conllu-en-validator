@@ -73,6 +73,7 @@ mwt_suffixes = {
     },
     'n\'t': {
         'ca': [Token(form='ca', lemma='can'), Token(form='n\'t', lemma='not')],  # can not
+        'did': [Token(form='did', lemma='do'), Token(form='n\'t', lemma='not')],  # did not
         'do': [Token(form='do', lemma='do'), Token(form='n\'t', lemma='not')],  # do not
     },
 }
