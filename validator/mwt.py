@@ -42,7 +42,7 @@ mwt_suffixes = {
         'this': [Token(form='this', lemma='this'), Token(form='\'s', lemma='be')],  # this is
         'what': [Token(form='what', lemma='what'), Token(form='\'s', lemma='be')],  # what is
         'who': [Token(form='who', lemma='who'), Token(form='\'s', lemma='be')],  # who is
-        None: [Token(upos=['NOUN', 'PROPN']), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
+        None: [Token(upos=['NOUN', 'PROPN', 'NUM']), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
     },
 }
 
