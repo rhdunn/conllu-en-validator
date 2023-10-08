@@ -72,6 +72,7 @@ mwt_suffixes = {
         'I': [Token(form='I', lemma='I'), Token(form='\'ve', lemma='have')],  # I have
         'they': [Token(form='they', lemma='they'), Token(form='\'ve', lemma='have')],  # they have
         'we': [Token(form='we', lemma='we'), Token(form='\'ve', lemma='have')],  # we have
+        'would': [Token(form='would', lemma='would'), Token(form='\'ve', lemma='have')],  # would have
         'you': [Token(form='you', lemma='you'), Token(form='\'ve', lemma='have')],  # you have
     },
     'n\'t': {
