@@ -29,6 +29,7 @@ mwt_suffixes = {
         'he': [Token(form='he', lemma='he'), Token(form='\'s', lemma=['be', 'have'])],  # he is, he has
         'it': [Token(form='it', lemma='it'), Token(form='\'s', lemma=['be', 'have'])],  # it is, it has
         'she': [Token(form='she', lemma='she'), Token(form='\'s', lemma=['be', 'have'])],  # she is, she has
+        None: [Token(upos='NOUN'), Token(form='\'s', lemma=['\'s', 'be'])],  # possessive, _ is
     },
 }
 
@@ -149,6 +150,12 @@ class MwtWordValidator(Validator):
                 parts = bases[base_form.lower()]
                 self.parts = [
                     Token(form=base_form, lemma=parts[0]['lemma']),
+                    Token(form=suffix, lemma=parts[1]['lemma'])
+                ]
+            elif None in bases:  # part of speech + suffix
+                parts = bases[None]
+                self.parts = [
+                    Token(form=base_form, upos=parts[0]['upos']),
                     Token(form=suffix, lemma=parts[1]['lemma'])
                 ]
             else:
