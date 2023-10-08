@@ -10,7 +10,7 @@ class Validator:
     def validate_sentence(self, sent):
         mwt = None
         for token in sent:
-            if type(token['id']) is int:
+            if type(token['id']) is int:  # token, word
                 if mwt is not None:
                     if mwt['id'][2] >= token['id']:
                         self.validate_word(sent, token, mwt)
@@ -18,7 +18,9 @@ class Validator:
                         self.validate_token(sent, token)
                 else:
                     self.validate_token(sent, token)
-            else:
+            elif '.' in token['id']:  # empty node
+                self.validate_empty_node(sent, token)
+            else:  # multi-word token
                 mwt = token
                 self.validate_mwt_token(sent, token)
 
@@ -29,4 +31,7 @@ class Validator:
         self.validate_token(sent, token)
 
     def validate_mwt_token(self, sent, token):
+        pass
+
+    def validate_empty_node(self, sent, token):
         pass
