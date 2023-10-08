@@ -25,6 +25,11 @@ mwt_suffixes = {
         'we': [Token(form='we', lemma='we'), Token(form='\'re', lemma='be')],  # we are
         'you': [Token(form='you', lemma='you'), Token(form='\'re', lemma='be')],  # you are
     },
+    '\'s': {
+        'he': [Token(form='he', lemma='he'), Token(form='\'s', lemma=['be', 'have'])],  # he is, he has
+        'it': [Token(form='it', lemma='it'), Token(form='\'s', lemma=['be', 'have'])],  # it is, it has
+        'she': [Token(form='she', lemma='she'), Token(form='\'s', lemma=['be', 'have'])],  # she is, she has
+    },
 }
 
 
@@ -108,13 +113,19 @@ class MwtWordValidator(Validator):
             return
 
         if len(self.parts) == self.part_index:
-            log(LogLevel.ERROR, sent, token, f"unexpected multi-word token part '{token['form']}'")
+            log(LogLevel.ERROR, sent, token, f"unexpected multi-word token '{mwt['form']}' part '{token['form']}'")
         else:
             part = self.parts[self.part_index]
             for field in part.keys():
-                if token[field] != part[field]:
-                    log(LogLevel.ERROR, sent, token,
-                        f"unexpected multi-word token part {field} '{token[field]}', expected '{part[field]}'")
+                if isinstance(part[field], str):
+                    if token[field] != part[field]:
+                        log(LogLevel.ERROR, sent, token,
+                            f"unexpected multi-word token '{mwt['form']}' part {field} '{token[field]}', expected '{part[field]}'")
+                else:  # list
+                    if token[field] not in part[field]:
+                        expected = '|'.join(part[field])
+                        log(LogLevel.ERROR, sent, token,
+                            f"unexpected multi-word token '{mwt['form']}' part {field} '{token[field]}', expected '{expected}'")
             self.part_index = self.part_index + 1
 
     def validate_mwt_token(self, sent, token):
