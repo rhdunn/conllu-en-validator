@@ -6,6 +6,15 @@ from validator.logger import log, LogLevel
 
 
 mwt_suffixes = {
+    '\'d': [
+        'he',
+        'I',
+        'it',
+        'she',
+        'they',
+        'we',
+        'you',
+    ]
 }
 
 
@@ -105,7 +114,11 @@ class MwtWordValidator(Validator):
             else:
                 continue
 
-            self.parts = [form.replace(suffix, ''), suffix]
+            base_form = form.replace(suffix, '')
+            if base_form not in bases:
+                log(LogLevel.ERROR, sent, token, f"unrecognized multi-word base form '{base_form}' for suffix '{suffix}'")
+
+            self.parts = [base_form, suffix]
             self.part_index = 0
             return
 
