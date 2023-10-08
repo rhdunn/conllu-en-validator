@@ -56,6 +56,12 @@ mwt_suffixes = {
         'who': [Token(form='who', lemma='who'), Token(form='\'s', lemma='be')],  # who is
         None: [Token(upos=['NOUN', 'PROPN', 'NUM']), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
     },
+    '\'ve': {
+        'I': [Token(form='I', lemma='I'), Token(form='\'ve', lemma='have')],  # I have
+        'they': [Token(form='they', lemma='they'), Token(form='\'ve', lemma='have')],  # they have
+        'we': [Token(form='we', lemma='we'), Token(form='\'ve', lemma='have')],  # we have
+        'you': [Token(form='you', lemma='you'), Token(form='\'ve', lemma='have')],  # you have
+    },
 }
 
 
