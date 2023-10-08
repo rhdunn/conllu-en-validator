@@ -29,6 +29,7 @@ mwt_suffixes = {
         'he': [Token(form='he', lemma='he'), Token(form='\'s', lemma=['be', 'have'])],  # he is, he has
         'here': [Token(form='here', lemma='here'), Token(form='\'s', lemma='be')],  # here is
         'it': [Token(form='it', lemma='it'), Token(form='\'s', lemma=['be', 'have'])],  # it is, it has
+        'let': [Token(form='let', lemma='let'), Token(form='\'s', lemma='we')],  # let us
         'she': [Token(form='she', lemma='she'), Token(form='\'s', lemma=['be', 'have'])],  # she is, she has
         'that': [Token(form='that', lemma='that'), Token(form='\'s', lemma='be')],  # that is
         'there': [Token(form='there', lemma='there'), Token(form='\'s', lemma='be')],  # there is
