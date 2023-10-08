@@ -19,6 +19,15 @@ mwt_suffixes = {
         'who': [Token(form='who', lemma='who'), Token(form='\'d', lemma=['have', 'would'])],  # who had, who would
         'you': [Token(form='you', lemma='you'), Token(form='\'d', lemma=['have', 'would'])],  # you had, you would
     },
+    '\'ll': {
+        'he': [Token(form='he', lemma='he'), Token(form='\'ll', lemma='will')],  # he will
+        'I': [Token(form='I', lemma='I'), Token(form='\'ll', lemma='will')],  # I will
+        'it': [Token(form='it', lemma='it'), Token(form='\'ll', lemma='will')],  # it will
+        'she': [Token(form='she', lemma='she'), Token(form='\'ll', lemma='will')],  # she will
+        'they': [Token(form='they', lemma='they'), Token(form='\'ll', lemma='will')],  # they will
+        'we': [Token(form='we', lemma='we'), Token(form='\'ll', lemma='will')],  # we will
+        'you': [Token(form='you', lemma='you'), Token(form='\'ll', lemma='will')],  # you will
+    },
     '\'m': {
         'I': [Token(form='I', lemma='I'), Token(form='\'m', lemma='be')],  # I am
     },
