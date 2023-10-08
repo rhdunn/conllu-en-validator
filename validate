@@ -8,7 +8,7 @@ import os
 from validator import conllutil
 from validator.logger import error_count
 
-from validator.mwt import MwtTokenValidator
+from validator.mwt import MwtTokenValidator, MwtWordValidator
 from validator.pos import PosTagValidator
 from validator.sentence import SentenceTextValidator
 
@@ -35,6 +35,7 @@ validators = {
     'sentence-text': SentenceTextValidator,
     'pos-tags': PosTagValidator,
     'mwt-tokens': MwtTokenValidator,
+    'mwt-words': MwtWordValidator,
 }
 
 

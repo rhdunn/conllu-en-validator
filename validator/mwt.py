@@ -5,6 +5,10 @@ from validator.validator import Validator
 from validator.logger import log, LogLevel
 
 
+mwt_suffixes = {
+}
+
+
 def is_mwt_start(form):
     return form[-1].isalpha()
 
@@ -72,3 +76,39 @@ class MwtTokenValidator(Validator):
     def validate_mwt_token(self, sent, token):
         if token['id'][0] == token['id'][2]:
             log(LogLevel.ERROR, sent, token, f"multi-word token of length 1 is redundant")
+
+
+class MwtWordValidator(Validator):
+    def __init__(self, language):
+        super().__init__(language)
+        self.parts = []
+        self.part_index = -1
+
+    def validate_word(self, sent, token, mwt):
+        if len(self.parts) == 0:
+            return
+
+        form = token['form']
+        if len(self.parts) == self.part_index:
+            log(LogLevel.ERROR, sent, token, f"unexpected multi-word token part '{form}'")
+        else:
+            part_form = self.parts[self.part_index]
+            if form != part_form:
+                log(LogLevel.ERROR, sent, token, f"unexpected multi-word token part '{form}', expected '{part_form}'")
+            self.part_index = self.part_index + 1
+
+    def validate_mwt_token(self, sent, token):
+        form = token['form']
+        for suffix, bases in mwt_suffixes.items():
+            if form.endswith(suffix):
+                pass
+            else:
+                continue
+
+            self.parts = [form.replace(suffix, ''), suffix]
+            self.part_index = 0
+            return
+
+        log(LogLevel.ERROR, sent, token, f"unrecognized multi-word token form '{form}'")
+        self.parts = []
+        self.index = -1
