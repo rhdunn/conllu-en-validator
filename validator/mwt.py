@@ -9,13 +9,13 @@ from validator.logger import log, LogLevel
 
 mwt_suffixes = {
     '\'d': {
-        'he': [Token(form='he', lemma='he'), Token(form='\'d', lemma='would')],
-        'I': [Token(form='I', lemma='I'), Token(form='\'d', lemma='would')],
-        'it': [Token(form='it', lemma='it'), Token(form='\'d', lemma='would')],
-        'she': [Token(form='she', lemma='she'), Token(form='\'d', lemma='would')],
-        'they': [Token(form='they', lemma='they'), Token(form='\'d', lemma='would')],
-        'we': [Token(form='we', lemma='we'), Token(form='\'d', lemma='would')],
-        'you': [Token(form='you', lemma='you'), Token(form='\'d', lemma='would')],
+        'he': [Token(form='he', lemma='he'), Token(form='\'d', lemma=['have', 'would'])],  # he had, he would
+        'I': [Token(form='I', lemma='I'), Token(form='\'d', lemma=['have', 'would'])],  # I had, I would
+        'it': [Token(form='it', lemma='it'), Token(form='\'d', lemma=['have', 'would'])],  # it had, it would
+        'she': [Token(form='she', lemma='she'), Token(form='\'d', lemma=['have', 'would'])],  # she had, she would
+        'they': [Token(form='they', lemma='they'), Token(form='\'d', lemma=['have', 'would'])],  # they had, they would
+        'we': [Token(form='we', lemma='we'), Token(form='\'d', lemma=['have', 'would'])],  # we had, we would
+        'you': [Token(form='you', lemma='you'), Token(form='\'d', lemma=['have', 'would'])],  # you had, you would
     },
     '\'m': {
         'I': [Token(form='I', lemma='I'), Token(form='\'m', lemma='be')],  # I am
