@@ -79,6 +79,7 @@ mwt_suffixes = {
         'did': [Token(form='did', lemma='do'), Token(form='n\'t', lemma='not')],  # did not
         'do': [Token(form='do', lemma='do'), Token(form='n\'t', lemma='not')],  # do not
         'does': [Token(form='does', lemma='do'), Token(form='n\'t', lemma='not')],  # does not
+        'had': [Token(form='had', lemma='have'), Token(form='n\'t', lemma='not')],  # had not
         'has': [Token(form='has', lemma='have'), Token(form='n\'t', lemma='not')],  # has not
         'have': [Token(form='have', lemma='have'), Token(form='n\'t', lemma='not')],  # have not
         'is': [Token(form='is', lemma='be'), Token(form='n\'t', lemma='not')],  # is not
