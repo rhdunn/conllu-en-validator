@@ -20,6 +20,11 @@ mwt_suffixes = {
     '\'m': {
         'I': [Token(form='I', lemma='I'), Token(form='\'m', lemma='be')],  # I am
     },
+    '\'re': {
+        'they': [Token(form='they', lemma='they'), Token(form='\'re', lemma='be')],  # they are
+        'we': [Token(form='we', lemma='we'), Token(form='\'re', lemma='be')],  # we are
+        'you': [Token(form='you', lemma='you'), Token(form='\'re', lemma='be')],  # you are
+    },
 }
 
 
