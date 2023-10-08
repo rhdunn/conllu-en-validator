@@ -115,7 +115,11 @@ class MwtWordValidator(Validator):
                 continue
 
             base_form = form.replace(suffix, '')
-            if base_form not in bases:
+            if base_form in bases:  # lowercase
+                pass
+            elif base_form not in ['I', 'i'] and base_form.lower() in bases:  # capitalized, uppercase
+                pass
+            else:
                 log(LogLevel.ERROR, sent, token, f"unrecognized multi-word base form '{base_form}' for suffix '{suffix}'")
 
             self.parts = [base_form, suffix]
