@@ -30,6 +30,7 @@ mwt_suffixes = {
         'here': [Token(form='here', lemma='here'), Token(form='\'s', lemma='be')],  # here is
         'it': [Token(form='it', lemma='it'), Token(form='\'s', lemma=['be', 'have'])],  # it is, it has
         'she': [Token(form='she', lemma='she'), Token(form='\'s', lemma=['be', 'have'])],  # she is, she has
+        'there': [Token(form='there', lemma='there'), Token(form='\'s', lemma='be')],  # there is
         None: [Token(upos=['NOUN', 'PROPN']), Token(form='\'s', lemma=['\'s', 'be'])],  # possessive, _ is
     },
 }
