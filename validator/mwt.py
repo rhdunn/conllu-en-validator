@@ -82,6 +82,7 @@ mwt_suffixes = {
         'is': [Token(form='is', lemma='be'), Token(form='n\'t', lemma='not')],  # is not
         'was': [Token(form='was', lemma='be'), Token(form='n\'t', lemma='not')],  # was not
         'were': [Token(form='were', lemma='be'), Token(form='n\'t', lemma='not')],  # were not
+        'wo': [Token(form='wo', lemma='will'), Token(form='n\'t', lemma='not')],  # will not
     },
 }
 
