@@ -29,9 +29,11 @@ mwt_suffixes = {
         'you': [Token(form='you', lemma='you'), Token(form='\'re', lemma='be')],  # you are
     },
     '\'s': {
+        'anybody': [Token(form='anybody', lemma='anybody'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
         'anyone': [Token(form='anyone', lemma='anyone'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
         'anything': [Token(form='anything', lemma='anything'), Token(form='\'s', lemma='be')],  # anything is
         'else': [Token(form='else', lemma='else'), Token(form='\'s', lemma='\'s')],  # POS
+        'everybody': [Token(form='everybody', lemma='everybody'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
         'everyone': [Token(form='everyone', lemma='everyone'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
         'everything': [Token(form='everything', lemma='everything'), Token(form='\'s', lemma='be')],  # everything is
         'he': [Token(form='he', lemma='he'), Token(form='\'s', lemma=['be', 'have'])],  # he is, he has
@@ -39,9 +41,11 @@ mwt_suffixes = {
         'how': [Token(form='how', lemma='how'), Token(form='\'s', lemma='be')],  # how is
         'it': [Token(form='it', lemma='it'), Token(form='\'s', lemma=['be', 'have'])],  # it is, it has
         'let': [Token(form='let', lemma='let'), Token(form='\'s', lemma='we')],  # let us
+        'nobody': [Token(form='nobody', lemma='nobody'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
         'nothing': [Token(form='nothing', lemma='nothing'), Token(form='\'s', lemma='be')],  # nothing is
         'one': [Token(form='one', lemma='one'), Token(form='\'s', lemma=['\'s', 'be'])],  # POS, _ is
         'she': [Token(form='she', lemma='she'), Token(form='\'s', lemma=['be', 'have'])],  # she is, she has
+        'somebody': [Token(form='somebody', lemma='somebody'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
         'someone': [Token(form='someone', lemma='someone'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
         'something': [Token(form='something', lemma='something'), Token(form='\'s', lemma='be')],  # something is
         'that': [Token(form='that', lemma='that'), Token(form='\'s', lemma=['be', 'have'])],  # that is, that has
