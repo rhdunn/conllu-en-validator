@@ -71,6 +71,9 @@ mwt_suffixes = {
         'we': [Token(form='we', lemma='we'), Token(form='\'ve', lemma='have')],  # we have
         'you': [Token(form='you', lemma='you'), Token(form='\'ve', lemma='have')],  # you have
     },
+    'n\'t': {
+        'ca': [Token(form='ca', lemma='can'), Token(form='n\'t', lemma='not')],  # can not
+    },
 }
 
 
