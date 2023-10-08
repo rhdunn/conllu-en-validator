@@ -27,6 +27,7 @@ mwt_suffixes = {
     },
     '\'s': {
         'anyone': [Token(form='anyone', lemma='anyone'), Token(form='\'s', lemma=['\'s', 'be'])],  # POS, _ is
+        'else': [Token(form='else', lemma='else'), Token(form='\'s', lemma='\'s')],  # POS
         'everyone': [Token(form='everyone', lemma='everyone'), Token(form='\'s', lemma=['\'s', 'be'])],  # POS, _ is
         'he': [Token(form='he', lemma='he'), Token(form='\'s', lemma=['be', 'have'])],  # he is, he has
         'here': [Token(form='here', lemma='here'), Token(form='\'s', lemma='be')],  # here is
