@@ -32,6 +32,7 @@ mwt_suffixes = {
         'she': [Token(form='she', lemma='she'), Token(form='\'s', lemma=['be', 'have'])],  # she is, she has
         'that': [Token(form='that', lemma='that'), Token(form='\'s', lemma='be')],  # that is
         'there': [Token(form='there', lemma='there'), Token(form='\'s', lemma='be')],  # there is
+        'what': [Token(form='what', lemma='what'), Token(form='\'s', lemma='be')],  # what is
         'who': [Token(form='who', lemma='who'), Token(form='\'s', lemma='be')],  # who is
         None: [Token(upos=['NOUN', 'PROPN']), Token(form='\'s', lemma=['\'s', 'be'])],  # possessive, _ is
     },
