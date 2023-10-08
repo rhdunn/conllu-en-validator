@@ -74,6 +74,7 @@ mwt_suffixes = {
     'n\'t': {
         'are': [Token(form='are', lemma='be'), Token(form='n\'t', lemma='not')],  # are not
         'ca': [Token(form='ca', lemma='can'), Token(form='n\'t', lemma='not')],  # can not
+        'could': [Token(form='could', lemma='could'), Token(form='n\'t', lemma='not')],  # could not
         'did': [Token(form='did', lemma='do'), Token(form='n\'t', lemma='not')],  # did not
         'do': [Token(form='do', lemma='do'), Token(form='n\'t', lemma='not')],  # do not
         'does': [Token(form='does', lemma='do'), Token(form='n\'t', lemma='not')],  # does not
