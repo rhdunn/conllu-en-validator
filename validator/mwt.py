@@ -23,6 +23,7 @@ mwt_suffixes = {
         'he': [Token(form='he', lemma='he'), Token(form='\'ll', lemma='will')],  # he will
         'I': [Token(form='I', lemma='I'), Token(form='\'ll', lemma='will')],  # I will
         'it': [Token(form='it', lemma='it'), Token(form='\'ll', lemma='will')],  # it will
+        'nobody': [Token(form='nobody', lemma='nobody'), Token(form='\'ll', lemma='will')],  # nobody will
         'she': [Token(form='she', lemma='she'), Token(form='\'ll', lemma='will')],  # she will
         'that': [Token(form='that', lemma='that'), Token(form='\'ll', lemma='will')],  # that will
         'they': [Token(form='they', lemma='they'), Token(form='\'ll', lemma='will')],  # they will
