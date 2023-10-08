@@ -29,7 +29,7 @@ mwt_suffixes = {
         'he': [Token(form='he', lemma='he'), Token(form='\'s', lemma=['be', 'have'])],  # he is, he has
         'it': [Token(form='it', lemma='it'), Token(form='\'s', lemma=['be', 'have'])],  # it is, it has
         'she': [Token(form='she', lemma='she'), Token(form='\'s', lemma=['be', 'have'])],  # she is, she has
-        None: [Token(upos='NOUN'), Token(form='\'s', lemma=['\'s', 'be'])],  # possessive, _ is
+        None: [Token(upos=['NOUN', 'PROPN']), Token(form='\'s', lemma=['\'s', 'be'])],  # possessive, _ is
     },
 }
 
