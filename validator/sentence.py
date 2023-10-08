@@ -11,15 +11,11 @@ class SentenceTextValidator(Validator):
         self.token_text = ""
         self.word_text = ""
         self.need_space = False
-        self.last_mwt_id = 0
-        self.need_mwt_space = False
 
     def validate_sentence(self, sent):
         self.token_text = ""
         self.word_text = ""
         self.need_space = False
-        self.last_mwt_id = 0
-        self.need_mwt_space = False
         super().validate_sentence(sent)
 
         if 'text' in sent.metadata:
@@ -34,19 +30,22 @@ class SentenceTextValidator(Validator):
         else:
             log(LogLevel.ERROR, sent, None, "sentence text is missing")
 
+    def validate_word(self, sent, token, mwt):
+        if self.need_space:
+            self.token_text += " "
+            self.word_text += " "
+        if mwt['id'][2] == token['id']:
+            self.need_space = conllutil.get_misc(mwt, 'SpaceAfter', 'Yes') == 'Yes'
+        else:
+            self.need_space = False
+        self.word_text += token['form']
+
     def validate_token(self, sent, token):
         if self.need_space:
             self.token_text += " "
             self.word_text += " "
-        if self.last_mwt_id >= token['id']:
-            if self.last_mwt_id == token['id']:
-                self.need_space = self.need_mwt_space
-            else:
-                self.need_space = False
-        else:
-            self.need_space = conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'Yes'
-            if self.last_mwt_id < token['id']:
-                self.token_text += token['form']
+        self.need_space = conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'Yes'
+        self.token_text += token['form']
         self.word_text += token['form']
 
     def validate_mwt_token(self, sent, token):
@@ -54,6 +53,4 @@ class SentenceTextValidator(Validator):
             self.token_text += " "
             self.word_text += " "
             self.need_space = False
-        self.last_mwt_id = token['id'][2]
-        self.need_mwt_space = conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'Yes'
         self.token_text += token['form']
