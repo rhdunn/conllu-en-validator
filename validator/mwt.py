@@ -24,19 +24,15 @@ def is_mwt_end(form, prev_form):
 class MwtTokenValidator(Validator):
     def __init__(self, language):
         super().__init__(language)
-        self.first_mwt_id = 0
-        self.last_mwt_id = 0
         self.prev_form = ' '
 
     def validate_sentence(self, sent):
-        self.first_mwt_id = 0
-        self.last_mwt_id = 0
         self.prev_form = ' '
         super().validate_sentence(sent)
 
-    def validate_token(self, sent, token):
+    def validate_word(self, sent, token, mwt):
         form = token['form']
-        if self.last_mwt_id < token['id'] or self.first_mwt_id == token['id']:
+        if mwt['id'][0] == token['id']:
             mwt_end = is_mwt_end(form, self.prev_form)
             if is_mwt_start(self.prev_form) and mwt_end is not None and not token['deprel'] == 'reparandum':
                 if mwt_end == LogLevel.ERROR:
@@ -55,8 +51,24 @@ class MwtTokenValidator(Validator):
         else:
             self.prev_form = form
 
+    def validate_token(self, sent, token):
+        form = token['form']
+        mwt_end = is_mwt_end(form, self.prev_form)
+        if is_mwt_start(self.prev_form) and mwt_end is not None and not token['deprel'] == 'reparandum':
+            if mwt_end == LogLevel.ERROR:
+                log(mwt_end, sent, token,
+                    f"multi-word continuation without a multi-word token range for '{self.prev_form}][{form}'")
+            else:
+                log(mwt_end, sent, token,
+                    f"possible multi-word continuation without a multi-word token range for '{self.prev_form}][{form}'")
+
+        if conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'Yes':
+            self.prev_form = ' '
+        elif conllutil.get_misc(token, 'CorrectSpaceAfter', 'No') == 'Yes':
+            self.prev_form = ' '
+        else:
+            self.prev_form = form
+
     def validate_mwt_token(self, sent, token):
-        self.first_mwt_id = token['id'][0]
-        self.last_mwt_id = token['id'][2]
-        if self.first_mwt_id == self.last_mwt_id:
+        if token['id'][0] == token['id'][2]:
             log(LogLevel.ERROR, sent, token, f"multi-word token of length 1 is redundant")
