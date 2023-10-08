@@ -31,6 +31,7 @@ mwt_suffixes = {
         'everyone': [Token(form='everyone', lemma='everyone'), Token(form='\'s', lemma=['\'s', 'be'])],  # POS, _ is
         'he': [Token(form='he', lemma='he'), Token(form='\'s', lemma=['be', 'have'])],  # he is, he has
         'here': [Token(form='here', lemma='here'), Token(form='\'s', lemma='be')],  # here is
+        'how': [Token(form='how', lemma='how'), Token(form='\'s', lemma='be')],  # how is
         'it': [Token(form='it', lemma='it'), Token(form='\'s', lemma=['be', 'have'])],  # it is, it has
         'let': [Token(form='let', lemma='let'), Token(form='\'s', lemma='we')],  # let us
         'one': [Token(form='one', lemma='one'), Token(form='\'s', lemma=['\'s', 'be'])],  # POS, _ is
