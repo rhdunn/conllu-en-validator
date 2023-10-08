@@ -1,20 +1,22 @@
 # Copyright (C) 2023 Reece H. Dunn. SPDX-License-Identifier: Apache-2.0
 
+from conllu.models import Token
+
 from validator import conllutil
 from validator.validator import Validator
 from validator.logger import log, LogLevel
 
 
 mwt_suffixes = {
-    '\'d': [
-        'he',
-        'I',
-        'it',
-        'she',
-        'they',
-        'we',
-        'you',
-    ]
+    '\'d': {
+        'he': [Token(form='he', lemma='he'), Token(form='\'d', lemma='would')],
+        'I': [Token(form='I', lemma='I'), Token(form='\'d', lemma='would')],
+        'it': [Token(form='it', lemma='it'), Token(form='\'d', lemma='would')],
+        'she': [Token(form='she', lemma='she'), Token(form='\'d', lemma='would')],
+        'they': [Token(form='they', lemma='they'), Token(form='\'d', lemma='would')],
+        'we': [Token(form='we', lemma='we'), Token(form='\'d', lemma='would')],
+        'you': [Token(form='you', lemma='you'), Token(form='\'d', lemma='would')],
+    },
 }
 
 
@@ -97,13 +99,14 @@ class MwtWordValidator(Validator):
         if len(self.parts) == 0:
             return
 
-        form = token['form']
         if len(self.parts) == self.part_index:
-            log(LogLevel.ERROR, sent, token, f"unexpected multi-word token part '{form}'")
+            log(LogLevel.ERROR, sent, token, f"unexpected multi-word token part '{token['form']}'")
         else:
-            part_form = self.parts[self.part_index]
-            if form != part_form:
-                log(LogLevel.ERROR, sent, token, f"unexpected multi-word token part '{form}', expected '{part_form}'")
+            part = self.parts[self.part_index]
+            for field in part.keys():
+                if token[field] != part[field]:
+                    log(LogLevel.ERROR, sent, token,
+                        f"unexpected multi-word token part {field} '{token[field]}', expected '{part[field]}'")
             self.part_index = self.part_index + 1
 
     def validate_mwt_token(self, sent, token):
@@ -116,13 +119,17 @@ class MwtWordValidator(Validator):
 
             base_form = form.replace(suffix, '')
             if base_form in bases:  # lowercase
-                pass
+                self.parts = bases[base_form]
             elif base_form not in ['I', 'i'] and base_form.lower() in bases:  # capitalized, uppercase
-                pass
+                parts = bases[base_form.lower()]
+                self.parts = [
+                    Token(form=base_form, lemma=parts[0]['lemma']),
+                    Token(form=suffix, lemma=parts[1]['lemma'])
+                ]
             else:
                 log(LogLevel.ERROR, sent, token, f"unrecognized multi-word base form '{base_form}' for suffix '{suffix}'")
+                self.parts = [Token(form=base_form), Token(form=suffix)]
 
-            self.parts = [base_form, suffix]
             self.part_index = 0
             return
 
