@@ -123,7 +123,13 @@ class MwtWordValidator(Validator):
             base_form = form.replace(suffix, '')
             if base_form in bases:  # lowercase
                 self.parts = bases[base_form]
-            elif base_form not in ['I', 'i'] and base_form.lower() in bases:  # capitalized, uppercase
+            elif base_form == 'i' and 'I' in bases:  # incorrectly capitalized personal pronoun 'I'
+                parts = bases['I']
+                self.parts = [
+                    Token(form=base_form, lemma=parts[0]['lemma']),
+                    Token(form=suffix, lemma=parts[1]['lemma'])
+                ]
+            elif base_form.lower() in bases:  # capitalized, uppercase
                 parts = bases[base_form.lower()]
                 self.parts = [
                     Token(form=base_form, lemma=parts[0]['lemma']),
