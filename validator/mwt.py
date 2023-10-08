@@ -67,6 +67,7 @@ mwt_suffixes = {
         None: [Token(upos=['NOUN', 'PROPN', 'NUM']), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
     },
     '\'ve': {
+        'could': [Token(form='could', lemma='could'), Token(form='\'ve', lemma='have')],  # could have
         'I': [Token(form='I', lemma='I'), Token(form='\'ve', lemma='have')],  # I have
         'they': [Token(form='they', lemma='they'), Token(form='\'ve', lemma='have')],  # they have
         'we': [Token(form='we', lemma='we'), Token(form='\'ve', lemma='have')],  # we have
