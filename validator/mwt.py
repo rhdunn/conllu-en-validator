@@ -26,16 +26,19 @@ mwt_suffixes = {
         'you': [Token(form='you', lemma='you'), Token(form='\'re', lemma='be')],  # you are
     },
     '\'s': {
+        'anyone': [Token(form='anyone', lemma='anyone'), Token(form='\'s', lemma=['\'s', 'be'])],  # POS, _ is
+        'everyone': [Token(form='everyone', lemma='everyone'), Token(form='\'s', lemma=['\'s', 'be'])],  # POS, _ is
         'he': [Token(form='he', lemma='he'), Token(form='\'s', lemma=['be', 'have'])],  # he is, he has
         'here': [Token(form='here', lemma='here'), Token(form='\'s', lemma='be')],  # here is
         'it': [Token(form='it', lemma='it'), Token(form='\'s', lemma=['be', 'have'])],  # it is, it has
         'let': [Token(form='let', lemma='let'), Token(form='\'s', lemma='we')],  # let us
         'she': [Token(form='she', lemma='she'), Token(form='\'s', lemma=['be', 'have'])],  # she is, she has
+        'someone': [Token(form='someone', lemma='someone'), Token(form='\'s', lemma=['\'s', 'be'])],  # POS, _ is
         'that': [Token(form='that', lemma='that'), Token(form='\'s', lemma='be')],  # that is
         'there': [Token(form='there', lemma='there'), Token(form='\'s', lemma='be')],  # there is
         'what': [Token(form='what', lemma='what'), Token(form='\'s', lemma='be')],  # what is
         'who': [Token(form='who', lemma='who'), Token(form='\'s', lemma='be')],  # who is
-        None: [Token(upos=['NOUN', 'PROPN']), Token(form='\'s', lemma=['\'s', 'be'])],  # possessive, _ is
+        None: [Token(upos=['NOUN', 'PROPN']), Token(form='\'s', lemma=['\'s', 'be'])],  # POS, _ is
     },
 }
 
