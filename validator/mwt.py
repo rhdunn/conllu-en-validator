@@ -90,6 +90,7 @@ mwt_suffixes = {
     },
     'n\'t': {
         '\'tai': [Token(form='\'t', lemma='it'), Token(form='ai', lemma='be'), Token(form='n\'t', lemma='not')],  # it is not
+        '\'tis': [Token(form='\'t', lemma='it'), Token(form='is', lemma='be'), Token(form='n\'t', lemma='not')],  # it is not
         'ai': [Token(form='ai', lemma='be'), Token(form='n\'t', lemma='not')],  # are not
         'are': [Token(form='are', lemma='be'), Token(form='n\'t', lemma='not')],  # are not
         'ca': [Token(form='ca', lemma='can'), Token(form='n\'t', lemma='not')],  # can not
