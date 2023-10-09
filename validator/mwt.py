@@ -32,6 +32,7 @@ mwt_suffixes = {
         'there': [Token(form='there', lemma='there'), Token(form='\'ll', lemma='will')],  # there will
         'they': [Token(form='they', lemma='they'), Token(form='\'ll', lemma='will')],  # they will
         'we': [Token(form='we', lemma='we'), Token(form='\'ll', lemma='will')],  # we will
+        'where': [Token(form='where', lemma='where'), Token(form='\'ll', lemma='will')],  # where will
         'you': [Token(form='you', lemma='you'), Token(form='\'ll', lemma='will')],  # you will
         None: [Token(upos=['NOUN', 'PROPN']), Token(form='\'ll', lemma='will')],  # _ will
     },
