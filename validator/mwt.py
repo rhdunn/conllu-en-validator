@@ -20,6 +20,7 @@ mwt_suffixes = {
         'who': [Token(form='who', lemma='who'), Token(form='\'d', lemma=['have', 'would'])],  # who had, who would
         'y': [Token(form='y', lemma='you'), Token(form='\'d', lemma=['have', 'would'])],  # you had, you would
         'you': [Token(form='you', lemma='you'), Token(form='\'d', lemma=['have', 'would'])],  # you had, you would
+        None: [Token(upos=['NOUN', 'PROPN']), Token(form='\'d', lemma=['have', 'would'])],  # _ had, _ would
     },
     '\'ll': {
         'he': [Token(form='he', lemma='he'), Token(form='\'ll', lemma='will')],  # he will
