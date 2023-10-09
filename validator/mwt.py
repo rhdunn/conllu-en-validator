@@ -76,6 +76,7 @@ mwt_suffixes = {
         'you': [Token(form='you', lemma='you'), Token(form='\'ve', lemma='have')],  # you have
     },
     'n\'t': {
+        '\'tai': [Token(form='\'t', lemma='it'), Token(form='ai', lemma='be'), Token(form='n\'t', lemma='not')],  # it is not
         'ai': [Token(form='ai', lemma='be'), Token(form='n\'t', lemma='not')],  # are not
         'are': [Token(form='are', lemma='be'), Token(form='n\'t', lemma='not')],  # are not
         'ca': [Token(form='ca', lemma='can'), Token(form='n\'t', lemma='not')],  # can not
@@ -197,6 +198,15 @@ class MwtWordValidator(Validator):
                             f"unexpected multi-word token '{mwt['form']}' part {field} '{token[field]}', expected '{expected}'")
             self.part_index = self.part_index + 1
 
+    def tokenize_mwt(self, parts, form):
+        self.parts = []
+        part_offset = 0
+        for part in parts:
+            part_len = len(part['form'])
+            self.parts.append(Token(part))
+            self.parts[-1]['form'] = form[part_offset:part_offset + part_len]
+            part_offset = part_offset + part_len
+
     def validate_mwt_token(self, sent, token):
         form = token['form']
         for suffix, bases in mwt_suffixes.items():
@@ -209,17 +219,9 @@ class MwtWordValidator(Validator):
             if base_form in bases:  # lowercase
                 self.parts = bases[base_form]
             elif base_form == 'i' and 'I' in bases:  # incorrectly capitalized personal pronoun 'I'
-                parts = bases['I']
-                self.parts = [
-                    Token(form=base_form, lemma=parts[0]['lemma']),
-                    Token(form=suffix, lemma=parts[1]['lemma'])
-                ]
+                self.tokenize_mwt(bases['I'], form)
             elif base_form.lower() in bases:  # capitalized, uppercase
-                parts = bases[base_form.lower()]
-                self.parts = [
-                    Token(form=base_form, lemma=parts[0]['lemma']),
-                    Token(form=suffix, lemma=parts[1]['lemma'])
-                ]
+                self.tokenize_mwt(bases[base_form.lower()], form)
             elif None in bases:  # part of speech + suffix
                 parts = bases[None]
                 self.parts = [
