@@ -36,6 +36,9 @@ mwt_suffixes = {
     '\'m': {
         'I': [Token(form='I', lemma='I'), Token(form='\'m', lemma='be')],  # I am
     },
+    '\'n': {
+        'more': [Token(form='more', lemma='more'), Token(form='\'n', lemma='than')],  # more than
+    },
     '\'re': {
         'they': [Token(form='they', lemma='they'), Token(form='\'re', lemma='be')],  # they are
         'we': [Token(form='we', lemma='we'), Token(form='\'re', lemma='be')],  # we are
