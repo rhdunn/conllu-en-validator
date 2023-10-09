@@ -98,6 +98,7 @@ mwt_suffixes = {
         '\'twas': [Token(form='\'t', lemma='it'), Token(form='was', lemma='be'), Token(form='n\'t', lemma='not')],  # it was not
         'ai': [Token(form='ai', lemma='be'), Token(form='n\'t', lemma='not')],  # are not
         'are': [Token(form='are', lemma='be'), Token(form='n\'t', lemma='not')],  # are not
+        'c\'d': [Token(form='c\'d', lemma='could'), Token(form='n\'t', lemma='not')],  # could not
         'ca': [Token(form='ca', lemma='can'), Token(form='n\'t', lemma='not')],  # can not
         'could': [Token(form='could', lemma='could'), Token(form='n\'t', lemma='not')],  # could not
         'did': [Token(form='did', lemma='do'), Token(form='n\'t', lemma='not')],  # did not
