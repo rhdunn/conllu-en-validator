@@ -49,6 +49,7 @@ mwt_suffixes = {
         'anybody': [Token(form='anybody', lemma='anybody'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
         'anyone': [Token(form='anyone', lemma='anyone'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
         'anything': [Token(form='anything', lemma='anything'), Token(form='\'s', lemma='be')],  # anything is
+        'dunno': [Token(form='du', lemma='do'), Token(form='n', lemma='not'), Token(form='no', lemma='know'), Token(form='\'s', lemma='if')],  # do not know if
         'else': [Token(form='else', lemma='else'), Token(form='\'s', lemma='\'s')],  # POS
         'everybody': [Token(form='everybody', lemma='everybody'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
         'everyone': [Token(form='everyone', lemma='everyone'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
