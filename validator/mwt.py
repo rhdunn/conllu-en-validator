@@ -248,27 +248,32 @@ class MwtWordValidator(Validator):
             self.parts[-1]['form'] = form[part_offset:part_offset + part_len]
             part_offset = part_offset + part_len
 
+    def match_suffix(self, form, suffix):
+        if form.endswith(suffix):
+            return form.replace(suffix, ''), suffix, '\''
+        suffix = suffix.replace('\'', '’')
+        if form.endswith(suffix):
+            return form.replace(suffix, ''), suffix, '’'
+        return None, None, None
+
     def validate_mwt_token(self, sent, token):
         form = token['form']
         for suffix, bases in mwt_suffixes.items():
-            if form.endswith(suffix):
-                pass
-            else:
+            base_form, suffix, quote_style = self.match_suffix(form, suffix)
+            if base_form is None:
                 continue
 
             base_form = form.replace(suffix, '')
             if base_form in bases:  # lowercase
-                self.parts = bases[base_form]
+                self.tokenize_mwt(bases[base_form], form)
             elif base_form == 'i' and 'I' in bases:  # incorrectly capitalized personal pronoun 'I'
                 self.tokenize_mwt(bases['I'], form)
             elif base_form.lower() in bases:  # capitalized, uppercase
                 self.tokenize_mwt(bases[base_form.lower()], form)
             elif None in bases:  # part of speech + suffix
-                parts = bases[None]
-                self.parts = [
-                    Token(form=form.replace(parts[1]['form'], ''), upos=parts[0]['upos']),
-                    Token(form=parts[1]['form'], lemma=parts[1]['lemma'])
-                ]
+                self.parts = [Token(part) for part in bases[None]]
+                self.parts[1]['form'] = self.parts[1]['form'].replace('\'', quote_style)
+                self.parts[0]['form'] = form.replace(self.parts[1]['form'], '')
             else:
                 log(LogLevel.ERROR, sent, token, f"unrecognized multi-word base form '{base_form}' for suffix '{suffix}'")
                 self.parts = [Token(form=base_form), Token(form=suffix)]
