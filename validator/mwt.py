@@ -117,6 +117,9 @@ mwt_suffixes = {
         'gon': [Token(form='gon', lemma='go'), Token(form='na', lemma='to')],  # going to
         'wan': [Token(form='wan', lemma='want'), Token(form='na', lemma='to')],  # want to
     },
+    'no': {
+        'dun': [Token(form='du', lemma='do'), Token(form='n', lemma='not'), Token(form='no', lemma='know')],  # do not know
+    },
     'not': {
         'can': [Token(form='can', lemma='can'), Token(form='not', lemma='not')],  # can not
     },
