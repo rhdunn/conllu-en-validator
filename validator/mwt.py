@@ -79,6 +79,9 @@ mwt_suffixes = {
         'would': [Token(form='would', lemma='would'), Token(form='\'ve', lemma='have')],  # would have
         'you': [Token(form='you', lemma='you'), Token(form='\'ve', lemma='have')],  # you have
     },
+    'if': {
+        '\'s': [Token(form='\'s', lemma='as'), Token(form='if', lemma='if')],  # as if
+    },
     'n\'t': {
         '\'tai': [Token(form='\'t', lemma='it'), Token(form='ai', lemma='be'), Token(form='n\'t', lemma='not')],  # it is not
         'ai': [Token(form='ai', lemma='be'), Token(form='n\'t', lemma='not')],  # are not
