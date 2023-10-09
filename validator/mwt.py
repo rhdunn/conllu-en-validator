@@ -65,6 +65,7 @@ mwt_suffixes = {
         'it': [Token(form='it', lemma='it'), Token(form='\'s', lemma=['be', 'have'])],  # it is, it has
         'let': [Token(form='let', lemma='let'), Token(form='\'s', lemma='we')],  # let us
         'many': [Token(form='many', lemma='many'), Token(form='\'s', lemma='be')],  # many is
+        'more': [Token(form='more', lemma='more'), Token(form='\'s', lemma='be')],  # more is
         'nobody': [Token(form='nobody', lemma='nobody'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
         'nothing': [Token(form='nothing', lemma='nothing'), Token(form='\'s', lemma='be')],  # nothing is
         'one': [Token(form='one', lemma='one'), Token(form='\'s', lemma=['\'s', 'be'])],  # POS, _ is
