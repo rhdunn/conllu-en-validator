@@ -16,6 +16,7 @@ mwt_suffixes = {
         'they': [Token(form='they', lemma='they'), Token(form='\'d', lemma=['have', 'would'])],  # they had, they would
         'we': [Token(form='we', lemma='we'), Token(form='\'d', lemma=['have', 'would'])],  # we had, we would
         'what': [Token(form='what', lemma='what'), Token(form='\'d', lemma=['do', 'have', 'would'])],  # what did, what had, what would
+        'where': [Token(form='where', lemma='where'), Token(form='\'d', lemma=['have', 'would'])],  # where had, where would
         'who': [Token(form='who', lemma='who'), Token(form='\'d', lemma=['have', 'would'])],  # who had, who would
         'y': [Token(form='y', lemma='you'), Token(form='\'d', lemma=['have', 'would'])],  # you had, you would
         'you': [Token(form='you', lemma='you'), Token(form='\'d', lemma=['have', 'would'])],  # you had, you would
