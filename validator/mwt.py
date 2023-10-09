@@ -109,6 +109,9 @@ mwt_suffixes = {
     'not': {
         'can': [Token(form='can', lemma='can'), Token(form='not', lemma='not')],  # can not
     },
+    's\'': {
+        None: [Token(upos=['NOUN', 'PROPN']), Token(form='\'', lemma='\'s')],  # POS
+    },
     'ta': {
         'got': [Token(form='got', lemma='get'), Token(form='ta', lemma='to')],  # got to
     },
@@ -237,8 +240,8 @@ class MwtWordValidator(Validator):
             elif None in bases:  # part of speech + suffix
                 parts = bases[None]
                 self.parts = [
-                    Token(form=base_form, upos=parts[0]['upos']),
-                    Token(form=suffix, lemma=parts[1]['lemma'])
+                    Token(form=form.replace(parts[1]['form'], ''), upos=parts[0]['upos']),
+                    Token(form=parts[1]['form'], lemma=parts[1]['lemma'])
                 ]
             else:
                 log(LogLevel.ERROR, sent, token, f"unrecognized multi-word base form '{base_form}' for suffix '{suffix}'")
