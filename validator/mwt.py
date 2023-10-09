@@ -91,6 +91,7 @@ mwt_suffixes = {
         'mus': [Token(form='mus', lemma='must'), Token(form='n\'t', lemma='not')],  # must not
         'must': [Token(form='must', lemma='must'), Token(form='n\'t', lemma='not')],  # must not
         'need': [Token(form='need', lemma='need'), Token(form='n\'t', lemma='not')],  # need not
+        'sha': [Token(form='sha', lemma='shall'), Token(form='n\'t', lemma='not')],  # shall not
         'should': [Token(form='should', lemma='should'), Token(form='n\'t', lemma='not')],  # should not
         'was': [Token(form='was', lemma='be'), Token(form='n\'t', lemma='not')],  # was not
         'were': [Token(form='were', lemma='be'), Token(form='n\'t', lemma='not')],  # were not
