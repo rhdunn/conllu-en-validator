@@ -18,6 +18,15 @@ def parse_conllu(filename):
             yield sent
 
 
+def get_feat(token, attr, default):
+    if 'feats' not in token:
+        return default
+    feat = token['feats']
+    if feat is None or attr not in feat:
+        return default
+    return feat[attr]
+
+
 def get_misc(token, attr, default):
     if 'misc' not in token:
         return default

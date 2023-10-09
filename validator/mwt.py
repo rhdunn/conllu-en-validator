@@ -228,15 +228,19 @@ class MwtWordValidator(Validator):
         else:
             part = self.parts[self.part_index]
             for field in part.keys():
+                value = token[field]
+                if field == 'form' and conllutil.get_feat(token, 'Typo', 'No') == 'Yes':
+                    value = conllutil.get_misc(token, 'CorrectForm', value)
+
                 if isinstance(part[field], str):
-                    if token[field] != part[field]:
+                    if value != part[field]:
                         log(LogLevel.ERROR, sent, token,
-                            f"unexpected multi-word token '{mwt['form']}' part {field} '{token[field]}', expected '{part[field]}'")
+                            f"unexpected multi-word token '{mwt['form']}' part {field} '{value}', expected '{part[field]}'")
                 else:  # list
-                    if token[field] not in part[field]:
+                    if value not in part[field]:
                         expected = '|'.join(part[field])
                         log(LogLevel.ERROR, sent, token,
-                            f"unexpected multi-word token '{mwt['form']}' part {field} '{token[field]}', expected '{expected}'")
+                            f"unexpected multi-word token '{mwt['form']}' part {field} '{value}', expected '{expected}'")
             self.part_index = self.part_index + 1
 
     def tokenize_mwt(self, parts, form):
@@ -256,8 +260,18 @@ class MwtWordValidator(Validator):
             return form.replace(suffix, ''), suffix, '’'
         return None, None, None
 
+    def mwt_text(self, sent, start_id, end_id):
+        form = ''
+        for token in sent:
+            if isinstance(token['id'], int) and token['id'] >= start_id and token['id'] <= end_id:
+                if conllutil.get_feat(token, 'Typo', 'No') == 'Yes':
+                    form = form + conllutil.get_misc(token, 'CorrectForm', token['form'])
+                else:
+                    form = form + token['form']
+        return form
+
     def validate_mwt_token(self, sent, token):
-        form = token['form']
+        form = self.mwt_text(sent, token['id'][0], token['id'][2])
         for suffix, bases in mwt_suffixes.items():
             base_form, suffix, quote_style = self.match_suffix(form, suffix)
             if base_form is None:
