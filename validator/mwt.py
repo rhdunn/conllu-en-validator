@@ -51,6 +51,7 @@ mwt_suffixes = {
         'they': [Token(form='they', lemma='they'), Token(form='\'re', lemma='be')],  # they are
         'we': [Token(form='we', lemma='we'), Token(form='\'re', lemma='be')],  # we are
         'what': [Token(form='what', lemma='what'), Token(form='\'re', lemma='be')],  # what are
+        'who': [Token(form='who', lemma='who'), Token(form='\'re', lemma='be')],  # who are
         'you': [Token(form='you', lemma='you'), Token(form='\'re', lemma='be')],  # you are
     },
     '\'s': {
