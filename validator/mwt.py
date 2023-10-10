@@ -53,6 +53,7 @@ mwt_suffixes = {
         'you': [Token(form='you', lemma='you'), Token(form='\'re', lemma='be')],  # you are
     },
     '\'s': {
+        'another': [Token(form='another', lemma='another'), Token(form='\'s', lemma='\'s')],  # POS
         'anybody': [Token(form='anybody', lemma='anybody'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
         'anyone': [Token(form='anyone', lemma='anyone'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
         'anything': [Token(form='anything', lemma='anything'), Token(form='\'s', lemma='be')],  # anything is
