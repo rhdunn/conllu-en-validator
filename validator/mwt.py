@@ -143,6 +143,7 @@ mwt_suffixes = {
     },
     'ta': {
         'got': [Token(form='got', lemma='get'), Token(form='ta', lemma='to')],  # got to
+        'out': [Token(form='out', lemma='out'), Token(form='ta', lemma='of')],  # out of
     },
 }
 
