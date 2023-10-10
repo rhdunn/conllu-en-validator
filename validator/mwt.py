@@ -98,6 +98,9 @@ mwt_suffixes = {
     'if': {
         '\'s': [Token(form='\'s', lemma='as'), Token(form='if', lemma='if')],  # as if
     },
+    'is': {
+        '\'t': [Token(form='\'t', lemma='it'), Token(form='is', lemma='be')],  # it is
+    },
     'n\'t': {
         '\'tai': [Token(form='\'t', lemma='it'), Token(form='ai', lemma='be'), Token(form='n\'t', lemma='not')],  # it is not
         '\'tis': [Token(form='\'t', lemma='it'), Token(form='is', lemma='be'), Token(form='n\'t', lemma='not')],  # it is not
