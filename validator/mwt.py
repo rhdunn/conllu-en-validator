@@ -262,12 +262,16 @@ class MwtWordValidator(Validator):
             self.parts[-1]['form'] = form[part_offset:part_offset + part_len]
             part_offset = part_offset + part_len
 
-    def match_suffix(self, form, suffix):
+    def match_suffix(self, form, suffix, is_upper_case=False):
         if form.endswith(suffix):
             return form.replace(suffix, ''), suffix, '\''
-        suffix = suffix.replace('\'', '’')
-        if form.endswith(suffix):
-            return form.replace(suffix, ''), suffix, '’'
+
+        curly_suffix = suffix.replace('\'', '’')
+        if form.endswith(curly_suffix):
+            return form.replace(curly_suffix, ''), curly_suffix, '’'
+
+        if not is_upper_case:
+            return self.match_suffix(form, suffix.upper(), True)
         return None, None, None
 
     def mwt_text(self, sent, start_id, end_id):
