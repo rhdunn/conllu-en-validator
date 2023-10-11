@@ -33,6 +33,7 @@ mwt_suffixes = {
         'that': [Token(form='that', lemma='that'), Token(form='\'ll', lemma='will')],  # that will
         'there': [Token(form='there', lemma='there'), Token(form='\'ll', lemma='will')],  # there will
         'they': [Token(form='they', lemma='they'), Token(form='\'ll', lemma='will')],  # they will
+        'this': [Token(form='this', lemma='this'), Token(form='\'ll', lemma='will')],  # this will
         'we': [Token(form='we', lemma='we'), Token(form='\'ll', lemma='will')],  # we will
         'what': [Token(form='what', lemma='what'), Token(form='\'ll', lemma='will')],  # what will
         'where': [Token(form='where', lemma='where'), Token(form='\'ll', lemma='will')],  # where will
