@@ -264,15 +264,15 @@ class MwtWordValidator(Validator):
 
     def match_suffix(self, form, suffix, is_upper_case=False):
         if form.endswith(suffix):
-            return form.replace(suffix, ''), suffix, '\''
+            return form.replace(suffix, ''), suffix, '\'', is_upper_case
 
         curly_suffix = suffix.replace('\'', '’')
         if form.endswith(curly_suffix):
-            return form.replace(curly_suffix, ''), curly_suffix, '’'
+            return form.replace(curly_suffix, ''), curly_suffix, '’', is_upper_case
 
         if not is_upper_case:
             return self.match_suffix(form, suffix.upper(), True)
-        return None, None, None
+        return None, None, None, False
 
     def mwt_text(self, sent, start_id, end_id):
         form = ''
@@ -287,7 +287,7 @@ class MwtWordValidator(Validator):
     def validate_mwt_token(self, sent, token):
         form = self.mwt_text(sent, token['id'][0], token['id'][2])
         for suffix, bases in mwt_suffixes.items():
-            base_form, suffix, quote_style = self.match_suffix(form, suffix)
+            base_form, suffix, quote_style, is_upper_case = self.match_suffix(form, suffix)
             if base_form is None:
                 continue
 
@@ -300,7 +300,10 @@ class MwtWordValidator(Validator):
                 self.tokenize_mwt(bases[base_form.lower()], form)
             elif None in bases:  # part of speech + suffix
                 self.parts = [Token(part) for part in bases[None]]
-                self.parts[1]['form'] = self.parts[1]['form'].replace('\'', quote_style)
+                if is_upper_case:
+                    self.parts[1]['form'] = self.parts[1]['form'].upper().replace('\'', quote_style)
+                else:
+                    self.parts[1]['form'] = self.parts[1]['form'].replace('\'', quote_style)
                 self.parts[0]['form'] = form.replace(self.parts[1]['form'], '')
             else:
                 log(LogLevel.ERROR, sent, token, f"unrecognized multi-word base form '{base_form}' for suffix '{suffix}'")
