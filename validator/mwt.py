@@ -13,6 +13,7 @@ mwt_suffixes = {
         'I': [Token(form='I', lemma='I'), Token(form='\'d', lemma=['have', 'would'])],  # I had, I would
         'it': [Token(form='it', lemma='it'), Token(form='\'d', lemma=['have', 'would'])],  # it had, it would
         'she': [Token(form='she', lemma='she'), Token(form='\'d', lemma=['have', 'would'])],  # she had, she would
+        'that': [Token(form='that', lemma='that'), Token(form='\'d', lemma=['have', 'would'])],  # that had, that would
         'there': [Token(form='there', lemma='there'), Token(form='\'d', lemma=['have', 'would'])],  # there had, there would
         'they': [Token(form='they', lemma='they'), Token(form='\'d', lemma=['have', 'would'])],  # they had, they would
         'we': [Token(form='we', lemma='we'), Token(form='\'d', lemma=['have', 'would'])],  # we had, we would
