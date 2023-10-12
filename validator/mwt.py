@@ -97,6 +97,7 @@ mwt_suffixes = {
     '\'ve': {
         'could': [Token(form='could', lemma='could'), Token(form='\'ve', lemma='have')],  # could have
         'I': [Token(form='I', lemma='I'), Token(form='\'ve', lemma='have')],  # I have
+        'must': [Token(form='must', lemma='must'), Token(form='\'ve', lemma='have')],  # must have
         'they': [Token(form='they', lemma='they'), Token(form='\'ve', lemma='have')],  # they have
         'we': [Token(form='we', lemma='we'), Token(form='\'ve', lemma='have')],  # we have
         'would': [Token(form='would', lemma='would'), Token(form='\'ve', lemma='have')],  # would have
