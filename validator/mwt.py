@@ -84,7 +84,7 @@ mwt_suffixes = {
         'someone': [Token(form='someone', lemma='someone'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
         'something': [Token(form='something', lemma='something'), Token(form='\'s', lemma='be')],  # something is
         'that': [Token(form='that', lemma='that'), Token(form='\'s', lemma=['be', 'have'])],  # that is, that has
-        'there': [Token(form='there', lemma='there'), Token(form='\'s', lemma='be')],  # there is
+        'there': [Token(form='there', lemma='there'), Token(form='\'s', lemma=['be', 'have'])],  # there is, there has
         'this': [Token(form='this', lemma='this'), Token(form='\'s', lemma='be')],  # this is
         'what': [Token(form='what', lemma='what'), Token(form='\'s', lemma='be')],  # what is
         'whatever': [Token(form='whatever', lemma='whatever'), Token(form='\'s', lemma='be')],  # whatever is
