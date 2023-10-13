@@ -48,7 +48,7 @@ mwt_suffixes = {
         None: [Token(upos='VERB'), Token(form='\'m', lemma='they')],  # _ them
     },
     '\'n': {
-        'more': [Token(form='more', lemma='more'), Token(form='\'n', lemma='than')],  # more than
+        None: [Token(), Token(form='\'n', lemma='than')],  # _ than
     },
     '\'re': {
         'they': [Token(form='they', lemma='they'), Token(form='\'re', lemma='be')],  # they are
