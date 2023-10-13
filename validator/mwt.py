@@ -249,8 +249,8 @@ class MwtWordValidator(Validator):
             part = self.parts[self.part_index]
             for field in part.keys():
                 value = token[field]
-                if field == 'form' and conllutil.get_feat(token, 'Typo', 'No') == 'Yes':
-                    value = conllutil.get_misc(token, 'CorrectForm', value)
+                if field == 'form':
+                    value = conllutil.normalized_form(token)
 
                 if isinstance(part[field], str):
                     if value != part[field]:
@@ -288,10 +288,7 @@ class MwtWordValidator(Validator):
         form = ''
         for token in sent:
             if isinstance(token['id'], int) and token['id'] >= start_id and token['id'] <= end_id:
-                if conllutil.get_feat(token, 'Typo', 'No') == 'Yes':
-                    form = form + conllutil.get_misc(token, 'CorrectForm', token['form'])
-                else:
-                    form = form + token['form']
+                form = form + conllutil.normalized_form(token)
         return form
 
     def validate_mwt_token(self, sent, token):

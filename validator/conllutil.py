@@ -34,3 +34,16 @@ def get_misc(token, attr, default):
     if misc is None or attr not in misc:
         return default
     return misc[attr]
+
+
+def normalized_form(token):
+    form = token['form']
+    if get_feat(token, 'Typo', 'No') == 'Yes':
+        return get_misc(token, 'CorrectForm', form)
+    if get_feat(token, 'Abbr', 'No') == 'Yes':
+        return get_misc(token, 'CorrectForm', form)
+    if get_feat(token, 'Style', 'None') in ['Coll', 'Expr', 'Vrnc']:  # colloquial, expressive, vernacular
+        return get_misc(token, 'CorrectForm', form)
+    if get_feat(token, 'Style', 'None') == 'Arch':  # archaic
+        return get_misc(token, 'ModernForm', form)
+    return form
