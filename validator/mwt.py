@@ -93,6 +93,7 @@ mwt_suffixes = {
         'where': [Token(form='where', lemma='where'), Token(form='\'s', lemma='be')],  # where is
         'which': [Token(form='which', lemma='which'), Token(form='\'s', lemma='be')],  # which is
         'who': [Token(form='who', lemma='who'), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, who is, who has
+        'why': [Token(form='why', lemma='why'), Token(form='\'s', lemma='be')],  # why is
         None: [Token(upos=['NOUN', 'PROPN', 'NUM', 'VERB']), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
     },
     '\'ve': {
