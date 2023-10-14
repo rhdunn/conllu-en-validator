@@ -26,7 +26,11 @@ class ContractionValidator(MwtValidator):
 
     @staticmethod
     def is_punctuation(token):
-        return token['upos'] in ['PUNCT', 'SYM'] and token['form'] not in ['\'', '’']
+        if token['upos'] not in ['PUNCT', 'SYM']:
+            return False
+        if token['form'] in ['\'', '’']:
+            return token['deprel'] == 'reparandum'
+        return False
 
     def validate_mwt_pair(self, sent, prev_token, token, mwt):
         if self.is_punctuation(prev_token) or self.is_punctuation(token):
