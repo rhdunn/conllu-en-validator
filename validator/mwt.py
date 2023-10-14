@@ -169,16 +169,16 @@ mwt_suffixes = {
 }
 
 
-def is_mwt_start(form):
-    return form[-1].isalpha()
+def is_mwt_start(form, space_after):
+    return form[-1].isalpha() and not space_after
 
 
-def is_mwt_end(form, prev_form):
+def is_mwt_end(form, prev_form, prev_space_after):
     if form[0] in ['\'', '’']:
         for c in form:
             if c.isalpha():
                 return LogLevel.ERROR
-        if len(form) == 1 and prev_form[-1] in ['s', 'S']:
+        if len(form) == 1 and prev_form[-1] in ['s', 'S'] and not prev_space_after:
             return LogLevel.WARN  # possessive or end quote
     if form[0].isalpha():
         return LogLevel.ERROR
@@ -188,51 +188,41 @@ def is_mwt_end(form, prev_form):
 class MwtTokenValidator(MwtValidator):
     def __init__(self, language):
         super().__init__(language)
-        self.prev_form = ' '
 
     def validate_sentence(self, sent):
-        self.prev_form = ' '
         super().validate_sentence(sent)
 
     def validate_word(self, sent, token, mwt):
+        prev_form = ' ' if self.prev_token is None else self.prev_token['form']
         form = token['form']
         if mwt['id'][0] == token['id']:
-            mwt_end = is_mwt_end(form, self.prev_form)
-            if is_mwt_start(self.prev_form) and mwt_end is not None and not token['deprel'] == 'reparandum':
+            mwt_start = is_mwt_start(prev_form, self.prev_space_after)
+            mwt_end = is_mwt_end(form, prev_form, self.prev_space_after)
+            if mwt_start and mwt_end is not None and not token['deprel'] == 'reparandum':
                 if mwt_end == LogLevel.ERROR:
                     log(mwt_end, sent, token,
-                        f"multi-word continuation without a multi-word token range for '{self.prev_form}][{form}'")
+                        f"multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
                 else:
                     log(mwt_end, sent, token,
-                        f"possible multi-word continuation without a multi-word token range for '{self.prev_form}][{form}'")
+                        f"possible multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
         elif conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'No':
             log(LogLevel.ERROR, sent, token, f"multi-word token contains a SpaceAfter=No annotation")
 
-        if conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'Yes':
-            self.prev_form = ' '
-        elif conllutil.get_misc(token, 'CorrectSpaceAfter', 'No') == 'Yes':
-            self.prev_form = ' '
-        else:
-            self.prev_form = form
         super().validate_word(sent, token, mwt)
 
     def validate_token(self, sent, token):
+        prev_form = ' ' if self.prev_token is None else self.prev_token['form']
         form = token['form']
-        mwt_end = is_mwt_end(form, self.prev_form)
-        if is_mwt_start(self.prev_form) and mwt_end is not None and not token['deprel'] == 'reparandum':
+        mwt_start = is_mwt_start(prev_form, self.prev_space_after)
+        mwt_end = is_mwt_end(form, prev_form, self.prev_space_after)
+        if mwt_start and mwt_end is not None and not token['deprel'] == 'reparandum':
             if mwt_end == LogLevel.ERROR:
                 log(mwt_end, sent, token,
-                    f"multi-word continuation without a multi-word token range for '{self.prev_form}][{form}'")
+                    f"multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
             else:
                 log(mwt_end, sent, token,
-                    f"possible multi-word continuation without a multi-word token range for '{self.prev_form}][{form}'")
+                    f"possible multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
 
-        if conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'Yes':
-            self.prev_form = ' '
-        elif conllutil.get_misc(token, 'CorrectSpaceAfter', 'No') == 'Yes':
-            self.prev_form = ' '
-        else:
-            self.prev_form = form
         super().validate_token(sent, token)
 
     def validate_mwt_token(self, sent, token):
