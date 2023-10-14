@@ -198,8 +198,8 @@ class MwtTokenValidator(MwtValidator):
                 return mwt_end
         return None
 
-    def validate_word(self, sent, token, mwt):
-        prev_form = ' ' if self.prev_token is None else self.prev_token['form']
+    def validate_mwt_pair(self, sent, prev_token, token, mwt):
+        prev_form = prev_token['form']
         form = token['form']
         mwt_continuation = self.is_mwt_continuation(prev_form, token, mwt)
         if mwt_continuation == LogLevel.ERROR:
@@ -209,23 +209,11 @@ class MwtTokenValidator(MwtValidator):
             log(mwt_continuation, sent, token,
                 f"possible multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
 
+    def validate_word(self, sent, token, mwt):
         if conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'No':
             log(LogLevel.ERROR, sent, token, f"multi-word token contains a SpaceAfter=No annotation")
 
         super().validate_word(sent, token, mwt)
-
-    def validate_token(self, sent, token):
-        prev_form = ' ' if self.prev_token is None else self.prev_token['form']
-        form = token['form']
-        mwt_continuation = self.is_mwt_continuation(prev_form, token, None)
-        if mwt_continuation == LogLevel.ERROR:
-            log(mwt_continuation, sent, token,
-                f"multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
-        elif mwt_continuation == LogLevel.WARN:
-            log(mwt_continuation, sent, token,
-                f"possible multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
-
-        super().validate_token(sent, token)
 
     def validate_mwt_token(self, sent, token):
         if token['id'][0] == token['id'][2]:
