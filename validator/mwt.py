@@ -205,7 +205,8 @@ class MwtTokenValidator(MwtValidator):
                 else:
                     log(mwt_end, sent, token,
                         f"possible multi-word continuation without a multi-word token range for '{prev_form}][{form}'")
-        elif conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'No':
+
+        if conllutil.get_misc(token, 'SpaceAfter', 'Yes') == 'No':
             log(LogLevel.ERROR, sent, token, f"multi-word token contains a SpaceAfter=No annotation")
 
         super().validate_word(sent, token, mwt)
