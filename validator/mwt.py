@@ -166,6 +166,9 @@ mwt_suffixes = {
         'out': [Token(form='out', lemma='out'), Token(form='ta', lemma='of')],  # out of
         'sor': [Token(form='sort', lemma='sort'), Token(form='a', lemma='of')],  # sort of
     },
+    'was': {
+        '\'t': [Token(form='\'t', lemma='it'), Token(form='was', lemma='be')],  # it was
+    },
 }
 
 
