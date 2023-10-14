@@ -97,6 +97,7 @@ mwt_suffixes = {
         None: [Token(upos=['NOUN', 'PROPN', 'NUM', 'VERB']), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
     },
     '\'ve': {
+        'can\'t': [Token(form='ca', lemma='can'), Token(form='n\'t', lemma='not'), Token(form='\'ve', lemma='have')],  # can not have
         'could': [Token(form='could', lemma='could'), Token(form='\'ve', lemma='have')],  # could have
         'I': [Token(form='I', lemma='I'), Token(form='\'ve', lemma='have')],  # I have
         'must': [Token(form='must', lemma='must'), Token(form='\'ve', lemma='have')],  # must have
@@ -301,7 +302,7 @@ class MwtWordValidator(Validator):
             if base_form is None:
                 continue
 
-            base_form = form.replace(suffix, '')
+            base_form = form.replace(suffix, '').replace('’', '\'')
             if base_form in bases:  # lowercase
                 self.tokenize_mwt(bases[base_form], form)
             elif base_form == 'i' and 'I' in bases:  # incorrectly capitalized personal pronoun 'I'
