@@ -169,6 +169,9 @@ mwt_suffixes = {
     'was': {
         '\'t': [Token(form='\'t', lemma='it'), Token(form='was', lemma='be')],  # it was
     },
+    'will': {
+        '\'t': [Token(form='\'t', lemma='it'), Token(form='will', lemma='will')],  # it will
+    },
 }
 
 
