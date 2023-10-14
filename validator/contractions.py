@@ -1,8 +1,12 @@
 # Copyright (C) 2023 Reece H. Dunn. SPDX-License-Identifier: Apache-2.0
 
-from validator import conllutil
 from validator.validator import MwtValidator
 from validator.logger import log, LogLevel
+
+
+dialectal_continuations = [
+    'an\'',  # and
+]
 
 
 class ContractionValidator(MwtValidator):
@@ -13,7 +17,7 @@ class ContractionValidator(MwtValidator):
     def is_contraction(form):
         if form.endswith('in\'') and form[0].isalpha():  # -in' -> ing
             return True
-        return False
+        return form.lower() in dialectal_continuations
 
     @staticmethod
     def is_punctuation(token):
