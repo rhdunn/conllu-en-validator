@@ -1,5 +1,8 @@
 # Copyright (C) 2023 Reece H. Dunn. SPDX-License-Identifier: Apache-2.0
 
+from validator import conllutil
+
+
 class Validator:
     def __init__(self, language):
         self.language = language
@@ -41,13 +44,20 @@ class MwtValidator(Validator):
     def __init__(self, language):
         super().__init__(language)
         self.prev_token = None
+        self.prev_space_after = True
 
     def validate_sentence(self, sent):
         self.prev_token = None
+        self.prev_space_after = True
         super().validate_sentence(sent)
 
     def validate_token(self, sent, token):
         self.prev_token = token
+        self.prev_space_after = conllutil.space_after(token)
 
     def validate_word(self, sent, token, mwt):
         self.prev_token = token
+        if token['id'] == mwt['id'][2]:  # last word
+            self.prev_space_after = conllutil.space_after(mwt)
+        else:
+            self.prev_space_after = True

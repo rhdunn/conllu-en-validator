@@ -47,3 +47,11 @@ def normalized_form(token):
     if get_feat(token, 'Style', 'None') == 'Arch':  # archaic
         return get_misc(token, 'ModernForm', form)
     return form
+
+
+def space_after(token):
+    if get_misc(token, 'SpaceAfter', 'Yes') == 'Yes':
+        return True
+    if get_misc(token, 'CorrectSpaceAfter', 'No') == 'Yes':
+        return True
+    return False
