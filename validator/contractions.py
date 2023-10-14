@@ -15,7 +15,13 @@ class ContractionValidator(MwtValidator):
             return True
         return False
 
+    @staticmethod
+    def is_punctuation(token):
+        return token['upos'] in ['PUNCT', 'SYM'] and token['form'] not in ['\'', '’']
+
     def validate_mwt_pair(self, sent, prev_token, token, mwt):
+        if self.is_punctuation(prev_token) or self.is_punctuation(token):
+            return
         form = prev_token['form'] + token['form']
         form = form.replace('’', '\'')
         if '\'' in form and self.is_contraction(form):
