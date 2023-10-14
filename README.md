@@ -15,6 +15,10 @@ mwt-tokens
 : Check that `SpaceAfter` is not used within multi-word tokens. This will flag the use
 of `SpaceAfter` between other tokens that should be annotated as multi-word tokens.
 
+contractions
+: Check that `'` in dialectal contractions are kept as a single token instead of
+  incorrectly split into a multi-word token.
+
 mwt-words
 : Check that the words in the multi-word token are correct.
 
