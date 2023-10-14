@@ -6,6 +6,7 @@ from validator.logger import log, LogLevel
 
 dialectal_continuations = [
     'an\'',  # and
+    '\'fore',  # before
 ]
 
 
