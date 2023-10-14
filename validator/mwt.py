@@ -169,16 +169,16 @@ mwt_suffixes = {
 }
 
 
-def is_mwt_start(form, space_after):
-    return form[-1].isalpha() and not space_after
+def is_mwt_start(form):
+    return form[-1].isalpha()
 
 
-def is_mwt_end(form, prev_form, prev_space_after):
+def is_mwt_end(form, prev_form):
     if form[0] in ['\'', '’']:
         for c in form:
             if c.isalpha():
                 return LogLevel.ERROR
-        if len(form) == 1 and prev_form[-1] in ['s', 'S'] and not prev_space_after:
+        if len(form) == 1 and prev_form[-1] in ['s', 'S']:
             return LogLevel.WARN  # possessive or end quote
     if form[0].isalpha():
         return LogLevel.ERROR
@@ -189,10 +189,11 @@ class MwtTokenValidator(MwtValidator):
     def __init__(self, language):
         super().__init__(language)
 
-    def is_mwt_continuation(self, prev_form, token, mwt):
-        if not is_mwt_start(prev_form, self.prev_space_after):
+    @staticmethod
+    def is_mwt_continuation(prev_form, token, mwt):
+        if not is_mwt_start(prev_form):
             return None
-        mwt_end = is_mwt_end(token['form'], prev_form, self.prev_space_after)
+        mwt_end = is_mwt_end(token['form'], prev_form)
         if mwt_end is not None and not token['deprel'] == 'reparandum':
             if mwt is None or mwt['id'][0] == token['id']:
                 return mwt_end
