@@ -9,6 +9,7 @@ dialectal_continuations = [
     '\'em',  # them
     '\'fore',  # before
     '\'twas',  # 't was
+    '\'twill',  # 't will
 ]
 
 
