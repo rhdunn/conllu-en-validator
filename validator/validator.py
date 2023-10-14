@@ -35,3 +35,19 @@ class Validator:
 
     def validate_empty_node(self, sent, token):
         pass
+
+
+class MwtValidator(Validator):
+    def __init__(self, language):
+        super().__init__(language)
+        self.prev_token = None
+
+    def validate_sentence(self, sent):
+        self.prev_token = None
+        super().validate_sentence(sent)
+
+    def validate_token(self, sent, token):
+        self.prev_token = token
+
+    def validate_word(self, sent, token, mwt):
+        self.prev_token = token

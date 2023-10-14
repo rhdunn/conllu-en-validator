@@ -3,7 +3,7 @@
 from conllu.models import Token
 
 from validator import conllutil
-from validator.validator import Validator
+from validator.validator import Validator, MwtValidator
 from validator.logger import log, LogLevel
 
 
@@ -185,7 +185,7 @@ def is_mwt_end(form, prev_form):
     return None
 
 
-class MwtTokenValidator(Validator):
+class MwtTokenValidator(MwtValidator):
     def __init__(self, language):
         super().__init__(language)
         self.prev_form = ' '
@@ -214,6 +214,7 @@ class MwtTokenValidator(Validator):
             self.prev_form = ' '
         else:
             self.prev_form = form
+        super().validate_word(sent, token, mwt)
 
     def validate_token(self, sent, token):
         form = token['form']
@@ -232,6 +233,7 @@ class MwtTokenValidator(Validator):
             self.prev_form = ' '
         else:
             self.prev_form = form
+        super().validate_token(sent, token)
 
     def validate_mwt_token(self, sent, token):
         if token['id'][0] == token['id'][2]:
