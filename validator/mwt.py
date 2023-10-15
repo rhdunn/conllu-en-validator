@@ -97,6 +97,9 @@ mwt_suffixes = {
         'why': [Token(form='why', lemma='why'), Token(form='\'s', lemma='be')],  # why is
         None: [Token(upos=['NOUN', 'PROPN', 'NUM', 'VERB']), Token(form='\'s', lemma=['\'s', 'be', 'have'])],  # POS, _ is, _ has
     },
+    '\'un': {
+        'good': [Token(form='good', lemma='good'), Token(form='\'un', lemma='one')],  # good one
+    },
     '\'ve': {
         'can\'t': [Token(form='ca', lemma='can'), Token(form='n\'t', lemma='not'), Token(form='\'ve', lemma='have')],  # can not have
         'could': [Token(form='could', lemma='could'), Token(form='\'ve', lemma='have')],  # could have
