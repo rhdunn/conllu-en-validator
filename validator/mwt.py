@@ -26,6 +26,7 @@ mwt_suffixes = {
         None: [Token(upos=['NOUN', 'PROPN']), Token(form='\'d', lemma=['have', 'would'])],  # _ had, _ would
     },
     '\'ll': {
+        'good': [Token(form='good', lemma='good'), Token(form='\'ll', lemma='will')],  # good will
         'he': [Token(form='he', lemma='he'), Token(form='\'ll', lemma='will')],  # he will
         'I': [Token(form='I', lemma='I'), Token(form='\'ll', lemma='will')],  # I will
         'it': [Token(form='it', lemma='it'), Token(form='\'ll', lemma='will')],  # it will
