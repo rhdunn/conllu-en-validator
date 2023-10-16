@@ -11,24 +11,31 @@ Usage:
 ## Validators
 The `--validator` can be one of the following:
 
-mwt-tokens
-: Check that `SpaceAfter` is not used within multi-word tokens. This will flag the use
-of `SpaceAfter` between other tokens that should be annotated as multi-word tokens.
-
 contractions
 : Check that `'` in dialectal contractions are kept as a single token instead of
   incorrectly split into a multi-word token.
+
+mwt-tokens
+: Check that `SpaceAfter` is not used within multi-word tokens. This will flag the use
+  of `SpaceAfter` between other tokens that should be annotated as multi-word tokens.
+
+mwt-tokens
+: Check that `SpaceAfter` is not used within multi-word tokens. This will flag the use
+  of `SpaceAfter` between other tokens that should be annotated as multi-word tokens.
 
 mwt-words
 : Check that the words in the multi-word token are correct.
 
 pos-tags
 : Check that the `UPOS` are valid Universal Dependencies values for all treebanks.
-Check that the `XPOS` are valid Penn TreeBank values for English treebanks.
+  Check that the `XPOS` are valid Penn TreeBank values for English treebanks.
 
 sentence-text
-: Check that the token stream match the sentence text for all treebanks. 
-  Check that the word stream match the sentence text for English treebanks.
+: Check that the token stream matches the sentence text for all treebanks.
+  Check that the word stream matches the sentence text for English treebanks.
+
+split-sentences
+: Check that the sentences are split correctly.
 
 ## License
 Copyright (C) 2023 Reece H. Dunn

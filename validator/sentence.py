@@ -54,3 +54,18 @@ class SentenceTextValidator(Validator):
             self.word_text += " "
             self.need_space = False
         self.token_text += token['form']
+
+
+class SplitSentenceValidator(Validator):
+    def __init__(self, language):
+        super().__init__(language)
+        self.prev_sent = None
+
+    def validate_sentence(self, sent):
+        if self.prev_sent is not None:
+            etok = self.prev_sent[-1]
+            if etok['upos'] not in ['PUNCT']:
+                if 'newpar' not in sent.metadata and 'newpar id' not in sent.metadata:
+                    log(LogLevel.ERROR, sent, None,
+                        f"sentence ends without punctuation or new paragraph metadata")
+        self.prev_sent = sent

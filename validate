@@ -11,7 +11,7 @@ from validator.logger import error_count
 from validator.contractions import ContractionValidator
 from validator.mwt import MwtTokenValidator, MwtWordValidator
 from validator.pos import PosTagValidator
-from validator.sentence import SentenceTextValidator
+from validator.sentence import SentenceTextValidator, SplitSentenceValidator
 
 
 def validate_conllu(filename, default_language, validator):
@@ -38,6 +38,7 @@ validators = {
     'mwt-words': MwtWordValidator,
     'pos-tags': PosTagValidator,
     'sentence-text': SentenceTextValidator,
+    'split-sentences': SplitSentenceValidator,
 }
 
 
