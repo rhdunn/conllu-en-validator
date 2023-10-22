@@ -105,6 +105,7 @@ mwt_suffixes = {
         'can\'t': [Token(form='ca', lemma='can'), Token(form='n\'t', lemma='not'), Token(form='\'ve', lemma='have')],  # can not have
         'could': [Token(form='could', lemma='could'), Token(form='\'ve', lemma='have')],  # could have
         'I': [Token(form='I', lemma='I'), Token(form='\'ve', lemma='have')],  # I have
+        'might': [Token(form='might', lemma='might'), Token(form='\'ve', lemma='have')],  # might have
         'must': [Token(form='must', lemma='must'), Token(form='\'ve', lemma='have')],  # must have
         'probably': [Token(form='probably', lemma='probably'), Token(form='\'ve', lemma='have')],  # probably have
         'should': [Token(form='should', lemma='should'), Token(form='\'ve', lemma='have')],  # should have
