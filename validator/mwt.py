@@ -9,6 +9,7 @@ from validator.logger import log, LogLevel
 
 mwt_suffixes = {
     '\'d': {
+        'everyone': [Token(form='everyone', lemma='everyone'), Token(form='\'d', lemma=['have', 'would'])],  # everyone had, everyone would
         'he': [Token(form='he', lemma='he'), Token(form='\'d', lemma=['have', 'would'])],  # he had, he would
         'how': [Token(form='how', lemma='how'), Token(form='\'d', lemma=['have', 'would'])],  # how had, how would
         'I': [Token(form='I', lemma='I'), Token(form='\'d', lemma=['have', 'would'])],  # I had, I would
