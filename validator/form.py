@@ -33,8 +33,17 @@ punct_forms = [
 
 RE_CARDINAL_DIGITS = re.compile("^\+?[0-9,\-'’#;:/]+$")
 
+RE_ROMAN_DIGITS = re.compile(r"""^
+### Upper Roman
+             M{0,3}  # 1000 - 3000
+    (C[MD]|D?C{0,3}) #  100 -  900
+    (X[CL]|L?X{0,3}) #   10 -   90
+    (I[XV]|V?I{0,3}) #    1 -    9
+$""", re.VERBOSE)
+
 num_formats = {
     'NumType=Card|NumForm=Digit': lambda form: RE_CARDINAL_DIGITS.fullmatch(form),
+    'NumType=Card|NumForm=Roman': lambda form: RE_ROMAN_DIGITS.fullmatch(form),
 }
 
 
