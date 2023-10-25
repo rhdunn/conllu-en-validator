@@ -70,6 +70,12 @@ RE_CARDINAL = re.compile("^[0-9][0-9A-Za-z]+$")
 
 RE_CARDINAL_DIGITS = re.compile("^\+?[0-9,\-'’#;:/]+$")
 
+RE_ORDINAL_COMBINED = re.compile(r"""^
+            [0456789]th|1st|2nd|3rd| #  0 -  9
+               1[0-9]th|             # 10 - 19
+    [0-9,]+([0456789]th|1st|2nd|3rd) # 20+
+$""", re.VERBOSE)
+
 RE_FRACTIONAL_DIGITS = re.compile(r"""^
     [0-9]+\.[0-9]+|       # 1.25 ; etc.
     \.[0-9]+|             #  .50 ; etc.
@@ -103,6 +109,10 @@ def cardinal_number(sent, token, form):
 
 
 def ordinal_number(sent, token, form):
+    # NumForm=Combi
+    if RE_ORDINAL_COMBINED.fullmatch(form):
+        log(LogLevel.ERROR, sent, token, f"NumType=Ord should be paired with NumForm=Combi for form '{form}'")
+        return True
     # NumForm=Word
     if form.lower() in ordinal_word_forms:
         log(LogLevel.ERROR, sent, token, f"NumType=Ord should be paired with NumForm=Word for form '{form}'")
@@ -130,6 +140,7 @@ num_formats = {
     'NumType=Mult': multiplicative_number,
     'NumType=Mult|NumForm=Word': lambda sent, token, form: form.lower() in multiplicative_word_forms,
     'NumType=Ord': ordinal_number,
+    'NumType=Ord|NumForm=Combi': lambda sent, token, form: RE_ORDINAL_COMBINED.fullmatch(form),
     'NumType=Ord|NumForm=Word': lambda sent, token, form: form.lower() in ordinal_word_forms,
 }
 
