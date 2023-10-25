@@ -90,6 +90,11 @@ def cardinal_number(sent, token, form):
     return RE_CARDINAL.fullmatch(form)
 
 
+def ordinal_number(sent, token, form):
+    # other
+    return False
+
+
 def multiplicative_number(sent, token, form):
     # NumForm=Word
     if form.lower() in multiplicative_word_forms:
@@ -108,6 +113,7 @@ num_formats = {
     'NumType=Frac|NumForm=Word': lambda sent, token, form: form.lower() in fractional_word_forms,
     'NumType=Mult': multiplicative_number,
     'NumType=Mult|NumForm=Word': lambda sent, token, form: form.lower() in multiplicative_word_forms,
+    'NumType=Ord': ordinal_number,
 }
 
 
