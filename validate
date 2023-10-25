@@ -9,6 +9,7 @@ from validator import conllutil
 from validator.logger import error_count
 
 from validator.contractions import ContractionValidator
+from validator.form import TokenFormValidator
 from validator.mwt import MwtTokenValidator, MwtWordValidator
 from validator.pos import PosTagValidator
 from validator.sentence import SentenceTextValidator, SplitSentenceValidator
@@ -34,6 +35,7 @@ def validate_files(filename, default_language, validator):
 
 validators = {
     'contractions': ContractionValidator,
+    'form': TokenFormValidator,
     'mwt-tokens': MwtTokenValidator,
     'mwt-words': MwtWordValidator,
     'pos-tags': PosTagValidator,
