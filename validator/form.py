@@ -46,6 +46,13 @@ cardinal_word_forms = [
 
 RE_CARDINAL_DIGITS = re.compile("^\+?[0-9,\-'’#;:/]+$")
 
+RE_FRACTIONAL_DIGITS = re.compile(r"""^
+    [0-9]+\.[0-9]+|       # 1.25 ; etc.
+    \.[0-9]+|             #  .50 ; etc.
+    [\u00BC-\u00BE]|      # unicode fractions: 1/4, 1/2, 3/4
+    [\u2150-\u215F\u2189] # unicode number forms
+$""", re.VERBOSE)
+
 RE_ROMAN_DIGITS = re.compile(r"""^
                      [Mm]{0,3}  # 1000 - 3000
     ([Cc][MmDd]|[Dd]?[Cc]{0,3}) #  100 -  900
@@ -57,6 +64,7 @@ num_formats = {
     'NumType=Card|NumForm=Digit': lambda form: RE_CARDINAL_DIGITS.fullmatch(form),
     'NumType=Card|NumForm=Roman': lambda form: RE_ROMAN_DIGITS.fullmatch(form),
     'NumType=Card|NumForm=Word': lambda form: form.lower() in cardinal_word_forms,
+    'NumType=Frac|NumForm=Digit': lambda form: RE_FRACTIONAL_DIGITS.fullmatch(form),
 }
 
 
