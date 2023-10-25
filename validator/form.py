@@ -49,6 +49,8 @@ fractional_word_forms = [
     "hundredth",  # 1/100
 ]
 
+RE_CARDINAL = re.compile("^[0-9][0-9A-Za-z]+$")
+
 RE_CARDINAL_DIGITS = re.compile("^\+?[0-9,\-'’#;:/]+$")
 
 RE_FRACTIONAL_DIGITS = re.compile(r"""^
@@ -65,12 +67,31 @@ RE_ROMAN_DIGITS = re.compile(r"""^
     ([Ii][XxVv]|[Vv]?[Ii]{0,3}) #    1 -    9
 $""", re.VERBOSE)
 
+
+def cardinal_number(sent, token, form):
+    # NumForm=Digit
+    if RE_CARDINAL_DIGITS.fullmatch(form):
+        log(LogLevel.ERROR, sent, token, f"NumType=Card should be paired with NumForm=Digit for form '{form}'")
+        return True
+    # NumForm=Roman
+    if RE_ROMAN_DIGITS.fullmatch(form):
+        log(LogLevel.ERROR, sent, token, f"NumType=Card should be paired with NumForm=Roman for form '{form}'")
+        return True
+    # NumForm=Word
+    if form.lower() in cardinal_word_forms:
+        log(LogLevel.ERROR, sent, token, f"NumType=Card should be paired with NumForm=Word for form '{form}'")
+        return True
+    # other
+    return RE_CARDINAL.fullmatch(form)
+
+
 num_formats = {
-    'NumType=Card|NumForm=Digit': lambda form: RE_CARDINAL_DIGITS.fullmatch(form),
-    'NumType=Card|NumForm=Roman': lambda form: RE_ROMAN_DIGITS.fullmatch(form),
-    'NumType=Card|NumForm=Word': lambda form: form.lower() in cardinal_word_forms,
-    'NumType=Frac|NumForm=Digit': lambda form: RE_FRACTIONAL_DIGITS.fullmatch(form),
-    'NumType=Frac|NumForm=Word': lambda form: form.lower() in fractional_word_forms,
+    'NumType=Card': cardinal_number,
+    'NumType=Card|NumForm=Digit': lambda sent, token, form: RE_CARDINAL_DIGITS.fullmatch(form),
+    'NumType=Card|NumForm=Roman': lambda sent, token, form: RE_ROMAN_DIGITS.fullmatch(form),
+    'NumType=Card|NumForm=Word': lambda sent, token, form: form.lower() in cardinal_word_forms,
+    'NumType=Frac|NumForm=Digit': lambda sent, token, form: RE_FRACTIONAL_DIGITS.fullmatch(form),
+    'NumType=Frac|NumForm=Word': lambda sent, token, form: form.lower() in fractional_word_forms,
 }
 
 
@@ -79,7 +100,7 @@ class TokenFormValidator(Validator):
         super().__init__(language)
 
     @staticmethod
-    def validate_punct(form):
+    def validate_punct(sent, token, form):
         return form in punct_forms
 
     @staticmethod
@@ -108,5 +129,5 @@ class TokenFormValidator(Validator):
     def validate_token(self, sent, token):
         context, matcher = self.get_validator(sent, token)
         form = conllutil.normalized_form(token)
-        if matcher is not None and not matcher(form):
+        if matcher is not None and not matcher(sent, token, form):
             log(LogLevel.ERROR, sent, token, f"invalid {context} form '{form}'")
