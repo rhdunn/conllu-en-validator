@@ -44,6 +44,18 @@ cardinal_word_forms = [
     "t", "trillion",  # 1,000,000,000,000
 ]
 
+ordinal_word_forms = [
+    "zeroth",  # 0
+    "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth",  # 1 - 10
+    "eleventh", "twelfth", "thirteenth", "fourteenth", "fifteenth", "sixteenth", "seventeenth", "eighteenth", "nineteenth",  # 11 - 19
+    "twentieth", "thirtieth", "fortieth", "fiftieth", "sixtieth", "seventieth", "eightieth", "ninetieth",  # 2x - 9x
+    "hundredth",  # 100
+    "thousandth",  # 1,000
+    "millionth",  # 1,000,000
+    "billionth",  # 1,000,000,000
+    "trillionth",  # 1,000,000,000,000
+]
+
 fractional_word_forms = [
     "half",  # 1/2
     "hundredth",  # 1/100
@@ -91,6 +103,10 @@ def cardinal_number(sent, token, form):
 
 
 def ordinal_number(sent, token, form):
+    # NumForm=Word
+    if form.lower() in ordinal_word_forms:
+        log(LogLevel.ERROR, sent, token, f"NumType=Ord should be paired with NumForm=Word for form '{form}'")
+        return True
     # other
     return False
 
@@ -114,6 +130,7 @@ num_formats = {
     'NumType=Mult': multiplicative_number,
     'NumType=Mult|NumForm=Word': lambda sent, token, form: form.lower() in multiplicative_word_forms,
     'NumType=Ord': ordinal_number,
+    'NumType=Ord|NumForm=Word': lambda sent, token, form: form.lower() in ordinal_word_forms,
 }
 
 
