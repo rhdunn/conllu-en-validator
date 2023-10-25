@@ -90,6 +90,15 @@ def cardinal_number(sent, token, form):
     return RE_CARDINAL.fullmatch(form)
 
 
+def multiplicative_number(sent, token, form):
+    # NumForm=Word
+    if form.lower() in multiplicative_word_forms:
+        log(LogLevel.ERROR, sent, token, f"NumType=Mult should be paired with NumForm=Word for form '{form}'")
+        return True
+    # other
+    return False
+
+
 num_formats = {
     'NumType=Card': cardinal_number,
     'NumType=Card|NumForm=Digit': lambda sent, token, form: RE_CARDINAL_DIGITS.fullmatch(form),
@@ -97,6 +106,7 @@ num_formats = {
     'NumType=Card|NumForm=Word': lambda sent, token, form: form.lower() in cardinal_word_forms,
     'NumType=Frac|NumForm=Digit': lambda sent, token, form: RE_FRACTIONAL_DIGITS.fullmatch(form),
     'NumType=Frac|NumForm=Word': lambda sent, token, form: form.lower() in fractional_word_forms,
+    'NumType=Mult': multiplicative_number,
     'NumType=Mult|NumForm=Word': lambda sent, token, form: form.lower() in multiplicative_word_forms,
 }
 
