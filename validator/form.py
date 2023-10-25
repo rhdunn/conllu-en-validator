@@ -31,6 +31,19 @@ punct_forms = [
     '\u2026',  # HORIZONTAL ELLIPSIS
 ]
 
+cardinal_word_forms = [
+    "zero", "nil",  # 0
+    "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",  # 1 - 10
+    "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen",  # 11 - 19
+    "dozen",  # 12 / 13
+    "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety",  # 2x - 9x
+    "hundred",  # 100
+    "k", "thousand",  # 1,000
+    "m", "million", "mill", "mm",  # 1,000,000
+    "b", "billion", "bn",  # 1,000,000,000
+    "t", "trillion",  # 1,000,000,000,000
+]
+
 RE_CARDINAL_DIGITS = re.compile("^\+?[0-9,\-'’#;:/]+$")
 
 RE_ROMAN_DIGITS = re.compile(r"""^
@@ -43,6 +56,7 @@ $""", re.VERBOSE)
 num_formats = {
     'NumType=Card|NumForm=Digit': lambda form: RE_CARDINAL_DIGITS.fullmatch(form),
     'NumType=Card|NumForm=Roman': lambda form: RE_ROMAN_DIGITS.fullmatch(form),
+    'NumType=Card|NumForm=Word': lambda form: form.lower() in cardinal_word_forms,
 }
 
 
