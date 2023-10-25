@@ -1,4 +1,5 @@
 # Copyright (C) 2023 Reece H. Dunn. SPDX-License-Identifier: Apache-2.0
+import re
 
 from validator import conllutil
 from validator.validator import Validator
@@ -30,15 +31,46 @@ punct_forms = [
     '\u2026',  # HORIZONTAL ELLIPSIS
 ]
 
+RE_CARDINAL_DIGITS = re.compile("^\+?[0-9,\-'’#;:/]+$")
+
+num_formats = {
+    'NumType=Card|NumForm=Digit': lambda form: RE_CARDINAL_DIGITS.fullmatch(form),
+}
+
 
 class TokenFormValidator(Validator):
     def __init__(self, language):
         super().__init__(language)
 
-    def validate_token(self, sent, token):
+    @staticmethod
+    def validate_punct(form):
+        return form in punct_forms
+
+    @staticmethod
+    def get_validator(sent, token):
         upos = token['upos']
-        form = conllutil.normalized_form(token)
         if upos == 'PUNCT':
-            if form not in punct_forms:
-                log(LogLevel.ERROR, sent, None,
-                    f"unknown punctuation form '{form}'")
+            return upos, TokenFormValidator.validate_punct
+        elif upos in ['ADJ', 'ADV', 'DET', 'NUM']:
+            num_format = []
+
+            num_type = conllutil.get_feat(token, 'NumType', None)
+            if num_type is not None:
+                num_format.append(f"NumType={num_type}")
+
+            num_form = conllutil.get_feat(token, 'NumForm', None)
+            if num_form is not None:
+                num_format.append(f"NumForm={num_form}")
+
+            num_format = '|'.join(num_format)
+            if num_format in num_formats:
+                return f"{upos} with {num_format}", num_formats[num_format]
+            return upos, None
+        else:
+            return upos, None
+
+    def validate_token(self, sent, token):
+        context, matcher = self.get_validator(sent, token)
+        form = conllutil.normalized_form(token)
+        if matcher is not None and not matcher(form):
+            log(LogLevel.ERROR, sent, token, f"invalid {context} form '{form}'")
