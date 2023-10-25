@@ -49,6 +49,11 @@ fractional_word_forms = [
     "hundredth",  # 1/100
 ]
 
+multiplicative_word_forms = [
+    "once",
+    "twice",
+]
+
 RE_CARDINAL = re.compile("^[0-9][0-9A-Za-z]+$")
 
 RE_CARDINAL_DIGITS = re.compile("^\+?[0-9,\-'’#;:/]+$")
@@ -92,6 +97,7 @@ num_formats = {
     'NumType=Card|NumForm=Word': lambda sent, token, form: form.lower() in cardinal_word_forms,
     'NumType=Frac|NumForm=Digit': lambda sent, token, form: RE_FRACTIONAL_DIGITS.fullmatch(form),
     'NumType=Frac|NumForm=Word': lambda sent, token, form: form.lower() in fractional_word_forms,
+    'NumType=Mult|NumForm=Word': lambda sent, token, form: form.lower() in multiplicative_word_forms,
 }
 
 
