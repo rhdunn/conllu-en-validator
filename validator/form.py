@@ -44,6 +44,11 @@ cardinal_word_forms = [
     "t", "trillion",  # 1,000,000,000,000
 ]
 
+fractional_word_forms = [
+    "half",  # 1/2
+    "hundredth",  # 1/100
+]
+
 RE_CARDINAL_DIGITS = re.compile("^\+?[0-9,\-'’#;:/]+$")
 
 RE_FRACTIONAL_DIGITS = re.compile(r"""^
@@ -65,6 +70,7 @@ num_formats = {
     'NumType=Card|NumForm=Roman': lambda form: RE_ROMAN_DIGITS.fullmatch(form),
     'NumType=Card|NumForm=Word': lambda form: form.lower() in cardinal_word_forms,
     'NumType=Frac|NumForm=Digit': lambda form: RE_FRACTIONAL_DIGITS.fullmatch(form),
+    'NumType=Frac|NumForm=Word': lambda form: form.lower() in fractional_word_forms,
 }
 
 
