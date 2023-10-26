@@ -1,5 +1,6 @@
 # Copyright (C) 2023 Reece H. Dunn. SPDX-License-Identifier: Apache-2.0
 import re
+import unicodedata
 
 from validator import conllutil
 from validator.validator import Validator
@@ -66,6 +67,14 @@ multiplicative_word_forms = [
     "twice",
 ]
 
+symbol_general_categories = [
+    'Po',  # punctuation (other)
+    'Sc',  # symbol (currency)
+    'Sk',  # symbol (non-letterlike modifier)
+    'Sm',  # symbol (math)
+    'So',  # symbol (other)
+]
+
 RE_CARDINAL = re.compile("^[0-9][0-9A-Za-z]+$")
 
 RE_CARDINAL_DIGITS = re.compile("^\+?[0-9,\-'’#;:/]+$")
@@ -130,6 +139,14 @@ def multiplicative_number(sent, token, form):
     return False
 
 
+def symbol_form(sent, token, form):
+    for c in form:
+        cat = unicodedata.category(c)
+        if cat not in symbol_general_categories:
+            return False
+    return len(form) == 1
+
+
 num_formats = {
     'NumType=Card': cardinal_number,
     'NumType=Card|NumForm=Digit': lambda sent, token, form: RE_CARDINAL_DIGITS.fullmatch(form),
@@ -173,6 +190,8 @@ class TokenFormValidator(Validator):
             if num_format in num_formats:
                 return f"{upos} with {num_format}", num_formats[num_format]
             return upos, None
+        elif upos == 'SYM':
+            return upos, symbol_form
         else:
             return upos, None
 
