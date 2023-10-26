@@ -75,6 +75,20 @@ symbol_general_categories = [
     'So',  # symbol (other)
 ]
 
+word_general_categories = [
+    'Ll',  # letter (lowercase)
+    'Lt',  # letter (titlecase)
+    'Lu',  # letter (uppercase)
+    'Lm',  # letter (modifier)
+]
+
+word_form_additional_characters = [
+    '\u0027',  # APOSTROPHE; SINGLE QUOTATION MARK
+    '\u002D',  # HYPHEN-MINUS
+    '\u002E',  # FULL STOP
+    '\u2018',  # LEFT SINGLE QUOTATION MARK
+]
+
 RE_CARDINAL = re.compile("^[0-9][0-9A-Za-z]+$")
 
 RE_CARDINAL_DIGITS = re.compile("^\+?[0-9,\-'’#;:/]+$")
@@ -147,6 +161,14 @@ def symbol_form(sent, token, form):
     return len(form) == 1
 
 
+def word_form(sent, token, form):
+    for c in form:
+        cat = unicodedata.category(c)
+        if cat not in word_general_categories and c not in word_form_additional_characters:
+            return False
+    return True
+
+
 num_formats = {
     'NumType=Card': cardinal_number,
     'NumType=Card|NumForm=Digit': lambda sent, token, form: RE_CARDINAL_DIGITS.fullmatch(form),
@@ -189,11 +211,13 @@ class TokenFormValidator(Validator):
             num_format = '|'.join(num_format)
             if num_format in num_formats:
                 return f"{upos} with {num_format}", num_formats[num_format]
+            if upos != 'NUM':
+                return upos, word_form
             return upos, None
         elif upos == 'SYM':
             return upos, symbol_form
         else:
-            return upos, None
+            return upos, word_form
 
     def validate_token(self, sent, token):
         context, matcher = self.get_validator(sent, token)
