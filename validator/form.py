@@ -58,8 +58,8 @@ ordinal_word_forms = [
 
 fractional_word_forms = [
     "half",  # 1/2
-    "hundredth",  # 1/100
 ]
+fractional_word_forms.extend(fractional_word_forms)  # 1/N
 
 multiplicative_word_forms = [
     "once",
