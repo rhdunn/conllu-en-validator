@@ -89,6 +89,23 @@ word_form_additional_characters = [
     '\u2019',  # RIGHT SINGLE QUOTATION MARK
 ]
 
+symbol_additional_forms = [
+    # Sideways Emoticons: https://en.wikipedia.org/wiki/List_of_emoticons
+    ':)', ':-)', '=)', '(:',  # smiling
+    ':D', ':-D', '=D', 'D:',  # laughing; grinning
+    ':(', ':-(', '=(',  # frowning; sad
+    ':/', ':-/', '=/',  # skeptical
+    ':O', ':-O', '=O',  # surprised
+    ':P', ':-P', '=p', ';P',  # tongue sticking out
+    ';)', ';-)', ';D',  # winking
+    '>:(',  # angry
+    # Upright Emoticons: https://en.wikipedia.org/wiki/List_of_emoticons
+    '^_^',  # joyful
+    'o_o',  # surprised
+    '-_-',  # sleepy
+    'x_x', 'x.x',  # dead
+]
+
 RE_CARDINAL = re.compile("^[0-9][0-9A-Za-z]+$")
 
 RE_CARDINAL_DIGITS = re.compile("^\+?[0-9,\-'’#;:/]+$")
@@ -157,8 +174,8 @@ def symbol_form(sent, token, form):
     for c in form:
         cat = unicodedata.category(c)
         if cat not in symbol_general_categories:
-            return False
-    return len(form) == 1
+            return form in symbol_additional_forms
+    return len(form) == 1 or form in symbol_additional_forms
 
 
 def word_form(sent, token, form):
