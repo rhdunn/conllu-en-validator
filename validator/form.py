@@ -104,6 +104,11 @@ symbol_additional_forms = [
     'o_o',  # surprised
     '-_-',  # sleepy
     'x_x', 'x.x',  # dead
+    # Arrows
+    '<-', '->',  # left/right thin arrow
+    '<=', '=>',  # left/right thick arrow
+    '<<', '>>',  # left/right double arrow head
+    '<<<', '>>>',  # left/right triple arrow head
 ]
 
 RE_CARDINAL = re.compile("^[0-9][0-9A-Za-z]+$")
