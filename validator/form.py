@@ -86,7 +86,7 @@ word_form_additional_characters = [
     '\u0027',  # APOSTROPHE; SINGLE QUOTATION MARK
     '\u002D',  # HYPHEN-MINUS
     '\u002E',  # FULL STOP
-    '\u2018',  # LEFT SINGLE QUOTATION MARK
+    '\u2019',  # RIGHT SINGLE QUOTATION MARK
 ]
 
 RE_CARDINAL = re.compile("^[0-9][0-9A-Za-z]+$")
