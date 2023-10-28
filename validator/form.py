@@ -106,9 +106,15 @@ symbol_additional_forms = [
     'x_x', 'x.x',  # dead
     # Arrows
     '<-', '->',  # left/right thin arrow
-    '<=', '=>',  # left/right thick arrow
+    '<=', '=>',  # left/right thick arrow; less-than or equals
     '<<', '>>',  # left/right double arrow head
     '<<<', '>>>',  # left/right triple arrow head
+    # Programming
+    '++',  # increment
+    '--',  # decrement
+    '==',  # equals
+    '!=',  # not equals
+    '>=',  # greater-than or equals
 ]
 
 RE_CARDINAL = re.compile("^[0-9][0-9A-Za-z]+$")
