@@ -222,5 +222,7 @@ class TokenFormValidator(Validator):
     def validate_token(self, sent, token):
         context, matcher = self.get_validator(sent, token)
         form = conllutil.normalized_form(token)
-        if matcher is not None and not matcher(sent, token, form):
+        if form is None:
+            log(LogLevel.ERROR, sent, token, f"missing form text")
+        elif matcher is not None and not matcher(sent, token, form):
             log(LogLevel.ERROR, sent, token, f"invalid {context} form '{form}'")
