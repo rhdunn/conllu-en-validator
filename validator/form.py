@@ -240,11 +240,16 @@ class TokenFormValidator(Validator):
                 num_format.append(f"NumForm={num_form}")
 
             num_format = '|'.join(num_format)
+            if len(num_format) == 0:
+                context = upos
+            else:
+                context = f"{upos} with {num_format}"
+
             if num_format in num_formats:
-                return f"{upos} with {num_format}", num_formats[num_format]
+                return context, num_formats[num_format]
             if upos != 'NUM':
-                return upos, word_form
-            return upos, None
+                return context, word_form
+            return context, None
         elif upos == 'SYM':
             return upos, symbol_form
         else:
