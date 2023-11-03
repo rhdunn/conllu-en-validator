@@ -92,6 +92,10 @@ word_form_additional_characters = [
     '\u2019',  # RIGHT SINGLE QUOTATION MARK
 ]
 
+word_additional_cconj_forms = [
+    '&',  # and
+]
+
 symbol_additional_forms = [
     # Sideways Emoticons: https://en.wikipedia.org/wiki/List_of_emoticons
     ':)', ':-)', '=)', '(:',  # smiling
@@ -196,6 +200,9 @@ def word_form(sent, token, form):
     for c in form:
         cat = unicodedata.category(c)
         if cat not in word_general_categories and c not in word_form_additional_characters:
+            upos = token['upos']
+            if upos == 'CCONJ' and form in word_additional_cconj_forms:
+                return True
             return False
     return True
 
