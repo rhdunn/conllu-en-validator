@@ -200,6 +200,9 @@ def word_form(sent, token, form):
     return True
 
 
+# https://universaldependencies.org/u/feat/NumType.html
+# https://universaldependencies.org/u/feat/NumForm.html
+# https://universaldependencies.org/u/feat/Number.html
 num_formats = {
     'NumType=Card': cardinal_number,
     'NumType=Card|NumForm=Digit': lambda sent, token, form: RE_CARDINAL_DIGITS.fullmatch(form),
@@ -211,6 +214,7 @@ num_formats = {
     'NumType=Mult|NumForm=Word': lambda sent, token, form: form.lower() in multiplicative_word_forms,
     'NumType=Ord': ordinal_number,
     'NumType=Ord|NumForm=Combi': lambda sent, token, form: RE_ORDINAL_COMBINED.fullmatch(form),
+    'NumType=Ord|NumForm=Combi|Number=Sing': lambda sent, token, form: RE_ORDINAL_COMBINED.fullmatch(form),
     'NumType=Ord|NumForm=Word': lambda sent, token, form: form.lower() in ordinal_word_forms,
 }
 
@@ -228,16 +232,23 @@ class TokenFormValidator(Validator):
         upos = token['upos']
         if upos == 'PUNCT':
             return upos, TokenFormValidator.validate_punct
-        elif upos in ['ADJ', 'ADV', 'DET', 'NUM']:
+        elif upos in ['ADJ', 'ADV', 'DET', 'NUM', 'NOUN']:  # NOTE: Several English treebanks tag date ordinals as NOUN
             num_format = []
 
+            # https://universaldependencies.org/u/feat/NumType.html
             num_type = conllutil.get_feat(token, 'NumType', None)
             if num_type is not None:
                 num_format.append(f"NumType={num_type}")
 
+            # https://universaldependencies.org/u/feat/NumForm.html
             num_form = conllutil.get_feat(token, 'NumForm', None)
             if num_form is not None:
                 num_format.append(f"NumForm={num_form}")
+
+            # https://universaldependencies.org/u/feat/Number.html
+            number = conllutil.get_feat(token, 'Number', None)
+            if number is not None:
+                num_format.append(f"Number={number}")
 
             num_format = '|'.join(num_format)
             if len(num_format) == 0:
