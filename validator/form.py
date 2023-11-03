@@ -63,7 +63,7 @@ fractional_word_forms = [
     "half",  # 1/2
     "quarter",  # 1/4
 ]
-fractional_word_forms.extend(fractional_word_forms)  # 1/N
+fractional_word_forms.extend(ordinal_word_forms)  # 1/N
 
 multiplicative_word_forms = [
     "once",
