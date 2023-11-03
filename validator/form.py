@@ -43,6 +43,7 @@ cardinal_word_forms = [
     "m", "million", "mill", "mm",  # 1,000,000
     "b", "billion", "bn",  # 1,000,000,000
     "t", "trillion",  # 1,000,000,000,000
+    "zillion",  # very large
 ]
 
 ordinal_word_forms = [
@@ -55,6 +56,7 @@ ordinal_word_forms = [
     "millionth",  # 1,000,000
     "billionth",  # 1,000,000,000
     "trillionth",  # 1,000,000,000,000
+    "zillionth",  # very large
 ]
 
 fractional_word_forms = [
