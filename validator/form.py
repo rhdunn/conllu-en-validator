@@ -125,9 +125,9 @@ RE_CARDINAL = re.compile("^[0-9][0-9A-Za-z]+$")
 RE_CARDINAL_DIGITS = re.compile("^\+?[0-9,\-'’#;:/]+$")
 
 RE_ORDINAL_COMBINED = re.compile(r"""^
-            [0456789]th|1st|2nd|3rd| #  0 -  9
-               1[0-9]th|             # 10 - 19
-    [0-9,]+([0456789]th|1st|2nd|3rd) # 20+
+            [0456789](th|TH)|1(st|ST)|2(nd|ND)|3(rd|RD)| #  0 -  9
+               1[0-9](th|TH)|                            # 10 - 19
+    [0-9,]+([0456789](th|TH)|1(st|ST)|2(nd|ND)|3(rd|RD)) # 20+
 $""", re.VERBOSE)
 
 RE_FRACTIONAL_DIGITS = re.compile(r"""^
