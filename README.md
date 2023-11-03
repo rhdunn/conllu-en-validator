@@ -7,9 +7,10 @@ Usage:
 ```
 
 - `--language LANG` -- The default language to use if none is specified in the document metadata.
+- `--validator VALIDATOR` -- The validation check to perform on the input file.
 
 ## Validators
-The `--validator` can be one of the following:
+The validator can be one of the following:
 
 contractions
 : Check that `'` in dialectal contractions are kept as a single token instead of
