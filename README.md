@@ -38,6 +38,9 @@ sentence-text
 split-sentences
 : Check that the sentences are split correctly.
 
+tokenization
+: Check that tokens such as `Mrs.` are single tokens.
+
 ## License
 Copyright (C) 2023 Reece H. Dunn
 

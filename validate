@@ -13,6 +13,7 @@ from validator.form import TokenFormValidator
 from validator.mwt import MwtTokenValidator, MwtWordValidator
 from validator.pos import PosTagValidator
 from validator.sentence import SentenceTextValidator, SplitSentenceValidator
+from validator.tokenization import TokenizationValidator
 
 
 def validate_conllu(filename, default_language, validator):
@@ -41,6 +42,7 @@ validators = {
     'pos-tags': PosTagValidator,
     'sentence-text': SentenceTextValidator,
     'split-sentences': SplitSentenceValidator,
+    'tokenization': TokenizationValidator,
 }
 
 
