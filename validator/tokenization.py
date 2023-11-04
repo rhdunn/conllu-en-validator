@@ -5,6 +5,7 @@ from validator.logger import log, LogLevel
 
 
 abbreviations = [
+    'Miss',
     'Mrs',
 ]
 
