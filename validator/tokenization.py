@@ -14,7 +14,7 @@ abbreviations = [
 ]
 
 
-class TokenizationValidator(Validator):
+class AbbreviationValidator(Validator):
     def __init__(self, language):
         super().__init__(language)
         self.prev_token = None

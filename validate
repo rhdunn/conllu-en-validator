@@ -13,7 +13,7 @@ from validator.form import TokenFormValidator
 from validator.mwt import MwtTokenValidator, MwtWordValidator
 from validator.pos import PosTagValidator
 from validator.sentence import SentenceTextValidator, SplitSentenceValidator
-from validator.tokenization import TokenizationValidator
+from validator.tokenization import AbbreviationValidator
 
 
 def validate_conllu(filename, default_language, validator):
@@ -35,6 +35,7 @@ def validate_files(filename, default_language, validator):
 
 
 validators = {
+    'abbreviations': AbbreviationValidator,
     'contractions': ContractionValidator,
     'form': TokenFormValidator,
     'mwt-tokens': MwtTokenValidator,
@@ -42,7 +43,6 @@ validators = {
     'pos-tags': PosTagValidator,
     'sentence-text': SentenceTextValidator,
     'split-sentences': SplitSentenceValidator,
-    'tokenization': TokenizationValidator,
 }
 
 

@@ -12,6 +12,9 @@ Usage:
 ## Validators
 The validator can be one of the following:
 
+abbreviations
+: Check that tokens such as `Mrs.` are single tokens.
+
 contractions
 : Check that `'` in dialectal contractions are kept as a single token instead of
   incorrectly split into a multi-word token.
@@ -37,9 +40,6 @@ sentence-text
 
 split-sentences
 : Check that the sentences are split correctly.
-
-tokenization
-: Check that tokens such as `Mrs.` are single tokens.
 
 ## License
 Copyright (C) 2023 Reece H. Dunn
