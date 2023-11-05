@@ -9,6 +9,7 @@ abbreviations = [
     'Miss',
     'Mr',
     'Mrs',
+    'St',  # Saint; Street
 ]
 
 
