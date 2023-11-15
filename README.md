@@ -23,6 +23,9 @@ form
 : Check that the token and word `FORM` field is consistent with the assigned `UPOS`,
   for example if punctuation tokens contains a single punctuation character.
 
+lemma
+: Check that the token and word `LEMMA` field is consistent with the assigned `XPOS`.
+
 mwt-tokens
 : Check that `SpaceAfter` is not used within multi-word tokens. This will flag the use
   of `SpaceAfter` between other tokens that should be annotated as multi-word tokens.

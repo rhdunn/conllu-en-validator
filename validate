@@ -9,6 +9,7 @@ from validator import conllutil
 from validator.logger import error_count
 
 from validator.contractions import ContractionValidator
+from validator.lemma import TokenLemmaValidator
 from validator.form import TokenFormValidator
 from validator.mwt import MwtTokenValidator, MwtWordValidator
 from validator.pos import PosTagValidator
@@ -38,6 +39,7 @@ validators = {
     'abbreviations': AbbreviationValidator,
     'contractions': ContractionValidator,
     'form': TokenFormValidator,
+    'lemma': TokenLemmaValidator,
     'mwt-tokens': MwtTokenValidator,
     'mwt-words': MwtWordValidator,
     'pos-tags': PosTagValidator,
