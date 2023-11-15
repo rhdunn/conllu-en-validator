@@ -35,6 +35,7 @@ lemma_exceptions = {
         'ce': 'CE',  # Common/Current/Christian Era
         'e': 'E',  # east
         'iirc': 'IIRC',  # if I remember correctly
+        'imo': 'IMO',  # in my opinion
         'irl': 'IRL',  # in real life
         'n': 'N',  # north
         'ps': 'PS',  # postscript
