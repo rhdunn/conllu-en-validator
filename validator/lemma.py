@@ -34,6 +34,7 @@ lemma_exceptions = {
         'ce': 'CE',  # Common/Current/Christian Era
         'n': 'N',  # north
         'ps': 'PS',  # postscript
+        's': 'S',  # south
         # dotted abbreviations
         'aka': 'a.k.a.',  # also known as
     }
