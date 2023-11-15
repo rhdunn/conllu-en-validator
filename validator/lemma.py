@@ -6,7 +6,7 @@ from validator.logger import log, LogLevel
 
 
 def match_lowercase_lemma(sent, token, form, lemma, xpos):
-    lower_form = form.lower()
+    lower_form = form.lower().replace('’', '\'')
     if lower_form == lemma:
         pass  # matched
     elif xpos in lemma_exceptions and lower_form in lemma_exceptions[xpos]:
@@ -24,7 +24,6 @@ lemma_exceptions = {
     'RB': {  # adverbs
         # PART
         'n\'t': 'not',
-        'n’t': 'not',
         'n`t': 'not',
         'nt': 'not',
         # uppercase abbreviations
