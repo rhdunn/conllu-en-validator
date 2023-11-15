@@ -33,6 +33,7 @@ lemma_exceptions = {
         'bce': 'BCE',  # Before the Common/Current/Christian Era
         'ce': 'CE',  # Common/Current/Christian Era
         'e': 'E',  # east
+        'iirc': 'IIRC',  # if I remember correctly
         'n': 'N',  # north
         'ps': 'PS',  # postscript
         's': 'S',  # south
