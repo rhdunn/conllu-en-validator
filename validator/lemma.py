@@ -27,6 +27,8 @@ class TokenLemmaValidator(Validator):
         if lemma is None or lemma == '_':
             if token['upos'] == 'X' and token['deprel'] == 'goeswith':
                 pass  # goeswith have `_` as the lemma
+            elif lemma == '_' and xpos == 'NFP':
+                pass  # underscore as an actual lemma, not a missing entry
             else:
                 log(LogLevel.ERROR, sent, token, f"missing lemma text")
         elif form is None:
