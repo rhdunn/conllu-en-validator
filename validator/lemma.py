@@ -32,6 +32,7 @@ lemma_exceptions = {
         'bc': 'BC',  # Before Christ
         'bce': 'BCE',  # Before the Common/Current/Christian Era
         'ce': 'CE',  # Common/Current/Christian Era
+        'n': 'N',  # north
         'ps': 'PS',  # postscript
         # dotted abbreviations
         'aka': 'a.k.a.',  # also known as
