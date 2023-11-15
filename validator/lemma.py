@@ -35,6 +35,7 @@ lemma_exceptions = {
         'n': 'N',  # north
         'ps': 'PS',  # postscript
         's': 'S',  # south
+        'w': 'W',  # west
         # dotted abbreviations
         'aka': 'a.k.a.',  # also known as
     }
