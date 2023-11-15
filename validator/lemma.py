@@ -24,8 +24,11 @@ class TokenLemmaValidator(Validator):
         form = conllutil.normalized_form(token)
         lemma = token['lemma']
         xpos = token['xpos']
-        if lemma is None:
-            log(LogLevel.ERROR, sent, token, f"missing lemma text")
+        if lemma is None or lemma == '_':
+            if token['upos'] == 'X' and token['deprel'] == 'goeswith':
+                pass  # goeswith have `_` as the lemma
+            else:
+                log(LogLevel.ERROR, sent, token, f"missing lemma text")
         elif form is None:
             pass  # Missing form text is reported by the 'form' validator.
         elif xpos in lemma_validators:
