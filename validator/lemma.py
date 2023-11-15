@@ -31,6 +31,7 @@ lemma_exceptions = {
         'asap': 'ASAP',  # as soon as possible
         'bc': 'BC',  # Before Christ
         'bce': 'BCE',  # Before the Common/Current/Christian Era
+        'btw': 'BTW',  # by the way
         'ce': 'CE',  # Common/Current/Christian Era
         'e': 'E',  # east
         'iirc': 'IIRC',  # if I remember correctly
