@@ -22,10 +22,13 @@ lemma_validators = {
 
 lemma_exceptions = {
     'RB': {  # adverbs
+        # PART
         'n\'t': 'not',
         'n’t': 'not',
         'n`t': 'not',
         'nt': 'not',
+        # uppercase abbreviations
+        'asap': 'ASAP',  # as soon as possible
     }
 }
 
