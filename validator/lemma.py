@@ -28,6 +28,7 @@ lemma_exceptions = {
         'n`t': 'not',
         'nt': 'not',
         # uppercase abbreviations
+        'ad': 'AD',  # Anno Domini
         'asap': 'ASAP',  # as soon as possible
         'bc': 'BC',  # Before Christ
     }
