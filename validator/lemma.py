@@ -33,6 +33,8 @@ lemma_exceptions = {
         'bce': 'BCE',  # Before the Common/Current/Christian Era
         'ce': 'CE',  # Common/Current/Christian Era
         'ps': 'PS',  # postscript
+        # dotted abbreviations
+        'aka': 'a.k.a.',  # also known as
     }
 }
 
