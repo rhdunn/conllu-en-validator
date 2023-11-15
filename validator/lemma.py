@@ -32,6 +32,7 @@ lemma_exceptions = {
         'asap': 'ASAP',  # as soon as possible
         'bc': 'BC',  # Before Christ
         'bce': 'BCE',  # Before the Common/Current/Christian Era
+        'ce': 'CE',  # Common/Current/Christian Era
     }
 }
 
