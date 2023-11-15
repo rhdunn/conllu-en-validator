@@ -29,6 +29,7 @@ lemma_exceptions = {
         'nt': 'not',
         # uppercase abbreviations
         'asap': 'ASAP',  # as soon as possible
+        'bc': 'BC',  # Before Christ
     }
 }
 
