@@ -31,6 +31,7 @@ lemma_exceptions = {
         'ad': 'AD',  # Anno Domini
         'asap': 'ASAP',  # as soon as possible
         'bc': 'BC',  # Before Christ
+        'bce': 'BCE',  # Before the Common/Current/Christian Era
     }
 }
 
