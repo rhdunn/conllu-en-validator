@@ -6,7 +6,8 @@ from validator.logger import log, LogLevel
 
 
 def lowercase_form_lemma(form):
-    return form.lower().replace('’', '\'')
+    normalized = form.lower().replace('’', '\'')
+    return normalized, normalized
 
 
 lemmatization_rules = {
@@ -61,10 +62,10 @@ class TokenLemmaValidator(Validator):
         super().__init__(language)
 
     def validate_lemma(self, sent, token, rule, form, lemma, xpos):
-        expected_lemma = lemmatization_rules[rule](form)
+        normalized_form, expected_lemma = lemmatization_rules[rule](form)
         if expected_lemma == lemma:
             pass  # matched
-        elif xpos in lemma_exceptions and expected_lemma in lemma_exceptions[xpos]:
+        elif xpos in lemma_exceptions and normalized_form in lemma_exceptions[xpos]:
             pass  # matched via a special case
         else:
             log(LogLevel.ERROR, sent, token,
