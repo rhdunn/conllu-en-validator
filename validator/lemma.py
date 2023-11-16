@@ -18,6 +18,7 @@ def match_lowercase_lemma(sent, token, form, lemma, xpos):
 
 lemma_validators = {
     'RB': match_lowercase_lemma,  # adverb
+    'TO': match_lowercase_lemma,  # "to"
 }
 
 lemma_exceptions = {
@@ -43,6 +44,10 @@ lemma_exceptions = {
         'w': 'W',  # west
         # dotted abbreviations
         'aka': 'a.k.a.',  # also known as
+    },
+    'TO': { # PART+TO -- "to"
+        'na': 'to',  # wan|na, etc.
+        'ta': 'to',  # got|ta, etc.
     }
 }
 
