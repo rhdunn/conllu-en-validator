@@ -32,6 +32,7 @@ lemmatization_rules = {
 
 plural_noun_stemming_rules = [
     ('ches', 'ch'),
+    ('shes', 'sh'),
     ('ies', 'y'),
     ('s', ''),
 ]
