@@ -25,7 +25,7 @@ def match_lowercase_lemma(sent, token, rule, form, lemma, xpos):
             f"{token['xpos']} lemma '{lemma}' does not match {rule} applied to form '{form}'")
 
 
-lemma_validators = {
+xpos_lemmatization_rule_names = {
     'DT': 'lowercase-form',  # determiner
     'RB': 'lowercase-form',  # adverb
     'TO': 'lowercase-form',  # "to"
@@ -84,8 +84,8 @@ class TokenLemmaValidator(Validator):
                 log(LogLevel.ERROR, sent, token, f"missing lemma text")
         elif form is None:
             pass  # Missing form text is reported by the 'form' validator.
-        elif xpos in lemma_validators:
-            rule = lemma_validators[xpos]
+        elif xpos in xpos_lemmatization_rule_names:
+            rule = xpos_lemmatization_rule_names[xpos]
             match_lowercase_lemma(sent, token, rule, form, lemma, xpos)
         else:
             pass
