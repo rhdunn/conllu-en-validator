@@ -98,6 +98,7 @@ lemma_exceptions = {
         # -ives
         'knives': 'knife',
         'lives': 'life',
+        'wives': 'wife',
     },
     'RB': {  # adverbs
         # PART
