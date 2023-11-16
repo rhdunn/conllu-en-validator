@@ -35,6 +35,7 @@ plural_noun_stemming_rules = [
     ('shes', 'sh'),
     ('sses', 'ss'),
     ('ies', 'y'),
+    ('xes', 'x'),
     ('s', ''),
 ]
 
