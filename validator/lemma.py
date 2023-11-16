@@ -60,10 +60,10 @@ class TokenLemmaValidator(Validator):
         super().__init__(language)
 
     def validate_lemma(self, sent, token, rule, form, lemma, xpos):
-        lower_form = lemmatization_rules[rule](form)
-        if lower_form == lemma:
+        expected_lemma = lemmatization_rules[rule](form)
+        if expected_lemma == lemma:
             pass  # matched
-        elif xpos in lemma_exceptions and lower_form in lemma_exceptions[xpos]:
+        elif xpos in lemma_exceptions and expected_lemma in lemma_exceptions[xpos]:
             pass  # matched via a special case
         else:
             log(LogLevel.ERROR, sent, token,
