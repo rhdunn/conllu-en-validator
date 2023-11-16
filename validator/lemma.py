@@ -31,6 +31,7 @@ lemmatization_rules = {
 }
 
 plural_noun_stemming_rules = [
+    ('ches', 'ch'),
     ('ies', 'y'),
     ('s', ''),
 ]
@@ -65,6 +66,12 @@ lemma_exceptions = {
         'those': 'these',
     },
     'NNS': { # plural nouns
+        # -ches exceptions
+        'aches': 'ache',
+        'caches': 'cache',
+        'headaches': 'headache',
+        'heartaches': 'heartache',
+        'niches': 'niche',
         # -ies exceptions
         'budgies': 'budgie',
         'cookies': 'cookie',
