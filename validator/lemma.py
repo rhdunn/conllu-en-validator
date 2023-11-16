@@ -9,21 +9,26 @@ def lowercase_form_lemma(form):
     return form.lower().replace('’', '\'')
 
 
-def match_lowercase_lemma(sent, token, form, lemma, xpos):
-    lower_form = lowercase_form_lemma(form)
+lemmatization_rules = {
+    'lowercase-form': lowercase_form_lemma,
+}
+
+
+def match_lowercase_lemma(sent, token, rule, form, lemma, xpos):
+    lower_form = lemmatization_rules[rule](form)
     if lower_form == lemma:
         pass  # matched
     elif xpos in lemma_exceptions and lower_form in lemma_exceptions[xpos]:
         pass  # matched via a special case
     else:
         log(LogLevel.ERROR, sent, token,
-            f"{token['xpos']} lemma '{lemma}' is not the lowercase form '{form}' text")
+            f"{token['xpos']} lemma '{lemma}' does not match {rule} applied to form '{form}'")
 
 
 lemma_validators = {
-    'DT': match_lowercase_lemma,  # determiner
-    'RB': match_lowercase_lemma,  # adverb
-    'TO': match_lowercase_lemma,  # "to"
+    'DT': 'lowercase-form',  # determiner
+    'RB': 'lowercase-form',  # adverb
+    'TO': 'lowercase-form',  # "to"
 }
 
 lemma_exceptions = {
@@ -80,6 +85,7 @@ class TokenLemmaValidator(Validator):
         elif form is None:
             pass  # Missing form text is reported by the 'form' validator.
         elif xpos in lemma_validators:
-            lemma_validators[xpos](sent, token, form, lemma, xpos)
+            rule = lemma_validators[xpos]
+            match_lowercase_lemma(sent, token, rule, form, lemma, xpos)
         else:
             pass
