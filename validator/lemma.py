@@ -5,8 +5,12 @@ from validator.validator import Validator
 from validator.logger import log, LogLevel
 
 
+def lowercase_form_lemma(form):
+    return form.lower().replace('’', '\'')
+
+
 def match_lowercase_lemma(sent, token, form, lemma, xpos):
-    lower_form = form.lower().replace('’', '\'')
+    lower_form = lowercase_form_lemma(form)
     if lower_form == lemma:
         pass  # matched
     elif xpos in lemma_exceptions and lower_form in lemma_exceptions[xpos]:
