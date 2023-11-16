@@ -63,10 +63,10 @@ class TokenLemmaValidator(Validator):
 
     def validate_lemma(self, sent, token, rule, form, lemma, xpos):
         normalized_form, expected_lemma = lemmatization_rules[rule](form)
-        if expected_lemma == lemma:
-            pass  # matched
-        elif xpos in lemma_exceptions and normalized_form in lemma_exceptions[xpos]:
+        if xpos in lemma_exceptions and normalized_form in lemma_exceptions[xpos]:
             pass  # matched via a special case
+        elif expected_lemma == lemma:
+            pass  # matched via lemmatization rule
         else:
             log(LogLevel.ERROR, sent, token,
                 f"{token['xpos']} lemma '{lemma}' does not match {rule} applied to form '{form}'")
