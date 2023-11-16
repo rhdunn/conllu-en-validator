@@ -15,6 +15,7 @@ lemmatization_rules = {
 
 xpos_lemmatization_rule_names = {
     'DT': 'lowercase-form',  # determiner
+    'EX': 'lowercase-form',  # existential "there"
     'RB': 'lowercase-form',  # adverb
     'TO': 'lowercase-form',  # "to"
 }
