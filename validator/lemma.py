@@ -5,18 +5,37 @@ from validator.validator import Validator
 from validator.logger import log, LogLevel
 
 
+def apply_stemming_rules(form, rules):
+    for ending, replacement in rules:
+        if form.endswith(ending):
+            return form[:-len(ending)] + replacement
+    return form
+
+
 def lowercase_form_lemma(form):
     normalized = form.lower().replace('’', '\'')
     return normalized, normalized
 
 
+def plural_noun_lemma(form):
+    normalized, _ = lowercase_form_lemma(form)
+    return normalized, apply_stemming_rules(normalized, plural_noun_stemming_rules)
+
+
+
 lemmatization_rules = {
     'lowercase-form': lowercase_form_lemma,
+    'plural-noun': plural_noun_lemma,
 }
+
+plural_noun_stemming_rules = [
+    ('s', ''),
+]
 
 xpos_lemmatization_rule_names = {
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
+    'NNS': 'plural-noun',  # noun, plural
     'RB': 'lowercase-form',  # adverb
     'TO': 'lowercase-form',  # "to"
 }
@@ -69,7 +88,7 @@ class TokenLemmaValidator(Validator):
             pass  # matched via lemmatization rule
         else:
             log(LogLevel.ERROR, sent, token,
-                f"{token['xpos']} lemma '{lemma}' does not match {rule} applied to form '{form}'")
+                f"{token['xpos']} lemma '{lemma}' does not match {rule} applied to form '{form}', expected '{expected_lemma}'")
 
     def validate_token(self, sent, token):
         form = conllutil.normalized_form(token)
