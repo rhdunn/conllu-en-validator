@@ -46,6 +46,8 @@ def normalized_form(token):
         return get_misc(token, 'CorrectForm', form)
     if get_feat(token, 'Style', 'None') == 'Arch':  # archaic
         return get_misc(token, 'ModernForm', form)
+    if get_misc(token, 'SpecialEncoding', 'No') == 'Yes':  # soft hyphen, etc.
+        return get_misc(token, 'CorrectForm', form)
     return form
 
 
