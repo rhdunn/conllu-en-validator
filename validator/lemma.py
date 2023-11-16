@@ -19,6 +19,8 @@ def lowercase_form_lemma(form):
 
 def plural_noun_lemma(form):
     normalized, _ = lowercase_form_lemma(form)
+    if normalized in plural_noun_unmodified_lemma:
+        return normalized, normalized
     return normalized, apply_stemming_rules(normalized, plural_noun_stemming_rules)
 
 
@@ -29,7 +31,23 @@ lemmatization_rules = {
 }
 
 plural_noun_stemming_rules = [
+    ('ies', 'y'),
     ('s', ''),
+]
+
+plural_noun_unmodified_lemma = [
+    'series',
+    'species',
+    # numbers
+    'tens', 'mid-tens',
+    'twenties', 'mid-twenties',
+    'thirties', 'mid-thirties',
+    'fourties', 'mid-fourties',
+    'fifties', 'mid-fifties',
+    'sixties', 'mid-sixties',
+    'seventies', 'mid-seventies',
+    'eighties', 'mid-eighties',
+    'nineties', 'mid-nineties',
 ]
 
 xpos_lemmatization_rule_names = {
@@ -45,6 +63,22 @@ lemma_exceptions = {
         'an': 'a',
         'these': 'this',
         'those': 'these',
+    },
+    'NNS': { # plural nouns
+        # -ies exceptions
+        'budgies': 'budgie',
+        'cookies': 'cookie',
+        'hippies': 'hippie',
+        'kiddies': 'kiddie',
+        'lies': 'lie',
+        'monies': 'money',
+        'movies': 'movie',
+        'newbies': 'newbie',
+        'pies': 'pie',
+        'pinkies': 'pinkie',
+        'pixies': 'pixie',
+        'ties': 'tie',
+        'yachties': 'yachtie',
     },
     'RB': {  # adverbs
         # PART
