@@ -17,11 +17,17 @@ def match_lowercase_lemma(sent, token, form, lemma, xpos):
 
 
 lemma_validators = {
+    'DT': match_lowercase_lemma,  # determiner
     'RB': match_lowercase_lemma,  # adverb
     'TO': match_lowercase_lemma,  # "to"
 }
 
 lemma_exceptions = {
+    'DT': {  # determiners
+        'an': 'a',
+        'these': 'this',
+        'those': 'these',
+    },
     'RB': {  # adverbs
         # PART
         'n\'t': 'not',
