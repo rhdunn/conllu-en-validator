@@ -37,6 +37,7 @@ plural_noun_stemming_rules = [
     ('ies', 'y'),
     ('xes', 'x'),
     ('s', ''),
+    ('men', 'man'),
 ]
 
 plural_noun_unmodified_lemma = [
