@@ -95,6 +95,8 @@ lemma_exceptions = {
         'pixies': 'pixie',
         'ties': 'tie',
         'yachties': 'yachtie',
+        # -ives
+        'lives': 'life',
     },
     'RB': {  # adverbs
         # PART
