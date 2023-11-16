@@ -96,6 +96,7 @@ lemma_exceptions = {
         'ties': 'tie',
         'yachties': 'yachtie',
         # -ives
+        'knives': 'knife',
         'lives': 'life',
     },
     'RB': {  # adverbs
