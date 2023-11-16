@@ -13,18 +13,6 @@ lemmatization_rules = {
     'lowercase-form': lowercase_form_lemma,
 }
 
-
-def match_lowercase_lemma(sent, token, rule, form, lemma, xpos):
-    lower_form = lemmatization_rules[rule](form)
-    if lower_form == lemma:
-        pass  # matched
-    elif xpos in lemma_exceptions and lower_form in lemma_exceptions[xpos]:
-        pass  # matched via a special case
-    else:
-        log(LogLevel.ERROR, sent, token,
-            f"{token['xpos']} lemma '{lemma}' does not match {rule} applied to form '{form}'")
-
-
 xpos_lemmatization_rule_names = {
     'DT': 'lowercase-form',  # determiner
     'RB': 'lowercase-form',  # adverb
@@ -71,6 +59,16 @@ class TokenLemmaValidator(Validator):
     def __init__(self, language):
         super().__init__(language)
 
+    def validate_lemma(self, sent, token, rule, form, lemma, xpos):
+        lower_form = lemmatization_rules[rule](form)
+        if lower_form == lemma:
+            pass  # matched
+        elif xpos in lemma_exceptions and lower_form in lemma_exceptions[xpos]:
+            pass  # matched via a special case
+        else:
+            log(LogLevel.ERROR, sent, token,
+                f"{token['xpos']} lemma '{lemma}' does not match {rule} applied to form '{form}'")
+
     def validate_token(self, sent, token):
         form = conllutil.normalized_form(token)
         lemma = token['lemma']
@@ -86,6 +84,6 @@ class TokenLemmaValidator(Validator):
             pass  # Missing form text is reported by the 'form' validator.
         elif xpos in xpos_lemmatization_rule_names:
             rule = xpos_lemmatization_rule_names[xpos]
-            match_lowercase_lemma(sent, token, rule, form, lemma, xpos)
+            self.validate_lemma(sent, token, rule, form, lemma, xpos)
         else:
             pass
