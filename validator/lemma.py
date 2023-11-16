@@ -72,9 +72,13 @@ lemma_exceptions = {
     'NNS': { # plural nouns
         'children': 'child',
         'feet': 'foot',
+        'knives': 'knife',
+        'lives': 'life',
         'mice': 'mouse',
         'people': 'person',
         'teeth': 'tooth',
+        'wives': 'wife',
+        'wolves': 'wolf',
         # -ches exceptions
         'aches': 'ache',
         'caches': 'cache',
@@ -95,10 +99,6 @@ lemma_exceptions = {
         'pixies': 'pixie',
         'ties': 'tie',
         'yachties': 'yachtie',
-        # -ives
-        'knives': 'knife',
-        'lives': 'life',
-        'wives': 'wife',
     },
     'RB': {  # adverbs
         # PART
