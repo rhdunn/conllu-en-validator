@@ -72,6 +72,7 @@ lemma_exceptions = {
     'NNS': { # plural nouns
         'children': 'child',
         'feet': 'foot',
+        'teeth': 'tooth',
         # -ches exceptions
         'aches': 'ache',
         'caches': 'cache',
