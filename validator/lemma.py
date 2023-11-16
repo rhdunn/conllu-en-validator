@@ -70,6 +70,7 @@ lemma_exceptions = {
         'those': 'these',
     },
     'NNS': { # plural nouns
+        'children': 'child',
         # -ches exceptions
         'aches': 'ache',
         'caches': 'cache',
