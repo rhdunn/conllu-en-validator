@@ -73,6 +73,7 @@ lemma_exceptions = {
         'mice': 'mouse',
         'people': 'person',
         'shelves': 'shelf',
+        'sinuses': 'sinus',
         'surpluses': 'surplus',
         'syntheses': 'synthesis',
         'teeth': 'tooth',
