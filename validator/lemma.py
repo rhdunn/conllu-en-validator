@@ -58,6 +58,7 @@ lemma_exceptions = {
         'analyses': 'analysis',
         'appendices': 'appendix',
         'bases': ['base', 'basis'],
+        'biases': 'bias',
         'buses': 'bus',
         'children': 'child',
         'feet': 'foot',
