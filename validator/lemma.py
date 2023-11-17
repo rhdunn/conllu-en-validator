@@ -65,6 +65,7 @@ lemma_exceptions = {
         'gases': 'gas',
         'geniuses': 'genius',
         'halves': 'half',
+        'hypotheses': 'hypothesis',
         'indices': 'index',
         'knives': 'knife',
         'lives': 'life',
