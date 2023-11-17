@@ -41,6 +41,7 @@ plural_noun_stemming_rules = [
 lemmatization_rule_names = {
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
+    'NNS/Number=Coll': 'lowercase-form',  # noun, collective / singulare tantum (singular form as plural)
     'NNS/Number=Plur': 'plural-noun',  # noun, plural
     'NNS/Number=Ptan': 'lowercase-form',  # noun, plurale tantum (plural form lemma)
     'RB': 'lowercase-form',  # adverb
