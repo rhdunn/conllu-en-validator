@@ -55,6 +55,7 @@ lemma_exceptions = {
         'those': 'that',
     },
     'NNS/Number=Plur': { # plural nouns
+        'analyses': 'analysis',
         'appendices': 'appendix',
         'bases': ['base', 'basis'],
         'buses': 'bus',
