@@ -134,16 +134,16 @@ class TokenLemmaValidator(Validator):
     def __init__(self, language):
         super().__init__(language)
 
-    def validate_lemma(self, sent, token, rule, form, lemma, xpos):
+    def validate_lemma(self, sent, token, rule, form, lemma, lemma_type):
         normalized_form, expected_lemma = lemmatization_rules[rule](form)
-        if xpos in lemma_exceptions and normalized_form in lemma_exceptions[xpos]:
+        if lemma_type in lemma_exceptions and normalized_form in lemma_exceptions[lemma_type]:
             # use the exception lemma instead of the rule-based lemma
-            expected_lemma = lemma_exceptions[xpos][normalized_form]
+            expected_lemma = lemma_exceptions[lemma_type][normalized_form]
         if expected_lemma == lemma:
             pass  # matched via lemmatization rule
         else:
             log(LogLevel.ERROR, sent, token,
-                f"{token['xpos']} lemma '{lemma}' does not match {rule} applied to form '{form}', expected '{expected_lemma}'")
+                f"{lemma_type} lemma '{lemma}' does not match {rule} applied to form '{form}', expected '{expected_lemma}'")
 
     def validate_token(self, sent, token):
         form = conllutil.normalized_form(token)
@@ -158,7 +158,7 @@ class TokenLemmaValidator(Validator):
         if form is None:
             return  # Missing form text is reported by the 'form' validator.
 
-        xpos = token['xpos']
-        if xpos in xpos_lemmatization_rule_names:
-            rule = xpos_lemmatization_rule_names[xpos]
-            self.validate_lemma(sent, token, rule, form, lemma, xpos)
+        lemma_type = token['xpos']
+        if lemma_type in xpos_lemmatization_rule_names:
+            rule = xpos_lemmatization_rule_names[lemma_type]
+            self.validate_lemma(sent, token, rule, form, lemma, lemma_type)
