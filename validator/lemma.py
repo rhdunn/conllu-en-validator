@@ -148,18 +148,17 @@ class TokenLemmaValidator(Validator):
     def validate_token(self, sent, token):
         form = conllutil.normalized_form(token)
         lemma = token['lemma']
-        xpos = token['xpos']
         if lemma is None or lemma == '_':
             if token['upos'] == 'X' and token['deprel'] == 'goeswith':
-                pass  # goeswith have `_` as the lemma
-            elif lemma == '_' and xpos == 'NFP':
-                pass  # underscore as an actual lemma, not a missing entry
-            else:
-                log(LogLevel.ERROR, sent, token, f"missing lemma text")
-        elif form is None:
-            pass  # Missing form text is reported by the 'form' validator.
-        elif xpos in xpos_lemmatization_rule_names:
+                return  # goeswith have `_` as the lemma
+            if lemma == '_' and token['xpos'] == 'NFP':
+                return  # underscore as an actual lemma, not a missing entry
+            log(LogLevel.ERROR, sent, token, f"missing lemma text")
+            return
+        if form is None:
+            return  # Missing form text is reported by the 'form' validator.
+
+        xpos = token['xpos']
+        if xpos in xpos_lemmatization_rule_names:
             rule = xpos_lemmatization_rule_names[xpos]
             self.validate_lemma(sent, token, rule, form, lemma, xpos)
-        else:
-            pass
