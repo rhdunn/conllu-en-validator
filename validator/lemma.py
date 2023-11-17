@@ -60,6 +60,7 @@ lemma_exceptions = {
         'bases': ['base', 'basis'],
         'biases': 'bias',
         'buses': 'bus',
+        'censuses': 'census',
         'children': 'child',
         'feet': 'foot',
         'gases': 'gas',
