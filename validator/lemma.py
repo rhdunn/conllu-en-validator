@@ -56,6 +56,7 @@ lemma_exceptions = {
     },
     'NNS/Number=Plur': { # plural nouns
         'appendices': 'appendix',
+        'bases': ['base', 'basis'],
         'buses': 'bus',
         'children': 'child',
         'feet': 'foot',
@@ -134,12 +135,17 @@ class TokenLemmaValidator(Validator):
                 return f"{xpos}/Number={number}"
         return xpos
 
+    def match_lemma(self, lemma, expected_lemma):
+        if isinstance(expected_lemma, list):
+            return lemma in expected_lemma
+        return lemma == expected_lemma
+
     def validate_lemma(self, sent, token, rule, form, lemma, lemma_type):
         normalized_form, expected_lemma = lemmatization_rules[rule](form)
         if lemma_type in lemma_exceptions and normalized_form in lemma_exceptions[lemma_type]:
             # use the exception lemma instead of the rule-based lemma
             expected_lemma = lemma_exceptions[lemma_type][normalized_form]
-        if expected_lemma == lemma:
+        if self.match_lemma(lemma, expected_lemma):
             pass  # matched via lemmatization rule
         else:
             log(LogLevel.ERROR, sent, token,
