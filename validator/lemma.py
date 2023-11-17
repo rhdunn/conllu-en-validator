@@ -19,8 +19,6 @@ def lowercase_form_lemma(form):
 
 def plural_noun_lemma(form):
     normalized, _ = lowercase_form_lemma(form)
-    if normalized in plural_noun_unmodified_lemma:
-        return normalized, normalized
     return normalized, apply_stemming_rules(normalized, plural_noun_stemming_rules)
 
 
@@ -40,25 +38,11 @@ plural_noun_stemming_rules = [
     ('men', 'man'),
 ]
 
-plural_noun_unmodified_lemma = [
-    'series',
-    'species',
-    # numbers
-    'tens', 'mid-tens',
-    'twenties', 'mid-twenties',
-    'thirties', 'mid-thirties',
-    'fourties', 'mid-fourties',
-    'fifties', 'mid-fifties',
-    'sixties', 'mid-sixties',
-    'seventies', 'mid-seventies',
-    'eighties', 'mid-eighties',
-    'nineties', 'mid-nineties',
-]
-
 lemmatization_rule_names = {
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
     'NNS/Number=Plur': 'plural-noun',  # noun, plural
+    'NNS/Number=Ptan': 'lowercase-form',  # noun, plurale tantum (plural form lemma)
     'RB': 'lowercase-form',  # adverb
     'TO': 'lowercase-form',  # "to"
 }
