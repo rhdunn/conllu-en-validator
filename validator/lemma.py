@@ -59,6 +59,7 @@ lemma_exceptions = {
         'children': 'child',
         'feet': 'foot',
         'halves': 'half',
+        'indices': 'index',
         'knives': 'knife',
         'lives': 'life',
         'mice': 'mouse',
