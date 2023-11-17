@@ -59,6 +59,7 @@ lemma_exceptions = {
         'buses': 'bus',
         'children': 'child',
         'feet': 'foot',
+        'gases': 'gas',
         'halves': 'half',
         'indices': 'index',
         'knives': 'knife',
