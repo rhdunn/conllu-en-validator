@@ -52,7 +52,7 @@ lemma_exceptions = {
     'DT': {  # determiners
         'an': 'a',
         'these': 'this',
-        'those': 'these',
+        'those': 'that',
     },
     'NNS/Number=Plur': { # plural nouns
         'children': 'child',
