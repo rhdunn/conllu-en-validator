@@ -134,6 +134,10 @@ class TokenLemmaValidator(Validator):
     def __init__(self, language):
         super().__init__(language)
 
+    def get_lemma_type(self, token):
+        xpos = token['xpos']
+        return xpos
+
     def validate_lemma(self, sent, token, rule, form, lemma, lemma_type):
         normalized_form, expected_lemma = lemmatization_rules[rule](form)
         if lemma_type in lemma_exceptions and normalized_form in lemma_exceptions[lemma_type]:
@@ -158,7 +162,7 @@ class TokenLemmaValidator(Validator):
         if form is None:
             return  # Missing form text is reported by the 'form' validator.
 
-        lemma_type = token['xpos']
+        lemma_type = self.get_lemma_type(token)
         if lemma_type in lemmatization_rule_names:
             rule = lemmatization_rule_names[lemma_type]
             self.validate_lemma(sent, token, rule, form, lemma, lemma_type)
