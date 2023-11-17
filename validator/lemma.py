@@ -55,7 +55,7 @@ plural_noun_unmodified_lemma = [
     'nineties', 'mid-nineties',
 ]
 
-xpos_lemmatization_rule_names = {
+lemmatization_rule_names = {
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
     'NNS': 'plural-noun',  # noun, plural
@@ -159,6 +159,6 @@ class TokenLemmaValidator(Validator):
             return  # Missing form text is reported by the 'form' validator.
 
         lemma_type = token['xpos']
-        if lemma_type in xpos_lemmatization_rule_names:
-            rule = xpos_lemmatization_rule_names[lemma_type]
+        if lemma_type in lemmatization_rule_names:
+            rule = lemmatization_rule_names[lemma_type]
             self.validate_lemma(sent, token, rule, form, lemma, lemma_type)
