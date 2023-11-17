@@ -58,7 +58,7 @@ plural_noun_unmodified_lemma = [
 lemmatization_rule_names = {
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
-    'NNS': 'plural-noun',  # noun, plural
+    'NNS/Number=Plur': 'plural-noun',  # noun, plural
     'RB': 'lowercase-form',  # adverb
     'TO': 'lowercase-form',  # "to"
 }
@@ -69,7 +69,7 @@ lemma_exceptions = {
         'these': 'this',
         'those': 'these',
     },
-    'NNS': { # plural nouns
+    'NNS/Number=Plur': { # plural nouns
         'children': 'child',
         'feet': 'foot',
         'knives': 'knife',
@@ -136,6 +136,10 @@ class TokenLemmaValidator(Validator):
 
     def get_lemma_type(self, token):
         xpos = token['xpos']
+        if xpos == 'NNS':
+            number = conllutil.get_feat(token, 'Number', None)
+            if number is not None:
+                return f"{xpos}/Number={number}"
         return xpos
 
     def validate_lemma(self, sent, token, rule, form, lemma, lemma_type):
