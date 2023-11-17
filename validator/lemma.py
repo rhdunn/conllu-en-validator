@@ -57,6 +57,7 @@ lemma_exceptions = {
     'NNS/Number=Plur': { # plural nouns
         'children': 'child',
         'feet': 'foot',
+        'halves': 'half',
         'knives': 'knife',
         'lives': 'life',
         'mice': 'mouse',
