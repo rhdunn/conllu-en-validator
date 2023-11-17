@@ -62,6 +62,7 @@ lemma_exceptions = {
         'mice': 'mouse',
         'people': 'person',
         'teeth': 'tooth',
+        'thieves': 'thief',
         'wives': 'wife',
         'wolves': 'wolf',
         # -ches exceptions
