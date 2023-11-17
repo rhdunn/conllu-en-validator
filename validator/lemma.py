@@ -55,6 +55,7 @@ lemma_exceptions = {
         'those': 'that',
     },
     'NNS/Number=Plur': { # plural nouns
+        'appendices': 'appendix',
         'children': 'child',
         'feet': 'foot',
         'halves': 'half',
