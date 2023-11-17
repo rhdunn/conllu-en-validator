@@ -64,6 +64,7 @@ lemma_exceptions = {
         'lives': 'life',
         'mice': 'mouse',
         'people': 'person',
+        'shelves': 'shelf',
         'teeth': 'tooth',
         'thieves': 'thief',
         'wives': 'wife',
