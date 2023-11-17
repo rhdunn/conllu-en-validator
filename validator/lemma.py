@@ -56,6 +56,7 @@ lemma_exceptions = {
     },
     'NNS/Number=Plur': { # plural nouns
         'appendices': 'appendix',
+        'buses': 'bus',
         'children': 'child',
         'feet': 'foot',
         'halves': 'half',
