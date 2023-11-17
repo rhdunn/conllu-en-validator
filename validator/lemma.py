@@ -74,6 +74,7 @@ lemma_exceptions = {
         'people': 'person',
         'shelves': 'shelf',
         'surpluses': 'surplus',
+        'syntheses': 'synthesis',
         'teeth': 'tooth',
         'thieves': 'thief',
         'wives': 'wife',
