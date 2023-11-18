@@ -62,6 +62,7 @@ lemmatization_rule_names = {
     'PDT': 'lowercase-form',  # predeterminer
     'POS': 'lowercase-form',  # possessive
     'PRP': 'lowercase-form',  # pronoun, personal
+    'PRP$': 'lowercase-form',  # pronoun, possessive
     'RB': 'lowercase-form',  # adverb
     'TO': 'lowercase-form',  # "to"
 }
