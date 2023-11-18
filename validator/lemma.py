@@ -80,6 +80,7 @@ lemma_exceptions = {
         'thieves': 'thief',
         'wives': 'wife',
         'wolves': 'wolf',
+        'zeroes': 'zero',
         # -ches exceptions
         'aches': 'ache',
         'caches': 'cache',
