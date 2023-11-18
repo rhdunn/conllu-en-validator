@@ -87,6 +87,7 @@ lemma_exceptions = {
         'censuses': 'census',
         'gases': 'gas',
         'geniuses': 'genius',
+        'graffiti': 'graffito',  # uncommon; should be annotated as Number=Ptan
         'halves': 'half',
         'hooves': 'hoof',
         'hypotheses': 'hypothesis',
