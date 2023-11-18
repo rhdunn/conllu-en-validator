@@ -5,6 +5,12 @@ from validator.validator import Validator
 from validator.logger import log, LogLevel
 
 
+def normalize_form(form):
+    for _from, _to in normalization_rules:
+        form = form.replace(_from, _to)
+    return form
+
+
 def apply_stemming_rules(form, rules):
     for ending, replacement in rules:
         if form.endswith(ending):
@@ -13,14 +19,13 @@ def apply_stemming_rules(form, rules):
 
 
 def lowercase_form_lemma(form):
-    normalized = form.lower().replace('’', '\'')
+    normalized = normalize_form(form.lower())
     return normalized, normalized
 
 
 def plural_noun_lemma(form):
     normalized, _ = lowercase_form_lemma(form)
     return normalized, apply_stemming_rules(normalized, plural_noun_stemming_rules)
-
 
 
 lemmatization_rules = {
@@ -143,6 +148,11 @@ lemma_exceptions = {
         'ta': 'to',  # got|ta, etc.
     }
 }
+
+normalization_rules = [
+    ('’', '\''),
+    ('æ', 'ae'),
+]
 
 
 class TokenLemmaValidator(Validator):
