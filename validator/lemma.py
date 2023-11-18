@@ -74,6 +74,7 @@ lemma_exceptions = {
         'people': 'person',
         'shelves': 'shelf',
         'sinuses': 'sinus',
+        'species': 'specie',  # should be annotated as Number=Ptan in most cases
         'surpluses': 'surplus',
         'syntheses': 'synthesis',
         'teeth': 'tooth',
