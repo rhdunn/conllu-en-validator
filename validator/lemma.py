@@ -83,6 +83,7 @@ lemma_exceptions = {
         'knives': 'knife',
         'lives': 'life',
         'potatoes': 'potato',
+        'quizzes': 'quiz',
         'shelves': 'shelf',
         'sinuses': 'sinus',
         'species': 'specie',  # should be annotated as Number=Ptan in most cases
