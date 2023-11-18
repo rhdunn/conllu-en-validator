@@ -86,6 +86,7 @@ lemma_exceptions = {
         'biases': 'bias',
         'buses': 'bus',
         'censuses': 'census',
+        'concerti': 'concerto',
         'corpora': 'corpus',
         'crises': 'crisis',
         'gases': 'gas',
