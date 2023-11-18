@@ -58,6 +58,7 @@ lemma_exceptions = {
     },
     'NNS/Number=Plur': { # plural nouns
         'analyses': 'analysis',
+        'antipasti': 'antipasto',
         'appendices': 'appendix',
         'bases': ['base', 'basis'],
         'biases': 'bias',
