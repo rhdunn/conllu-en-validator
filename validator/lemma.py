@@ -34,6 +34,11 @@ lemmatization_rules = {
 }
 
 plural_noun_stemming_rules = [
+    # suffices and compound words
+    ('children', 'child'),
+    ('heroes', 'hero'),
+    ('men', 'man'),
+    # general rules
     ('ches', 'ch'),
     ('shes', 'sh'),
     ('sses', 'ss'),
@@ -43,9 +48,6 @@ plural_noun_stemming_rules = [
     ('(s)', ''),
     # foreign
     ('ae', 'a'),
-    # suffices and compound words
-    ('children', 'child'),
-    ('men', 'man'),
 ]
 
 lemmatization_rule_names = {
@@ -84,7 +86,6 @@ lemma_exceptions = {
         'gases': 'gas',
         'geniuses': 'genius',
         'halves': 'half',
-        'heroes': 'hero',
         'hypotheses': 'hypothesis',
         'indices': 'index',
         'knives': 'knife',
