@@ -86,6 +86,7 @@ lemma_exceptions = {
         'biases': 'bias',
         'buses': 'bus',
         'censuses': 'census',
+        'corpora': 'corpus',
         'crises': 'crisis',
         'gases': 'gas',
         'genitalia': 'genitale',  # unused; should be annotated as Number=Ptan
