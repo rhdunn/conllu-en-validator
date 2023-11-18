@@ -40,6 +40,7 @@ plural_noun_stemming_rules = [
     ('ies', 'y'),
     ('xes', 'x'),
     ('s', ''),
+    ('(s)', ''),
     # foreign
     ('ae', 'a'),
     # suffices and compound words
