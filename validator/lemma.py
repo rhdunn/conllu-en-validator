@@ -35,6 +35,8 @@ plural_noun_stemming_rules = [
     ('ies', 'y'),
     ('xes', 'x'),
     ('s', ''),
+    # foreign
+    ('ae', 'a'),
     # suffices and compound words
     ('children', 'child'),
     ('men', 'man'),
@@ -58,7 +60,6 @@ lemma_exceptions = {
     },
     'NNS/Number=Plur': { # plural nouns
         # irregular
-        'algae': 'alga',
         'alumni': 'alumnus',
         'antipasti': 'antipasto',
         'criteria': 'criterion',
@@ -66,7 +67,6 @@ lemma_exceptions = {
         'media': 'medium',
         'mice': 'mouse',
         'people': 'person',
-        'sclerae': 'sclera',
         'teeth': 'tooth',
         # -s exceptions
         'analyses': 'analysis',
