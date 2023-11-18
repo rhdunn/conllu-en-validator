@@ -96,6 +96,7 @@ lemma_exceptions = {
         'surpluses': 'surplus',
         'syntheses': 'synthesis',
         'thieves': 'thief',
+        'tomatoes': 'tomato',
         'wives': 'wife',
         'wolves': 'wolf',
         'zeroes': 'zero',
