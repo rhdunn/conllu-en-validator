@@ -35,6 +35,8 @@ plural_noun_stemming_rules = [
     ('ies', 'y'),
     ('xes', 'x'),
     ('s', ''),
+    # suffices and compound words
+    ('children', 'child'),
     ('men', 'man'),
 ]
 
@@ -61,7 +63,6 @@ lemma_exceptions = {
         'biases': 'bias',
         'buses': 'bus',
         'censuses': 'census',
-        'children': 'child',
         'feet': 'foot',
         'gases': 'gas',
         'geniuses': 'genius',
