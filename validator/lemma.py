@@ -114,6 +114,7 @@ lemma_exceptions = {
         'taxes': ['tax', 'taxis'],
         'thieves': 'thief',
         'tomatoes': 'tomato',
+        'volcanoes': 'volcano',
         'wives': 'wife',
         'wolves': 'wolf',
         'zeroes': 'zero',
