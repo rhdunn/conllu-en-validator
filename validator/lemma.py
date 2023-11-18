@@ -102,6 +102,7 @@ lemma_exceptions = {
         'indices': 'index',
         'knives': 'knife',
         'lives': 'life',
+        'leaves': 'leaf',
         'loaves': 'loaf',
         'potatoes': 'potato',
         'quizzes': 'quiz',
