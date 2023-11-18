@@ -51,6 +51,7 @@ plural_noun_stemming_rules = [
 ]
 
 lemmatization_rule_names = {
+    'CC': 'lowercase-form',  # coordinating conjunction
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
     'NN': 'lowercase-form',  # noun
