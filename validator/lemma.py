@@ -66,6 +66,7 @@ lemma_exceptions = {
         'media': 'medium',
         'mice': 'mouse',
         'people': 'person',
+        'sclerae': 'sclera',
         'teeth': 'tooth',
         # -s exceptions
         'analyses': 'analysis',
