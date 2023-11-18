@@ -58,6 +58,7 @@ lemma_exceptions = {
     },
     'NNS/Number=Plur': { # plural nouns
         # irregular
+        'algae': 'alga',
         'alumni': 'alumnus',
         'antipasti': 'antipasto',
         'criteria': 'criterion',
