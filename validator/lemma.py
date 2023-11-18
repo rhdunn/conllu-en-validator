@@ -61,6 +61,7 @@ lemmatization_rule_names = {
     'NNS/Number=Ptan': 'lowercase-form',  # noun, plurale tantum (plural form lemma)
     'PDT': 'lowercase-form',  # predeterminer
     'POS': 'lowercase-form',  # possessive
+    'PRP': 'lowercase-form',  # pronoun, personal
     'RB': 'lowercase-form',  # adverb
     'TO': 'lowercase-form',  # "to"
 }
@@ -146,6 +147,23 @@ lemma_exceptions = {
     },
     'POS': {  # possessive
         '\'': '\'s',
+    },
+    'PRP': {  # pronoun, personal
+        'i': 'I',
+        # Nominative : https://universaldependencies.org/en/pos/PRON.html#personal-pronouns
+        'me': 'I',
+        'us': 'we',
+        'thee': 'thou',
+        'him': 'he',
+        'her': 'she',
+        'them': 'they',
+        # Independent Possessive : https://universaldependencies.org/en/pos/PRON.html#personal-pronouns
+        'mine': 'my',
+        'ours': 'our',
+        'yours': 'your',
+        'thine': 'thy',
+        'hers': 'her',
+        'theirs': 'their',
     },
     'RB': {  # adverbs
         # PART
