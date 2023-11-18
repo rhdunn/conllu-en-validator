@@ -95,6 +95,7 @@ lemma_exceptions = {
         'species': 'specie',  # should be annotated as Number=Ptan in most cases
         'surpluses': 'surplus',
         'syntheses': 'synthesis',
+        'taxes': ['tax', 'taxis'],
         'thieves': 'thief',
         'tomatoes': 'tomato',
         'wives': 'wife',
