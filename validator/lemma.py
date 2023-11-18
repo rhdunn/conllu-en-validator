@@ -58,6 +58,7 @@ lemma_exceptions = {
     },
     'NNS/Number=Plur': { # plural nouns
         # irregular
+        'alumni': 'alumnus',
         'antipasti': 'antipasto',
         'criteria': 'criterion',
         'feet': 'foot',
