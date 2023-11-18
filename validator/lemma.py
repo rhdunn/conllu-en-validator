@@ -71,6 +71,7 @@ lemma_exceptions = {
         'alumni': 'alumnus',
         'antipasti': 'antipasto',
         'criteria': 'criterion',
+        'data': 'datum',
         'feet': 'foot',
         'media': 'medium',
         'mice': 'mouse',
