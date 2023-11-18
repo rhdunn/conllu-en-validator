@@ -60,6 +60,7 @@ lemmatization_rule_names = {
     'NNS/Number=Plur': 'plural-noun',  # noun, plural
     'NNS/Number=Ptan': 'lowercase-form',  # noun, plurale tantum (plural form lemma)
     'PDT': 'lowercase-form',  # predeterminer
+    'POS': 'lowercase-form',  # possessive
     'RB': 'lowercase-form',  # adverb
     'TO': 'lowercase-form',  # "to"
 }
@@ -142,6 +143,9 @@ lemma_exceptions = {
         'pixies': 'pixie',
         'ties': 'tie',
         'yachties': 'yachtie',
+    },
+    'POS': {  # possessive
+        '\'': '\'s',
     },
     'RB': {  # adverbs
         # PART
