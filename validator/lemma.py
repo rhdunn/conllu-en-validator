@@ -63,6 +63,7 @@ lemma_exceptions = {
         'antipasti': 'antipasto',
         'criteria': 'criterion',
         'feet': 'foot',
+        'media': 'medium',
         'mice': 'mouse',
         'people': 'person',
         'teeth': 'tooth',
