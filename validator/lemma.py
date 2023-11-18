@@ -59,6 +59,7 @@ lemmatization_rule_names = {
     'NNS/Number=Coll': 'lowercase-form',  # noun, collective / singulare tantum (singular form as plural)
     'NNS/Number=Plur': 'plural-noun',  # noun, plural
     'NNS/Number=Ptan': 'lowercase-form',  # noun, plurale tantum (plural form lemma)
+    'PDT': 'lowercase-form',  # predeterminer
     'RB': 'lowercase-form',  # adverb
     'TO': 'lowercase-form',  # "to"
 }
