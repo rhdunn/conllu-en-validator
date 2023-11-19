@@ -164,6 +164,7 @@ lemma_exceptions = {
     },
     'JJS': {  # adjectives, superlative
         # irregular
+        'best': 'good',
         'worst': 'bad',
     },
     'MD': {  # verb, modal
