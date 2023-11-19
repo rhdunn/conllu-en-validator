@@ -143,6 +143,7 @@ lemma_exceptions = {
         # -er exceptions
         'closer': 'close',
         'denser': 'dense',
+        'larger': 'large',
     },
     'MD': {  # verb, modal
         'wilt': 'will',
