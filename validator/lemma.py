@@ -67,6 +67,7 @@ lemmatization_rule_names = {
     'RP': 'lowercase-form',  # particle
     'TO': 'lowercase-form',  # "to"
     'WDT': 'lowercase-form',  # determiner, wh-
+    'WP': 'lowercase-form',  # pronoun, wh-
 }
 
 lemma_exceptions = {
@@ -194,7 +195,12 @@ lemma_exceptions = {
     'TO': { # PART+TO -- "to"
         'na': 'to',  # wan|na, etc.
         'ta': 'to',  # got|ta, etc.
-    }
+    },
+    'WP': {  # pronoun, possessive wh-
+        # https://universaldependencies.org/en/pos/PRON.html#relativeinterrogative-wh-pronouns
+        'whom': 'who',
+        'whomever': 'whoever',
+    },
 }
 
 normalization_rules = [
