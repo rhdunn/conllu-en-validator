@@ -44,12 +44,12 @@ def fractional_form_lemma(form):
     return normalized, normalized
 
 
-def comparative_adjective_form_lemma(form):
+def comparative_adjective_lemma(form):
     normalized, _ = lowercase_form_lemma(form)
     return normalized, apply_stemming_rules(normalized, comparative_adjective_stemming_rules)
 
 
-def superlative_adjective_form_lemma(form):
+def superlative_adjective_lemma(form):
     normalized, _ = lowercase_form_lemma(form)
     return normalized, apply_stemming_rules(normalized, superlative_adjective_stemming_rules)
 
@@ -67,13 +67,13 @@ def plural_proper_noun_lemma(form):
 lemmatization_rules = {
     'capitalized-form': capitalized_form_lemma,
     'cardinal-form': cardinal_form_lemma,
-    'comparative-adjective-form': comparative_adjective_form_lemma,
+    'comparative-adjective': comparative_adjective_lemma,
     'fractional-form': fractional_form_lemma,
     'lowercase-form': lowercase_form_lemma,
     'normalized-form': normalized_form_lemma,
     'plural-common-noun': plural_common_noun_lemma,
     'plural-proper-noun': plural_proper_noun_lemma,
-    'superlative-adjective-form': superlative_adjective_form_lemma,
+    'superlative-adjective': superlative_adjective_lemma,
 }
 
 comparative_adjective_stemming_rules = [
@@ -121,8 +121,8 @@ lemmatization_rule_names = {
     'EX': 'lowercase-form',  # existential "there"
     'IN': 'lowercase-form',  # preposition, subordinating conjunction
     'JJ': 'lowercase-form',  # adjective, positive (first degree)
-    'JJR': 'comparative-adjective-form',  # adjective, comparative (second degree) [-er]
-    'JJS': 'superlative-adjective-form',  # adjective, superlative (third degree) [-est]
+    'JJR': 'comparative-adjective',  # adjective, comparative (second degree) [-er]
+    'JJS': 'superlative-adjective',  # adjective, superlative (third degree) [-est]
     'LS': 'normalized-form',  # list item marker
     'MD': 'lowercase-form',  # verb, modal
     'NN': 'lowercase-form',  # noun
