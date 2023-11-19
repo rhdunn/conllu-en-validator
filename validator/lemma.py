@@ -55,6 +55,7 @@ lemmatization_rule_names = {
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
     'IN': 'lowercase-form',  # preposition, subordinating conjunction
+    'MD': 'lowercase-form',  # verb, modal
     'NN': 'lowercase-form',  # noun
     'NNS/Number=Coll': 'lowercase-form',  # noun, collective / singulare tantum (singular form as plural)
     'NNS/Number=Plur': 'plural-noun',  # noun, plural
@@ -79,6 +80,15 @@ lemma_exceptions = {
         'an': 'a',
         'these': 'this',
         'those': 'that',
+    },
+    'MD': {  # verb, modal
+        'wilt': 'will',
+        # clitics
+        '\'d': 'would',
+        '\'ll': 'will',
+        # multi-word tokens
+        'ca': 'can',
+        'wo': 'will',  # would
     },
     'NNS/Number=Plur': { # plural nouns
         # irregular
