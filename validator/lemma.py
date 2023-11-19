@@ -145,6 +145,7 @@ lemma_exceptions = {
         'larger': 'large',
         'ruder': 'rude',
         'simpler': 'simple',
+        'stranger': 'strange',
     },
     'MD': {  # verb, modal
         'wilt': 'will',
