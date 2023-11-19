@@ -52,6 +52,7 @@ plural_noun_stemming_rules = [
 
 lemmatization_rule_names = {
     'CC': 'lowercase-form',  # coordinating conjunction
+    'CD/NumForm=Word': 'lowercase-form',  # cardinal number, words
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
     'IN': 'lowercase-form',  # preposition, subordinating conjunction
@@ -76,6 +77,13 @@ lemmatization_rule_names = {
 }
 
 lemma_exceptions = {
+    'CD/NumForm=Word': {  # cardinal numbers, word
+        'b': 'billion',
+        'bn': 'billion',
+        'k': 'thousand',
+        'm': 'million',
+        't': 'trillion',
+    },
     'DT': {  # determiners
         'an': 'a',
         'these': 'this',
@@ -239,9 +247,15 @@ class TokenLemmaValidator(Validator):
     def get_lemma_type(self, token):
         xpos = token['xpos']
         if xpos == 'NNS':
+            # https://universaldependencies.org/u/feat/Number.html
             number = conllutil.get_feat(token, 'Number', None)
             if number is not None:
                 return f"{xpos}/Number={number}"
+        elif xpos == 'CD':
+            # https://universaldependencies.org/u/feat/NumForm.html
+            num_form = conllutil.get_feat(token, 'NumForm', None)
+            if num_form is not None:
+                return f"{xpos}/NumForm={num_form}"
         return xpos
 
     def match_lemma(self, lemma, expected_lemma):
