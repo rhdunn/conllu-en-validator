@@ -62,8 +62,7 @@ lemmatization_rules = {
 comparative_adjective_stemming_rules = [
     (re.compile(r'([eo]a[^aeiou])er$'), r'\1'),  # oaCer -> oaC ; eaCer -> eaC
     (re.compile(r'([ai][^aeiou]e)r$'), r'\1'),  # aCer -> aCe ; iCer -> iCe
-    ('aller', 'all'),
-    (re.compile(r'([^aeiou])\1er'), r'\1'),  # CCer -> C
+    (re.compile(r'([dgnt])\1er'), r'\1'),  # CCer -> C
     ('ier', 'y'),
     ('er', ''),
 ]
