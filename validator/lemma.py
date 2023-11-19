@@ -28,6 +28,10 @@ def lowercase_form_lemma(form):
     return normalized_form_lemma(form.lower())
 
 
+def capitalized_form_lemma(form):
+    return normalized_form_lemma(form.capitalize())
+
+
 def cardinal_form_lemma(form):
     normalized, _ = normalized_form_lemma(form.lower())
     normalized = normalized.replace(',', '')
@@ -56,6 +60,7 @@ def plural_noun_lemma(form):
 
 
 lemmatization_rules = {
+    'capitalized-form': capitalized_form_lemma,
     'cardinal-form': cardinal_form_lemma,
     'comparative-adjective-form': comparative_adjective_form_lemma,
     'fractional-form': fractional_form_lemma,
@@ -115,6 +120,7 @@ lemmatization_rule_names = {
     'LS': 'normalized-form',  # list item marker
     'MD': 'lowercase-form',  # verb, modal
     'NN': 'lowercase-form',  # noun
+    'NNP': 'capitalized-form',  # proper noun
     'NNS/Number=Coll': 'lowercase-form',  # noun, collective / singulare tantum (singular form as plural)
     'NNS/Number=Plur': 'plural-noun',  # noun, plural
     'NNS/Number=Ptan': 'lowercase-form',  # noun, plurale tantum (plural form lemma)
