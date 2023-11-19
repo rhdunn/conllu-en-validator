@@ -60,7 +60,7 @@ lemmatization_rules = {
 }
 
 comparative_adjective_stemming_rules = [
-    (re.compile(r'(i[^aeiou]e)r$'), r'\1'),  # iCer -> iCe
+    (re.compile(r'([ai][^aeiou]e)r$'), r'\1'),  # aCer -> aCe ; iCer -> iCe
     ('aller', 'all'),
     (re.compile(r'([^aeiou])\1er'), r'\1'),  # CCer -> C
     ('ier', 'y'),
