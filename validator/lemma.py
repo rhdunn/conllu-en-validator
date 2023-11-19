@@ -132,6 +132,10 @@ lemma_exceptions = {
         'these': 'this',
         'those': 'that',
     },
+    'JJR': {  # adjectives
+        # irregular
+        'worse': 'bad',
+    },
     'MD': {  # verb, modal
         'wilt': 'will',
         # clitics
