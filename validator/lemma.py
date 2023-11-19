@@ -68,6 +68,7 @@ lemmatization_rule_names = {
     'TO': 'lowercase-form',  # "to"
     'WDT': 'lowercase-form',  # determiner, wh-
     'WP': 'lowercase-form',  # pronoun, wh-
+    'WP$': 'lowercase-form',  # pronoun, possessive wh-
 }
 
 lemma_exceptions = {
