@@ -52,6 +52,7 @@ plural_noun_stemming_rules = [
 
 lemmatization_rule_names = {
     'CC': 'lowercase-form',  # coordinating conjunction
+    'CD/NumForm=Combi': 'normalized-form',  # cardinal number, digits with a suffix
     'CD/NumForm=Word': 'lowercase-form',  # cardinal number, words
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
