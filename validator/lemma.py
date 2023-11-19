@@ -136,6 +136,7 @@ lemma_exceptions = {
     'JJR': {  # adjectives
         # irregular
         'better': 'good',
+        'elder': 'old',  # eld/eald in Old English ~ older [old], elder [ancient] split in Modern English
         'worse': 'bad',
         # -er exceptions
         'closer': 'close',
