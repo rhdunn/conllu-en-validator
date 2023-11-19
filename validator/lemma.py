@@ -28,6 +28,12 @@ def cardinal_form_lemma(form):
     return normalized, normalized
 
 
+def fractional_form_lemma(form):
+    normalized, _ = normalized_form_lemma(form.lower())
+    normalized = normalized.replace(',', '.')  # German fraction forms
+    return normalized, normalized
+
+
 def plural_noun_lemma(form):
     normalized, _ = lowercase_form_lemma(form)
     return normalized, apply_stemming_rules(normalized, plural_noun_stemming_rules)
@@ -35,6 +41,7 @@ def plural_noun_lemma(form):
 
 lemmatization_rules = {
     'cardinal-form': cardinal_form_lemma,
+    'fractional-form': fractional_form_lemma,
     'lowercase-form': lowercase_form_lemma,
     'normalized-form': normalized_form_lemma,
     'plural-noun': plural_noun_lemma,
@@ -61,6 +68,7 @@ lemmatization_rule_names = {
     'CC': 'lowercase-form',  # coordinating conjunction
     'CD/NumForm=Combi': 'normalized-form',  # cardinal number, digits with a suffix
     'CD/NumForm=Digit/NumType=Card': 'cardinal-form',  # cardinal number, integer
+    'CD/NumForm=Digit/NumType=Frac': 'fractional-form',  # cardinal number, fraction
     'CD/NumForm=Roman': 'normalized-form',  # cardinal number, roman numerals
     'CD/NumForm=Word': 'lowercase-form',  # cardinal number, words
     'DT': 'lowercase-form',  # determiner
