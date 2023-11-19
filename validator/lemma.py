@@ -168,6 +168,7 @@ lemma_exceptions = {
         'eldest': 'old',  # eld/eald in Old English ~ oldest [old], eldest [ancient] split in Modern English
         'worst': 'bad',
         # -est exceptions
+        'ablest': 'able',
         'closest': 'close',
         'largest': 'large',
         'rudest': 'rude',
