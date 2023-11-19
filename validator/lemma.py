@@ -90,6 +90,7 @@ lemmatization_rule_names = {
     'SYM': 'normalized-form',  # symbol
     'TO': 'lowercase-form',  # "to"
     'UH': 'lowercase-form',  # interjection
+    'VB': 'lowercase-form',  # verb, base form
     'WDT': 'lowercase-form',  # determiner, wh-
     'WP': 'lowercase-form',  # pronoun, wh-
     'WP$': 'lowercase-form',  # pronoun, possessive wh-
@@ -246,6 +247,13 @@ lemma_exceptions = {
         'christ': 'Christ',
         'ok': 'OK',
         'tl;dr': 'TL;DR',
+    },
+    'VB': {  # verb, base form
+        # clitics
+        '\'ve': 'have',
+        # multi-word tokens
+        'no': 'know',  # du|n|no
+        'wan': 'want',  # wan|na
     },
     'WP': {  # pronoun, possessive wh-
         # https://universaldependencies.org/en/pos/PRON.html#relativeinterrogative-wh-pronouns
