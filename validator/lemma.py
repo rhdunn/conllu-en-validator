@@ -66,6 +66,7 @@ lemmatization_rule_names = {
     'RB': 'lowercase-form',  # adverb
     'RP': 'lowercase-form',  # particle
     'TO': 'lowercase-form',  # "to"
+    'WDT': 'lowercase-form',  # determiner, wh-
 }
 
 lemma_exceptions = {
