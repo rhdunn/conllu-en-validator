@@ -168,6 +168,7 @@ lemma_exceptions = {
         'worst': 'bad',
         # -est exceptions
         'closest': 'close',
+        'largest': 'large',
     },
     'MD': {  # verb, modal
         'wilt': 'will',
