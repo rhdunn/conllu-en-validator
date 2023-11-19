@@ -32,13 +32,13 @@ def capitalized_form_lemma(form):
     return normalized_form_lemma(form.capitalize())
 
 
-def cardinal_form_lemma(form):
+def cardinal_number_lemma(form):
     normalized, _ = normalized_form_lemma(form.lower())
     normalized = normalized.replace(',', '')
     return normalized, normalized
 
 
-def fractional_form_lemma(form):
+def fractional_number_lemma(form):
     normalized, _ = normalized_form_lemma(form.lower())
     normalized = normalized.replace(',', '.')  # German fraction forms
     return normalized, normalized
@@ -66,9 +66,9 @@ def plural_proper_noun_lemma(form):
 
 lemmatization_rules = {
     'capitalized-form': capitalized_form_lemma,
-    'cardinal-form': cardinal_form_lemma,
+    'cardinal-number': cardinal_number_lemma,
     'comparative-adjective': comparative_adjective_lemma,
-    'fractional-form': fractional_form_lemma,
+    'fractional-number': fractional_number_lemma,
     'lowercase-form': lowercase_form_lemma,
     'normalized-form': normalized_form_lemma,
     'plural-common-noun': plural_common_noun_lemma,
@@ -112,8 +112,8 @@ plural_noun_stemming_rules = [
 lemmatization_rule_names = {
     'CC': 'lowercase-form',  # coordinating conjunction
     'CD/NumForm=Combi': 'normalized-form',  # cardinal number, digits with a suffix
-    'CD/NumForm=Digit/NumType=Card': 'cardinal-form',  # cardinal number, integer
-    'CD/NumForm=Digit/NumType=Frac': 'fractional-form',  # cardinal number, fraction
+    'CD/NumForm=Digit/NumType=Card': 'cardinal-number',  # cardinal number, integer
+    'CD/NumForm=Digit/NumType=Frac': 'fractional-number',  # cardinal number, fraction
     'CD/NumForm=Roman': 'normalized-form',  # cardinal number, roman numerals
     'CD/NumForm=Word': 'lowercase-form',  # cardinal number, words
     'CD+PRON': 'lowercase-form',  # cardinal number, reciprocal pronoun -- "one/PRON+CD another"
