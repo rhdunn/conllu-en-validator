@@ -5,12 +5,6 @@ from validator.validator import Validator
 from validator.logger import log, LogLevel
 
 
-def normalize_form(form):
-    for _from, _to in normalization_rules:
-        form = form.replace(_from, _to)
-    return form
-
-
 def apply_stemming_rules(form, rules):
     for ending, replacement in rules:
         if form.endswith(ending):
@@ -18,9 +12,14 @@ def apply_stemming_rules(form, rules):
     return form
 
 
+def normalized_form_lemma(form):
+    for _from, _to in normalization_rules:
+        form = form.replace(_from, _to)
+    return form, form
+
+
 def lowercase_form_lemma(form):
-    normalized = normalize_form(form.lower())
-    return normalized, normalized
+    return normalized_form_lemma(form.lower())
 
 
 def plural_noun_lemma(form):
@@ -30,6 +29,7 @@ def plural_noun_lemma(form):
 
 lemmatization_rules = {
     'lowercase-form': lowercase_form_lemma,
+    'normalized-form': normalized_form_lemma,
     'plural-noun': plural_noun_lemma,
 }
 
@@ -65,6 +65,7 @@ lemmatization_rule_names = {
     'PRP$': 'lowercase-form',  # pronoun, possessive
     'RB': 'lowercase-form',  # adverb
     'RP': 'lowercase-form',  # particle
+    'SYM': 'normalized-form',  # symbol
     'TO': 'lowercase-form',  # "to"
     'WDT': 'lowercase-form',  # determiner, wh-
     'WP': 'lowercase-form',  # pronoun, wh-
@@ -193,6 +194,10 @@ lemma_exceptions = {
         'w': 'W',  # west
         # dotted abbreviations
         'aka': 'a.k.a.',  # also known as
+    },
+    'SYM': {  # symbol
+        '\u2013': '\u002D',  # EN DASH -> HYPHEN-MINUS
+        '\u2014': '\u002D',  # EM DASH -> HYPHEN-MINUS
     },
     'TO': { # PART+TO -- "to"
         'na': 'to',  # wan|na, etc.
