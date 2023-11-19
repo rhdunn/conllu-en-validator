@@ -74,6 +74,7 @@ comparative_adjective_stemming_rules = [
 ]
 
 superlative_adjective_stemming_rules = [
+    ('iest', 'y'),
     ('est', ''),
 ]
 
