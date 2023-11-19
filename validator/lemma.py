@@ -75,6 +75,7 @@ lemmatization_rule_names = {
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
     'IN': 'lowercase-form',  # preposition, subordinating conjunction
+    'JJ': 'lowercase-form',  # adjective
     'LS': 'normalized-form',  # list item marker
     'MD': 'lowercase-form',  # verb, modal
     'NN': 'lowercase-form',  # noun
