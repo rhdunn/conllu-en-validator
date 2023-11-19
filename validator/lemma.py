@@ -127,6 +127,7 @@ lemmatization_rule_names = {
     'MD': 'lowercase-form',  # verb, modal
     'NN': 'lowercase-form',  # noun
     'NNP': 'capitalized-form',  # proper noun
+    'NNPS/Number=Coll': 'capitalized-form',  # proper noun, collective / singulare tantum (singular form as plural)
     'NNPS/Number=Plur': 'plural-proper-noun',  # proper noun, plural
     'NNS/Number=Coll': 'lowercase-form',  # noun, collective / singulare tantum (singular form as plural)
     'NNS/Number=Plur': 'plural-common-noun',  # noun, plural
