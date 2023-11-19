@@ -64,6 +64,7 @@ lemmatization_rule_names = {
     'PRP': 'lowercase-form',  # pronoun, personal
     'PRP$': 'lowercase-form',  # pronoun, possessive
     'RB': 'lowercase-form',  # adverb
+    'RP': 'lowercase-form',  # particle
     'TO': 'lowercase-form',  # "to"
 }
 
