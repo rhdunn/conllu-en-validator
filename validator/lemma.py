@@ -84,7 +84,7 @@ lemma_exceptions = {
     'MD': {  # verb, modal
         'wilt': 'will',
         # clitics
-        '\'d': 'would',
+        '\'d': 'will',
         '\'ll': 'will',
         # multi-word tokens
         'ca': 'can',
