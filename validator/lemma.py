@@ -74,6 +74,7 @@ comparative_adjective_stemming_rules = [
 ]
 
 superlative_adjective_stemming_rules = [
+    (re.compile(r'([dgnt])\1est'), r'\1'),  # CCest -> C
     ('iest', 'y'),
     ('est', ''),
 ]
