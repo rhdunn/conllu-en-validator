@@ -1,5 +1,7 @@
 # Copyright (C) 2023 Reece H. Dunn. SPDX-License-Identifier: Apache-2.0
 
+import re
+
 from validator import conllutil
 from validator.validator import Validator
 from validator.logger import log, LogLevel
@@ -7,7 +9,11 @@ from validator.logger import log, LogLevel
 
 def apply_stemming_rules(form, rules):
     for ending, replacement in rules:
-        if form.endswith(ending):
+        if isinstance(ending, re.Pattern):
+            replaced, count = ending.subn(replacement, form)
+            if count != 0:
+                return replaced
+        elif form.endswith(ending):
             return form[:-len(ending)] + replacement
     return form
 
@@ -54,6 +60,8 @@ lemmatization_rules = {
 }
 
 comparative_adjective_stemming_rules = [
+    ('aller', 'all'),
+    (re.compile(r'([^aeiou])\1er'), r'\1'),  # CCer -> C
     ('ier', 'y'),
     ('er', ''),
 ]
