@@ -71,6 +71,7 @@ lemmatization_rule_names = {
     'CD/NumForm=Digit/NumType=Frac': 'fractional-form',  # cardinal number, fraction
     'CD/NumForm=Roman': 'normalized-form',  # cardinal number, roman numerals
     'CD/NumForm=Word': 'lowercase-form',  # cardinal number, words
+    'CD+PRON': 'lowercase-form',  # cardinal number, reciprocal pronoun -- "one/PRON+CD another"
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
     'IN': 'lowercase-form',  # preposition, subordinating conjunction
@@ -264,6 +265,7 @@ class TokenLemmaValidator(Validator):
         super().__init__(language)
 
     def get_lemma_type(self, token):
+        upos = token['upos']
         xpos = token['xpos']
         if xpos == 'NNS':
             # https://universaldependencies.org/u/feat/Number.html
@@ -279,6 +281,9 @@ class TokenLemmaValidator(Validator):
                 return f"{xpos}/NumForm={num_form}/NumType={num_type}"
             elif num_form is not None:
                 return f"{xpos}/NumForm={num_form}"
+            elif num_form is None and num_type is None:
+                # https://universaldependencies.org/en/pos/PRON.html#reciprocal-pronouns
+                return f"{xpos}+{upos}"
         return xpos
 
     def match_lemma(self, lemma, expected_lemma):
