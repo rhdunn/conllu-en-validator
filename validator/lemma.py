@@ -134,6 +134,7 @@ lemma_exceptions = {
     },
     'JJR': {  # adjectives
         # irregular
+        'better': 'good',
         'worse': 'bad',
     },
     'MD': {  # verb, modal
