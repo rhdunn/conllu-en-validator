@@ -74,6 +74,7 @@ lemmatization_rule_names = {
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
     'IN': 'lowercase-form',  # preposition, subordinating conjunction
+    'LS': 'normalized-form',  # list item marker
     'MD': 'lowercase-form',  # verb, modal
     'NN': 'lowercase-form',  # noun
     'NNS/Number=Coll': 'lowercase-form',  # noun, collective / singulare tantum (singular form as plural)
