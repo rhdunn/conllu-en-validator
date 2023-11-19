@@ -34,18 +34,28 @@ def fractional_form_lemma(form):
     return normalized, normalized
 
 
+def comparative_adjective_form_lemma(form):
+    normalized, _ = lowercase_form_lemma(form)
+    return normalized, apply_stemming_rules(normalized, comparative_adjective_stemming_rules)
+
+
 def plural_noun_lemma(form):
     normalized, _ = lowercase_form_lemma(form)
     return normalized, apply_stemming_rules(normalized, plural_noun_stemming_rules)
 
 
 lemmatization_rules = {
+    'comparative-adjective-form': comparative_adjective_form_lemma,
     'cardinal-form': cardinal_form_lemma,
     'fractional-form': fractional_form_lemma,
     'lowercase-form': lowercase_form_lemma,
     'normalized-form': normalized_form_lemma,
     'plural-noun': plural_noun_lemma,
 }
+
+comparative_adjective_stemming_rules = [
+    ('er', ''),
+]
 
 plural_noun_stemming_rules = [
     # suffices and compound words
@@ -75,7 +85,8 @@ lemmatization_rule_names = {
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
     'IN': 'lowercase-form',  # preposition, subordinating conjunction
-    'JJ': 'lowercase-form',  # adjective
+    'JJ': 'lowercase-form',  # adjective, positive (first degree)
+    'JJR': 'comparative-adjective-form',  # adjective, comparative (second degree)
     'LS': 'normalized-form',  # list item marker
     'MD': 'lowercase-form',  # verb, modal
     'NN': 'lowercase-form',  # noun
