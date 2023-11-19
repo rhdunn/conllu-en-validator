@@ -74,6 +74,7 @@ comparative_adjective_stemming_rules = [
 ]
 
 superlative_adjective_stemming_rules = [
+    (re.compile(r'(ea[^aeiou])est$'), r'\1'),  # eaCest -> eaC
     (re.compile(r'([ai][^aeiou]e)st$'), r'\1'),  # aCest -> aCe ; iCest -> iCe
     (re.compile(r'([dgnt])\1est'), r'\1'),  # CCest -> C
     ('iest', 'y'),
