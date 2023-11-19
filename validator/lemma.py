@@ -147,7 +147,7 @@ lemma_exceptions = {
         'these': 'this',
         'those': 'that',
     },
-    'JJR': {  # adjectives
+    'JJR': {  # adjectives, comparative
         # irregular
         'better': 'good',
         'elder': 'old',  # eld/eald in Old English ~ older [old], elder [ancient] split in Modern English
@@ -161,6 +161,10 @@ lemma_exceptions = {
         'ruder': 'rude',
         'simpler': 'simple',
         'stranger': 'strange',
+    },
+    'JJS': {  # adjectives, superlative
+        # irregular
+        'worst': 'bad',
     },
     'MD': {  # verb, modal
         'wilt': 'will',
