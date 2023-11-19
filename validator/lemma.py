@@ -165,6 +165,7 @@ lemma_exceptions = {
     'JJS': {  # adjectives, superlative
         # irregular
         'best': 'good',
+        'eldest': 'old',  # eld/eald in Old English ~ oldest [old], eldest [ancient] split in Modern English
         'worst': 'bad',
         # -est exceptions
         'closest': 'close',
