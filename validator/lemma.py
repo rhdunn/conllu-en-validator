@@ -54,6 +54,7 @@ lemmatization_rules = {
 }
 
 comparative_adjective_stemming_rules = [
+    ('ier', 'y'),
     ('er', ''),
 ]
 
