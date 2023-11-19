@@ -138,6 +138,7 @@ lemma_exceptions = {
         'better': 'good',
         'elder': 'old',  # eld/eald in Old English ~ older [old], elder [ancient] split in Modern English
         'farther': 'far',
+        'further': 'far',
         'worse': 'bad',
         # -er exceptions
         'closer': 'close',
