@@ -129,6 +129,7 @@ lemmatization_rule_names = {
     'NNP': 'capitalized-form',  # proper noun
     'NNPS/Number=Coll': 'capitalized-form',  # proper noun, collective / singulare tantum (singular form as plural)
     'NNPS/Number=Plur': 'plural-proper-noun',  # proper noun, plural
+    'NNPS/Number=Ptan': 'capitalized-form',  # proper noun, plurale tantum (plural form lemma)
     'NNS/Number=Coll': 'lowercase-form',  # noun, collective / singulare tantum (singular form as plural)
     'NNS/Number=Plur': 'plural-common-noun',  # noun, plural
     'NNS/Number=Ptan': 'lowercase-form',  # noun, plurale tantum (plural form lemma)
