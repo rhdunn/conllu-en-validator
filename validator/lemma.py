@@ -54,8 +54,13 @@ def superlative_adjective_form_lemma(form):
     return normalized, apply_stemming_rules(normalized, superlative_adjective_stemming_rules)
 
 
-def plural_noun_lemma(form):
+def plural_common_noun_lemma(form):
     normalized, _ = lowercase_form_lemma(form)
+    return normalized, apply_stemming_rules(normalized, plural_noun_stemming_rules)
+
+
+def plural_proper_noun_lemma(form):
+    normalized, _ = capitalized_form_lemma(form)
     return normalized, apply_stemming_rules(normalized, plural_noun_stemming_rules)
 
 
@@ -66,7 +71,8 @@ lemmatization_rules = {
     'fractional-form': fractional_form_lemma,
     'lowercase-form': lowercase_form_lemma,
     'normalized-form': normalized_form_lemma,
-    'plural-noun': plural_noun_lemma,
+    'plural-common-noun': plural_common_noun_lemma,
+    'plural-proper-noun': plural_proper_noun_lemma,
     'superlative-adjective-form': superlative_adjective_form_lemma,
 }
 
@@ -121,8 +127,9 @@ lemmatization_rule_names = {
     'MD': 'lowercase-form',  # verb, modal
     'NN': 'lowercase-form',  # noun
     'NNP': 'capitalized-form',  # proper noun
+    'NNPS/Number=Plur': 'plural-proper-noun',  # proper noun, plural
     'NNS/Number=Coll': 'lowercase-form',  # noun, collective / singulare tantum (singular form as plural)
-    'NNS/Number=Plur': 'plural-noun',  # noun, plural
+    'NNS/Number=Plur': 'plural-common-noun',  # noun, plural
     'NNS/Number=Ptan': 'lowercase-form',  # noun, plurale tantum (plural form lemma)
     'PDT': 'lowercase-form',  # predeterminer
     'POS': 'lowercase-form',  # possessive
@@ -346,7 +353,7 @@ class TokenLemmaValidator(Validator):
     def get_lemma_type(self, token):
         upos = token['upos']
         xpos = token['xpos']
-        if xpos == 'NNS':
+        if xpos in ['NNS', 'NNPS']:
             # https://universaldependencies.org/u/feat/Number.html
             number = conllutil.get_feat(token, 'Number', None)
             if number is not None:
