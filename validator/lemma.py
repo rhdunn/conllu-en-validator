@@ -320,6 +320,7 @@ lemma_exceptions = {
         # irregular
         'better': 'well',
         'farther': 'far',
+        'further': 'far',
         'worse': 'badly',
         # -er exceptions
         'closer': 'close',
