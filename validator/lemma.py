@@ -370,6 +370,7 @@ lemma_exceptions = {
         'did': 'do',
         'fought': 'fight',
         'had': 'have',
+        'taught': 'teach',
         'was': 'be',
         'were': 'be',
     },
@@ -384,6 +385,7 @@ lemma_exceptions = {
         'done': 'do',
         'fought': 'fight',
         'had': 'have',
+        'taught': 'teach',
     },
     'VBP': {  # verb, singular present
         # clitics
