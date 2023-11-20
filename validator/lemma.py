@@ -320,6 +320,8 @@ lemma_exceptions = {
         # irregular
         'better': 'well',
         'worse': 'badly',
+        # -er exceptions
+        'closer': 'close',
     },
     'SYM': {  # symbol
         '\u2013': '\u002D',  # EN DASH -> HYPHEN-MINUS
