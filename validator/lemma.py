@@ -139,6 +139,7 @@ lemmatization_rule_names = {
     'VBD': 'past-verb',  # verb, past tense [-ed]
     'VBG': 'present-verb',  # verb, gerund or present tense [-ing]
     'VBN': 'past-verb',  # verb, past participle [-ed]
+    'VBP': 'lowercase-form',  # verb, singular present
     'WDT': 'lowercase-form',  # determiner, wh-
     'WP': 'lowercase-form',  # pronoun, wh-
     'WP$': 'lowercase-form',  # pronoun, possessive wh-
