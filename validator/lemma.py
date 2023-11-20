@@ -44,9 +44,9 @@ def fractional_number_lemma(form):
     return normalized, normalized
 
 
-def comparative_adjective_lemma(form):
+def comparative_lemma(form):
     normalized, _ = lowercase_form_lemma(form)
-    return normalized, apply_stemming_rules(normalized, comparative_adjective_stemming_rules)
+    return normalized, apply_stemming_rules(normalized, comparative_stemming_rules)
 
 
 def superlative_adjective_lemma(form):
@@ -67,7 +67,7 @@ def plural_proper_noun_lemma(form):
 lemmatization_rules = {
     'capitalized-form': capitalized_form_lemma,
     'cardinal-number': cardinal_number_lemma,
-    'comparative-adjective': comparative_adjective_lemma,
+    'comparative': comparative_lemma,
     'fractional-number': fractional_number_lemma,
     'lowercase-form': lowercase_form_lemma,
     'normalized-form': normalized_form_lemma,
@@ -76,7 +76,7 @@ lemmatization_rules = {
     'superlative-adjective': superlative_adjective_lemma,
 }
 
-comparative_adjective_stemming_rules = [
+comparative_stemming_rules = [
     (re.compile(r'([eo]a[^aeiou])er$'), r'\1'),  # oaCer -> oaC ; eaCer -> eaC
     (re.compile(r'([ai][^aeiou]e)r$'), r'\1'),  # aCer -> aCe ; iCer -> iCe
     (re.compile(r'([dgnt])\1er'), r'\1'),  # CCer -> C
@@ -121,7 +121,7 @@ lemmatization_rule_names = {
     'EX': 'lowercase-form',  # existential "there"
     'IN': 'lowercase-form',  # preposition, subordinating conjunction
     'JJ': 'lowercase-form',  # adjective, positive (first degree)
-    'JJR': 'comparative-adjective',  # adjective, comparative (second degree) [-er]
+    'JJR': 'comparative',  # adjective, comparative (second degree) [-er]
     'JJS': 'superlative-adjective',  # adjective, superlative (third degree) [-est]
     'LS': 'normalized-form',  # list item marker
     'MD': 'lowercase-form',  # verb, modal
@@ -138,6 +138,7 @@ lemmatization_rule_names = {
     'PRP': 'lowercase-form',  # pronoun, personal
     'PRP$': 'lowercase-form',  # pronoun, possessive
     'RB': 'lowercase-form',  # adverb
+    'RBR': 'comparative',  # adverb, comparative (second degree) [-er]
     'RP': 'lowercase-form',  # particle
     'SYM': 'normalized-form',  # symbol
     'TO': 'lowercase-form',  # "to"
