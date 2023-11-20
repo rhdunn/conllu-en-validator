@@ -319,6 +319,7 @@ lemma_exceptions = {
     'RBR': {  # adverb, comparative
         # irregular
         'better': 'well',
+        'farther': 'far',
         'worse': 'badly',
         # -er exceptions
         'closer': 'close',
