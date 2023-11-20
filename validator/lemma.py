@@ -318,6 +318,7 @@ lemma_exceptions = {
     },
     'RBR': {  # adverb, comparative
         # irregular
+        'better': 'well',
         'worse': 'badly',
     },
     'SYM': {  # symbol
