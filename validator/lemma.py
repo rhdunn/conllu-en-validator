@@ -94,6 +94,7 @@ plural_noun_stemming_rules = [
 ]
 
 past_verb_stemming_rules = [
+    ('ied', 'y'),
     ('ed', ''),
 ]
 
@@ -102,6 +103,7 @@ present_verb_stemming_rules = [
 ]
 
 present_3p_verb_stemming_rules = [
+    ('ies', 'y'),
     ('s', ''),
 ]
 
