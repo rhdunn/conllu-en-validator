@@ -55,6 +55,7 @@ lemmatization_rules = {
     'past-verb': lambda form: stemmed(form, lowercase_form_lemma, past_verb_stemming_rules),  # -ed
     'plural-common-noun': lambda form: stemmed(form, lowercase_form_lemma, plural_noun_stemming_rules),  # -s
     'plural-proper-noun': lambda form: stemmed(form, capitalized_form_lemma, plural_noun_stemming_rules),  # -s
+    'present-verb': lambda form: stemmed(form, lowercase_form_lemma, present_verb_stemming_rules),  # -ing
     'superlative': lambda form: stemmed(form, lowercase_form_lemma, superlative_stemming_rules),  # -est
 }
 
@@ -95,6 +96,10 @@ past_verb_stemming_rules = [
     ('ed', ''),
 ]
 
+present_verb_stemming_rules = [
+    ('ing', ''),
+]
+
 lemmatization_rule_names = {
     'CC': 'lowercase-form',  # coordinating conjunction
     'CD/NumForm=Combi': 'normalized-form',  # cardinal number, digits with a suffix
@@ -132,6 +137,7 @@ lemmatization_rule_names = {
     'UH': 'lowercase-form',  # interjection
     'VB': 'lowercase-form',  # verb, base form
     'VBD': 'past-verb',  # verb, past tense [-ed]
+    'VBG': 'present-verb',  # verb, gerund or present tense [-ing]
     'WDT': 'lowercase-form',  # determiner, wh-
     'WP': 'lowercase-form',  # pronoun, wh-
     'WP$': 'lowercase-form',  # pronoun, possessive wh-
