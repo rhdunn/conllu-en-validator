@@ -368,6 +368,7 @@ lemma_exceptions = {
         # irregular
         'caught': 'catch',
         'did': 'do',
+        'fought': 'fight',
         'had': 'have',
         'was': 'be',
         'were': 'be',
@@ -381,6 +382,7 @@ lemma_exceptions = {
         'been': 'be',
         'caught': 'catch',
         'done': 'do',
+        'fought': 'fight',
         'had': 'have',
     },
     'VBP': {  # verb, singular present
