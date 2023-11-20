@@ -361,8 +361,9 @@ lemma_exceptions = {
     },
     'VBD': {  # verb, past tense
         # clitics
-        '\'d': 'have',  # had
+        '\'d': ['do', 'have'],  # did, had
         # irregular
+        'did': 'do',
         'had': 'have',
         'was': 'be',
         'were': 'be',
@@ -374,6 +375,7 @@ lemma_exceptions = {
     'VBN': {  # verb, past participle
         # irregular
         'been': 'be',
+        'done': 'do',
         'had': 'have',
     },
     'VBP': {  # verb, singular present
@@ -389,13 +391,15 @@ lemma_exceptions = {
         'is': 'be',
         'were': 'be',
         # multi-word tokens
-        'ai': 'be',  # is
+        'ai': 'be',  # ai|n't
+        'du': 'do',  # du|n|no
     },
     'VBZ': {  # verb, singular present, third person
         # clitics
         '\'s': ['be', 'have'],  # is, has
         # irregular
         'is': 'be',
+        'does': 'do',
         'has': 'have',
         'hath': 'have',
         # multi-word tokens
@@ -453,6 +457,8 @@ class TokenLemmaValidator(Validator):
         if self.match_lemma(lemma, expected_lemma):
             pass  # matched via lemmatization rule
         else:
+            if isinstance(expected_lemma, list):
+                expected_lemma = '|'.join(expected_lemma)
             log(LogLevel.ERROR, sent, token,
                 f"{lemma_type} lemma '{lemma}' does not match {rule} applied to form '{form}', expected '{expected_lemma}'")
 
