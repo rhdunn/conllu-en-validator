@@ -330,6 +330,7 @@ lemma_exceptions = {
     },
     'RBS': {  # adverb, superlative
         # irregular
+        'best': 'well',
         'worst': 'badly',
     },
     'SYM': {  # symbol
