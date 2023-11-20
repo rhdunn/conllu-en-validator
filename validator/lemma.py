@@ -328,6 +328,10 @@ lemma_exceptions = {
         # -er exceptions
         'closer': 'close',
     },
+    'RBS': {  # adverb, superlative
+        # irregular
+        'worst': 'badly',
+    },
     'SYM': {  # symbol
         '\u2013': '\u002D',  # EN DASH -> HYPHEN-MINUS
         '\u2014': '\u002D',  # EM DASH -> HYPHEN-MINUS
