@@ -360,19 +360,28 @@ lemma_exceptions = {
         'wan': 'want',  # wan|na
     },
     'VBD': {  # verb, past tense
+        # clitics
+        '\'d': 'have',  # had
         # irregular
+        'had': 'have',
         'was': 'be',
         'were': 'be',
+    },
+    'VBG': {  # verb, gerund or present tense
+        # -ing exceptions
+        'having': 'have',
     },
     'VBN': {  # verb, past participle
         # irregular
         'been': 'be',
+        'had': 'have',
     },
     'VBP': {  # verb, singular present
         # clitics
         '\'m': 'be',  # am
         '\'re': 'be',  # are
         '\'s': 'be',  # is
+        '\'ve': 'have',
         # irregular
         'am': 'be',
         'are': 'be',
@@ -384,9 +393,11 @@ lemma_exceptions = {
     },
     'VBZ': {  # verb, singular present, third person
         # clitics
-        '\'s': 'be',  # is
+        '\'s': ['be', 'have'],  # is, has
         # irregular
         'is': 'be',
+        'has': 'have',
+        'hath': 'have',
         # multi-word tokens
         'ai': 'be',  # is
     },
