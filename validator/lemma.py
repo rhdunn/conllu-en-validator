@@ -184,6 +184,7 @@ lemma_exceptions = {
         'best': 'good',
         'eldest': 'old',  # eld/eald in Old English ~ oldest [old], eldest [ancient] split in Modern English
         'farthest': 'far',
+        'furthest': 'far',
         'worst': 'bad',
         # -est exceptions
         'ablest': 'able',
@@ -333,6 +334,7 @@ lemma_exceptions = {
         # irregular
         'best': 'well',
         'farthest': 'far',
+        'furthest': 'far',
         'worst': 'badly',
     },
     'SYM': {  # symbol
