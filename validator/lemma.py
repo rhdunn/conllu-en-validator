@@ -95,7 +95,7 @@ plural_noun_stemming_rules = [
 
 past_verb_stemming_rules = [
     (re.compile(r'([eo]a[^aeiou])ed$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
-    (re.compile(r'(a[^aeiou]e)[dn]$'), r'\1'),  # aCed -> aCe ; aCen -> aCe
+    (re.compile(r'([ai][^aeiou]e)[dn]$'), r'\1'),  # VCed -> VCe ; VCen -> VCe
     ('ied', 'y'),
     ('ed', ''),
 ]
@@ -105,7 +105,7 @@ present_verb_stemming_rules = [
 ]
 
 present_3p_verb_stemming_rules = [
-    (re.compile(r'(a[^aeiou]e)s$'), r'\1'),  # aCes -> aCe
+    (re.compile(r'([ai][^aeiou]e)s$'), r'\1'),  # VCes -> VCe
     ('ies', 'y'),
     ('es', ''),
     ('s', ''),
