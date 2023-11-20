@@ -316,6 +316,10 @@ lemma_exceptions = {
         # dotted abbreviations
         'aka': 'a.k.a.',  # also known as
     },
+    'RBR': {  # adverb, comparative
+        # irregular
+        'worse': 'badly',
+    },
     'SYM': {  # symbol
         '\u2013': '\u002D',  # EN DASH -> HYPHEN-MINUS
         '\u2014': '\u002D',  # EM DASH -> HYPHEN-MINUS
