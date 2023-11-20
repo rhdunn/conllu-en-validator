@@ -7,17 +7,6 @@ from validator.validator import Validator
 from validator.logger import log, LogLevel
 
 
-def apply_stemming_rules(form, rules):
-    for ending, replacement in rules:
-        if isinstance(ending, re.Pattern):
-            replaced, count = ending.subn(replacement, form)
-            if count != 0:
-                return replaced
-        elif form.endswith(ending):
-            return form[:-len(ending)] + replacement
-    return form
-
-
 def normalized_form_lemma(form):
     for _from, _to in normalization_rules:
         form = form.replace(_from, _to)
@@ -44,36 +33,28 @@ def fractional_number_lemma(form):
     return normalized, normalized
 
 
-def comparative_lemma(form):
-    normalized, _ = lowercase_form_lemma(form)
-    return normalized, apply_stemming_rules(normalized, comparative_stemming_rules)
-
-
-def superlative_lemma(form):
-    normalized, _ = lowercase_form_lemma(form)
-    return normalized, apply_stemming_rules(normalized, superlative_stemming_rules)
-
-
-def plural_common_noun_lemma(form):
-    normalized, _ = lowercase_form_lemma(form)
-    return normalized, apply_stemming_rules(normalized, plural_noun_stemming_rules)
-
-
-def plural_proper_noun_lemma(form):
-    normalized, _ = capitalized_form_lemma(form)
-    return normalized, apply_stemming_rules(normalized, plural_noun_stemming_rules)
+def stemmed(form, normalize_lemma, stemming_rules):
+    normalized, _ = normalize_lemma(form)
+    for ending, replacement in stemming_rules:
+        if isinstance(ending, re.Pattern):
+            replaced, count = ending.subn(replacement, normalized)
+            if count != 0:
+                return normalized, replaced
+        elif normalized.endswith(ending):
+            return normalized, normalized[:-len(ending)] + replacement
+    return normalized, normalized
 
 
 lemmatization_rules = {
     'capitalized-form': capitalized_form_lemma,
     'cardinal-number': cardinal_number_lemma,
-    'comparative': comparative_lemma,  # -er, lowercase
+    'comparative': lambda form: stemmed(form, lowercase_form_lemma, comparative_stemming_rules),  # -er
     'fractional-number': fractional_number_lemma,
     'lowercase-form': lowercase_form_lemma,
     'normalized-form': normalized_form_lemma,
-    'plural-common-noun': plural_common_noun_lemma,  # -s, lowercase
-    'plural-proper-noun': plural_proper_noun_lemma,  # -s, capitalized
-    'superlative': superlative_lemma,  # -est, lowercase
+    'plural-common-noun': lambda form: stemmed(form, lowercase_form_lemma, plural_noun_stemming_rules),  # -s
+    'plural-proper-noun': lambda form: stemmed(form, capitalized_form_lemma, plural_noun_stemming_rules),  # -s
+    'superlative': lambda form: stemmed(form, lowercase_form_lemma, superlative_stemming_rules),  # -est
 }
 
 comparative_stemming_rules = [
