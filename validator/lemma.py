@@ -52,6 +52,7 @@ lemmatization_rules = {
     'fractional-number': fractional_number_lemma,
     'lowercase-form': lowercase_form_lemma,
     'normalized-form': normalized_form_lemma,
+    'past-verb': lambda form: stemmed(form, lowercase_form_lemma, past_verb_stemming_rules),  # -ed
     'plural-common-noun': lambda form: stemmed(form, lowercase_form_lemma, plural_noun_stemming_rules),  # -s
     'plural-proper-noun': lambda form: stemmed(form, capitalized_form_lemma, plural_noun_stemming_rules),  # -s
     'superlative': lambda form: stemmed(form, lowercase_form_lemma, superlative_stemming_rules),  # -est
@@ -90,6 +91,10 @@ plural_noun_stemming_rules = [
     ('ae', 'a'),
 ]
 
+past_verb_stemming_rules = [
+    ('ed', ''),
+]
+
 lemmatization_rule_names = {
     'CC': 'lowercase-form',  # coordinating conjunction
     'CD/NumForm=Combi': 'normalized-form',  # cardinal number, digits with a suffix
@@ -126,6 +131,7 @@ lemmatization_rule_names = {
     'TO': 'lowercase-form',  # "to"
     'UH': 'lowercase-form',  # interjection
     'VB': 'lowercase-form',  # verb, base form
+    'VBD': 'past-verb',  # verb, past tense [-ed]
     'WDT': 'lowercase-form',  # determiner, wh-
     'WP': 'lowercase-form',  # pronoun, wh-
     'WP$': 'lowercase-form',  # pronoun, possessive wh-
