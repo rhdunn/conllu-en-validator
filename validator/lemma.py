@@ -366,6 +366,7 @@ lemma_exceptions = {
         # clitics
         '\'d': ['do', 'have'],  # did, had
         # irregular
+        'caught': 'catch',
         'did': 'do',
         'had': 'have',
         'was': 'be',
@@ -378,6 +379,7 @@ lemma_exceptions = {
     'VBN': {  # verb, past participle
         # irregular
         'been': 'be',
+        'caught': 'catch',
         'done': 'do',
         'had': 'have',
     },
