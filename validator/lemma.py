@@ -94,6 +94,7 @@ plural_noun_stemming_rules = [
 ]
 
 past_verb_stemming_rules = [
+    (re.compile(r'(a[^aeiou]e)[dn]$'), r'\1'),  # aCed -> aCe ; aCen -> aCe
     ('ied', 'y'),
     ('ed', ''),
 ]
@@ -103,6 +104,7 @@ present_verb_stemming_rules = [
 ]
 
 present_3p_verb_stemming_rules = [
+    (re.compile(r'(a[^aeiou]e)s$'), r'\1'),  # aCes -> aCe
     ('ies', 'y'),
     ('es', ''),
     ('s', ''),
