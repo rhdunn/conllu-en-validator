@@ -321,6 +321,7 @@ lemma_exceptions = {
         'better': 'well',
         'farther': 'far',
         'further': 'far',
+        'less': 'little',
         'worse': 'badly',
         # -er exceptions
         'closer': 'close',
