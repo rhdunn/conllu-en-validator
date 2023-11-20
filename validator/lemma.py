@@ -183,6 +183,7 @@ lemma_exceptions = {
         # irregular
         'best': 'good',
         'eldest': 'old',  # eld/eald in Old English ~ oldest [old], eldest [ancient] split in Modern English
+        'farthest': 'far',
         'worst': 'bad',
         # -est exceptions
         'ablest': 'able',
@@ -331,6 +332,7 @@ lemma_exceptions = {
     'RBS': {  # adverb, superlative
         # irregular
         'best': 'well',
+        'farthest': 'far',
         'worst': 'badly',
     },
     'SYM': {  # symbol
