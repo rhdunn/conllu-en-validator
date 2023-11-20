@@ -49,9 +49,9 @@ def comparative_lemma(form):
     return normalized, apply_stemming_rules(normalized, comparative_stemming_rules)
 
 
-def superlative_adjective_lemma(form):
+def superlative_lemma(form):
     normalized, _ = lowercase_form_lemma(form)
-    return normalized, apply_stemming_rules(normalized, superlative_adjective_stemming_rules)
+    return normalized, apply_stemming_rules(normalized, superlative_stemming_rules)
 
 
 def plural_common_noun_lemma(form):
@@ -67,13 +67,13 @@ def plural_proper_noun_lemma(form):
 lemmatization_rules = {
     'capitalized-form': capitalized_form_lemma,
     'cardinal-number': cardinal_number_lemma,
-    'comparative': comparative_lemma,
+    'comparative': comparative_lemma,  # -er, lowercase
     'fractional-number': fractional_number_lemma,
     'lowercase-form': lowercase_form_lemma,
     'normalized-form': normalized_form_lemma,
-    'plural-common-noun': plural_common_noun_lemma,
-    'plural-proper-noun': plural_proper_noun_lemma,
-    'superlative-adjective': superlative_adjective_lemma,
+    'plural-common-noun': plural_common_noun_lemma,  # -s, lowercase
+    'plural-proper-noun': plural_proper_noun_lemma,  # -s, capitalized
+    'superlative': superlative_lemma,  # -est, lowercase
 }
 
 comparative_stemming_rules = [
@@ -84,7 +84,7 @@ comparative_stemming_rules = [
     ('er', ''),
 ]
 
-superlative_adjective_stemming_rules = [
+superlative_stemming_rules = [
     (re.compile(r'([eo]a[^aeiou])est$'), r'\1'),  # oaCest -> oaC ; eaCest -> eaC
     (re.compile(r'([ai][^aeiou]e)st$'), r'\1'),  # aCest -> aCe ; iCest -> iCe
     (re.compile(r'([dgnt])\1est'), r'\1'),  # CCest -> C
@@ -122,7 +122,7 @@ lemmatization_rule_names = {
     'IN': 'lowercase-form',  # preposition, subordinating conjunction
     'JJ': 'lowercase-form',  # adjective, positive (first degree)
     'JJR': 'comparative',  # adjective, comparative (second degree) [-er]
-    'JJS': 'superlative-adjective',  # adjective, superlative (third degree) [-est]
+    'JJS': 'superlative',  # adjective, superlative (third degree) [-est]
     'LS': 'normalized-form',  # list item marker
     'MD': 'lowercase-form',  # verb, modal
     'NN': 'lowercase-form',  # noun
@@ -139,6 +139,7 @@ lemmatization_rule_names = {
     'PRP$': 'lowercase-form',  # pronoun, possessive
     'RB': 'lowercase-form',  # adverb
     'RBR': 'comparative',  # adverb, comparative (second degree) [-er]
+    'RBS': 'superlative',  # adverb, superlative (third degree) [-est]
     'RP': 'lowercase-form',  # particle
     'SYM': 'normalized-form',  # symbol
     'TO': 'lowercase-form',  # "to"
