@@ -359,6 +359,37 @@ lemma_exceptions = {
         'no': 'know',  # du|n|no
         'wan': 'want',  # wan|na
     },
+    'VBD': {  # verb, past tense
+        # irregular
+        'was': 'be',
+        'were': 'be',
+    },
+    'VBN': {  # verb, past participle
+        # irregular
+        'been': 'be',
+    },
+    'VBP': {  # verb, singular present
+        # clitics
+        '\'m': 'be',  # am
+        '\'re': 'be',  # are
+        '\'s': 'be',  # is
+        # irregular
+        'am': 'be',
+        'are': 'be',
+        'art': 'be',
+        'is': 'be',
+        'were': 'be',
+        # multi-word tokens
+        'ai': 'be',  # is
+    },
+    'VBZ': {  # verb, singular present, third person
+        # clitics
+        '\'s': 'be',  # is
+        # irregular
+        'is': 'be',
+        # multi-word tokens
+        'ai': 'be',  # is
+    },
     'WP': {  # pronoun, possessive wh-
         # https://universaldependencies.org/en/pos/PRON.html#relativeinterrogative-wh-pronouns
         'whom': 'who',
