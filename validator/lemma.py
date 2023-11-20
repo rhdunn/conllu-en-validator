@@ -104,6 +104,7 @@ present_verb_stemming_rules = [
 
 present_3p_verb_stemming_rules = [
     ('ies', 'y'),
+    ('es', ''),
     ('s', ''),
 ]
 
