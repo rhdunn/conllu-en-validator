@@ -335,6 +335,7 @@ lemma_exceptions = {
         'best': 'well',
         'farthest': 'far',
         'furthest': 'far',
+        'least': 'little',
         'worst': 'badly',
     },
     'SYM': {  # symbol
