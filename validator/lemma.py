@@ -94,7 +94,7 @@ plural_noun_stemming_rules = [
 ]
 
 past_verb_stemming_rules = [
-    (re.compile(r'(ea[^aeiou])ed$'), r'\1'),  # eaCed -> eaC
+    (re.compile(r'([eo]a[^aeiou])ed$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
     (re.compile(r'(a[^aeiou]e)[dn]$'), r'\1'),  # aCed -> aCe ; aCen -> aCe
     ('ied', 'y'),
     ('ed', ''),
