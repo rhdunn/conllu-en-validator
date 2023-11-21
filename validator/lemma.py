@@ -94,7 +94,7 @@ plural_noun_stemming_rules = [
 ]
 
 past_verb_stemming_rules = [
-    (re.compile(r'([aeu]r[cgsv])e[dn]$'), r'\1e'),  # VrCed -> VrCe ; VrCen -> VrCe
+    (re.compile(r'([aeou]r[cgsv])e[dn]$'), r'\1e'),  # VrCed -> VrCe ; VrCen -> VrCe
     ('eezed', 'eeze'),
     ('ozen', 'eeze'),
     (re.compile(r'([eo]a[^aeiou])ed$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
@@ -104,13 +104,13 @@ past_verb_stemming_rules = [
 ]
 
 present_verb_stemming_rules = [
-    (re.compile(r'([aeu]r[cgsv])ing$'), r'\1e'),  # VrCing -> VrCe
+    (re.compile(r'([aeou]r[cgsv])ing$'), r'\1e'),  # VrCing -> VrCe
     ('eezing', 'eeze'),
     ('ing', ''),
 ]
 
 present_3p_verb_stemming_rules = [
-    (re.compile(r'([aeu]r[cgsv])es'), r'\1e'),  # VrCes -> VrCe
+    (re.compile(r'([aeou]r[cgsv])es'), r'\1e'),  # VrCes -> VrCe
     ('eezes', 'eeze'),
     (re.compile(r'([aiou][^aeiou]e)s$'), r'\1'),  # VCes -> VCe
     ('ies', 'y'),
