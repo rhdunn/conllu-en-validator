@@ -63,7 +63,7 @@ lemmatization_rules = {
 comparative_stemming_rules = [
     (re.compile(r'([eo]a[^aeiou])er$'), r'\1'),  # oaCer -> oaC ; eaCer -> eaC
     (re.compile(r'([ai][^aeiou]e)r$'), r'\1'),  # aCer -> aCe ; iCer -> iCe
-    (re.compile(r'([dgnt])\1er'), r'\1'),  # CCer -> C
+    (re.compile(r'([dgnt])\1er$'), r'\1'),  # CCer -> C
     ('ier', 'y'),
     ('er', ''),
 ]
@@ -71,7 +71,7 @@ comparative_stemming_rules = [
 superlative_stemming_rules = [
     (re.compile(r'([eo]a[^aeiou])est$'), r'\1'),  # oaCest -> oaC ; eaCest -> eaC
     (re.compile(r'([ai][^aeiou]e)st$'), r'\1'),  # aCest -> aCe ; iCest -> iCe
-    (re.compile(r'([dgnt])\1est'), r'\1'),  # CCest -> C
+    (re.compile(r'([dgnt])\1est$'), r'\1'),  # CCest -> C
     ('iest', 'y'),
     ('est', ''),
 ]
@@ -98,16 +98,16 @@ past_verb_stemming_rules = [
     ('eezed', 'eeze'), ('ozen', 'eeze'),
     (re.compile(r'([eo]a[^aeiou])ed$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
     # -VCCed ; -VCCen
-    (re.compile(r'([aeiou]([bdgmnprt]))\2ed'), r'\1'),  # VCCed -> VC ~ doubled consonants
-    (re.compile(r'([ou]l[gsv])ed'), r'\1e'),  # VlCed -> VlCe
-    (re.compile(r'((ch|r)a|e|fri|u)nged'), r'\1nge'),  # Vnged -> Vnge
-    (re.compile(r'([aeiu]n[cs])ed'), r'\1e'),  # VnCed -> VnCe
+    (re.compile(r'([aeiou]([bdgmnprt]))\2ed$'), r'\1'),  # VCCed -> VC ~ doubled consonants
+    (re.compile(r'([ou]l[gsv])ed$'), r'\1e'),  # VlCed -> VlCe
+    (re.compile(r'((ch|r)a|e|fri|u)nged$'), r'\1nge'),  # Vnged -> Vnge
+    (re.compile(r'([aeiu]n[cs])ed$'), r'\1e'),  # VnCed -> VnCe
     (re.compile(r'([aeou]r[cgsv])e[dn]$'), r'\1e'),  # VrCed -> VrCe ; VrCen -> VrCe
-    (re.compile(r'([ptw]ast)ed'), r'\1e'),  # asted -> aste
+    (re.compile(r'([ptw]ast)ed$'), r'\1e'),  # asted -> aste
     # -VCed ; -VCen
     (re.compile(r'([aiou][^aeiou]e)[dn]$'), r'\1'),  # VCed -> VCe ; VCen -> VCe
     # -Xed
-    (re.compile(r'([^aeiourlw]l)ed'), r'\1e'),  # Cled -> Cle
+    (re.compile(r'([^aeiourlw]l)ed$'), r'\1e'),  # Cled -> Cle
     ('ied', 'y'),
     # -ed
     ('ed', ''),
@@ -118,16 +118,16 @@ present_verb_stemming_rules = [
     ('eezing', 'eeze'),
     (re.compile(r'([eo]a[^aeiou])ing$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
     # -VCCing
-    (re.compile(r'([aeiou]([bdgmnprt]))\2ing'), r'\1'),  # VCCing -> VC ~ doubled consonants
-    (re.compile(r'([ou]l[gsv])ing'), r'\1e'),  # VlCing -> VlCe
-    (re.compile(r'((ch|r)a|e|fri|u)nging'), r'\1nge'),  # Vnging -> Vnge
-    (re.compile(r'([aeiu]n[cs])ing'), r'\1e'),  # VnCing -> VnCe
+    (re.compile(r'([aeiou]([bdgmnprt]))\2ing$'), r'\1'),  # VCCing -> VC ~ doubled consonants
+    (re.compile(r'([ou]l[gsv])ing$'), r'\1e'),  # VlCing -> VlCe
+    (re.compile(r'((ch|r)a|e|fri|u)nging$'), r'\1nge'),  # Vnging -> Vnge
+    (re.compile(r'([aeiu]n[cs])ing$'), r'\1e'),  # VnCing -> VnCe
     (re.compile(r'([aeou]r[cgsv])ing$'), r'\1e'),  # VrCing -> VrCe
-    (re.compile(r'([ptw]ast)ing'), r'\1e'),  # asting -> aste
+    (re.compile(r'([ptw]ast)ing$'), r'\1e'),  # asting -> aste
     # -VCing
     (re.compile(r'([aiou][^aeiou])ing$'), r'\1e'),  # VCes -> VCe
     # -Xing
-    (re.compile(r'([^aeiourlw]l)ing'), r'\1e'),  # Cling -> Cle
+    (re.compile(r'([^aeiourlw]l)ing$'), r'\1e'),  # Cling -> Cle
     # -ing
     ('ing', ''),
 ]
@@ -136,15 +136,15 @@ present_3p_verb_stemming_rules = [
     # -VVCes
     ('eezes', 'eeze'),
     # -VCCes
-    (re.compile(r'([ou]l[gsv])es'), r'\1e'),  # VlCes -> VlCe
-    (re.compile(r'((ch|r)a|e|fri|u)nges'), r'\1e'),  # Vnges -> Vnge
-    (re.compile(r'([aeiu]n[cs])es'), r'\1e'),  # VnCes -> VnCe
-    (re.compile(r'([aeou]r[cgsv])es'), r'\1e'),  # VrCes -> VrCe
-    (re.compile(r'([ptw]ast)es'), r'\1e'),  # astes -> aste
+    (re.compile(r'([ou]l[gsv])es$'), r'\1e'),  # VlCes -> VlCe
+    (re.compile(r'((ch|r)a|e|fri|u)nges$'), r'\1e'),  # Vnges -> Vnge
+    (re.compile(r'([aeiu]n[cs])es$'), r'\1e'),  # VnCes -> VnCe
+    (re.compile(r'([aeou]r[cgsv])es$'), r'\1e'),  # VrCes -> VrCe
+    (re.compile(r'([ptw]ast)es$'), r'\1e'),  # astes -> aste
     # -VCes
     (re.compile(r'([aiou][^aeiou]e)s$'), r'\1'),  # VCes -> VCe
     # -Xes
-    (re.compile(r'([^aeiourlw]l)es'), r'\1e'),  # Cles -> Cle
+    (re.compile(r'([^aeiourlw]l)es$'), r'\1e'),  # Cles -> Cle
     ('ies', 'y'),
     # -es
     ('es', ''),
