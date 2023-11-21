@@ -106,6 +106,8 @@ past_verb_stemming_rules = [
 present_verb_stemming_rules = [
     (re.compile(r'([aeou]r[cgsv])ing$'), r'\1e'),  # VrCing -> VrCe
     ('eezing', 'eeze'),
+    (re.compile(r'([eo]a[^aeiou])ing$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
+    (re.compile(r'([aiou][^aeiou])ing$'), r'\1e'),  # VCes -> VCe
     ('ing', ''),
 ]
 
