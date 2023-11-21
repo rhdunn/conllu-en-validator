@@ -94,11 +94,13 @@ plural_noun_stemming_rules = [
 ]
 
 past_verb_stemming_rules = [
+    (re.compile(r'(ch|r)anged'), r'\1ange'),  # changed -> change ; ranged -> range
     # -VVCed ; -VVCen
     ('eezed', 'eeze'), ('ozen', 'eeze'),
     (re.compile(r'([eo]a[^aeiou])ed$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
     # -VCCed ; -VCCen
     (re.compile(r'([ou]l[gsv])ed'), r'\1e'),  # VlCed -> VlCe
+    (re.compile(r'(an[cs])ed'), r'\1e'),  # VnCed -> VnCe
     (re.compile(r'([aeou]r[cgsv])e[dn]$'), r'\1e'),  # VrCed -> VrCe ; VrCen -> VrCe
     # -VCed ; -VCen
     (re.compile(r'([aiou][^aeiou]e)[dn]$'), r'\1'),  # VCed -> VCe ; VCen -> VCe
@@ -108,11 +110,13 @@ past_verb_stemming_rules = [
 ]
 
 present_verb_stemming_rules = [
+    (re.compile(r'(ch|r)anging'), r'\1ange'),  # changing -> change ; ranging -> range
     # -VVCing
     ('eezing', 'eeze'),
     (re.compile(r'([eo]a[^aeiou])ing$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
     # -VCCing
     (re.compile(r'([ou]l[gsv])ing'), r'\1e'),  # VlCing -> VlCe
+    (re.compile(r'(an[cs])ing'), r'\1e'),  # VnCing -> VnCe
     (re.compile(r'([aeou]r[cgsv])ing$'), r'\1e'),  # VrCing -> VrCe
     # -VCing
     (re.compile(r'([aiou][^aeiou])ing$'), r'\1e'),  # VCes -> VCe
@@ -121,10 +125,12 @@ present_verb_stemming_rules = [
 ]
 
 present_3p_verb_stemming_rules = [
+    (re.compile(r'(ch|r)anges'), r'\1e'),  # changes -> change ; ranges -> range
     # -VVCes
     ('eezes', 'eeze'),
     # -VCCes
     (re.compile(r'([ou]l[gsv])es'), r'\1e'),  # VlCes -> VlCe
+    (re.compile(r'(an[cs])es'), r'\1e'),  # VnCes -> VnCe
     (re.compile(r'([aeou]r[cgsv])es'), r'\1e'),  # VrCes -> VrCe
     # -VCes
     (re.compile(r'([aiou][^aeiou]e)s$'), r'\1'),  # VCes -> VCe
