@@ -94,7 +94,7 @@ plural_noun_stemming_rules = [
 ]
 
 past_verb_stemming_rules = [
-    (re.compile(r'(ol[gsv])ed'), r'\1e'),  # olCed -> olCe
+    (re.compile(r'([ou]l[gsv])ed'), r'\1e'),  # VlCed -> VlCe
     (re.compile(r'([aeou]r[cgsv])e[dn]$'), r'\1e'),  # VrCed -> VrCe ; VrCen -> VrCe
     ('eezed', 'eeze'),
     ('ozen', 'eeze'),
@@ -105,7 +105,7 @@ past_verb_stemming_rules = [
 ]
 
 present_verb_stemming_rules = [
-    (re.compile(r'(ol[gsv])ing'), r'\1e'),  # olCing -> olCe
+    (re.compile(r'([ou]l[gsv])ing'), r'\1e'),  # VlCing -> VlCe
     (re.compile(r'([aeou]r[cgsv])ing$'), r'\1e'),  # VrCing -> VrCe
     ('eezing', 'eeze'),
     (re.compile(r'([eo]a[^aeiou])ing$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
@@ -114,7 +114,7 @@ present_verb_stemming_rules = [
 ]
 
 present_3p_verb_stemming_rules = [
-    (re.compile(r'(ol[gsv])es'), r'\1e'),  # olCes -> olCe
+    (re.compile(r'([ou]l[gsv])es'), r'\1e'),  # VlCes -> VlCe
     (re.compile(r'([aeou]r[cgsv])es'), r'\1e'),  # VrCes -> VrCe
     ('eezes', 'eeze'),
     (re.compile(r'([aiou][^aeiou]e)s$'), r'\1'),  # VCes -> VCe
