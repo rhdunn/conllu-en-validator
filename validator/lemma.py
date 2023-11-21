@@ -410,10 +410,13 @@ lemma_exceptions = {
         'taught': 'teach',
         'was': 'be',
         'were': 'be',
+        # -ed exceptions
+        'coalesced': 'coalesce',
     },
     'VBG': {  # verb, gerund or present tense
         # -ing exceptions
         'having': 'have',
+        'coalescing': 'coalesce',
     },
     'VBN': {  # verb, past participle
         # irregular
@@ -423,6 +426,8 @@ lemma_exceptions = {
         'fought': 'fight',
         'had': 'have',
         'taught': 'teach',
+        # -ed exceptions
+        'coalesced': 'coalesce',
     },
     'VBP': {  # verb, singular present
         # clitics
@@ -450,6 +455,8 @@ lemma_exceptions = {
         'hath': 'have',
         # multi-word tokens
         'ai': 'be',  # is
+        # -es exceptions
+        'coalesces': 'coalesce',
     },
     'WP': {  # pronoun, possessive wh-
         # https://universaldependencies.org/en/pos/PRON.html#relativeinterrogative-wh-pronouns
