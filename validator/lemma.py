@@ -99,8 +99,8 @@ past_verb_stemming_rules = [
     (re.compile(r'([eo]a[^aeiou])ed$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
     # -VCCed ; -VCCen
     (re.compile(r'([ou]l[gsv])ed'), r'\1e'),  # VlCed -> VlCe
-    (re.compile(r'(cha|ra|e)nged'), r'\1nge'),  # Vnged -> Vnge
-    (re.compile(r'([ae]n[cs])ed'), r'\1e'),  # VnCed -> VnCe
+    (re.compile(r'((ch|r)a|e|fri)nged'), r'\1nge'),  # Vnged -> Vnge
+    (re.compile(r'([aei]n[cs])ed'), r'\1e'),  # VnCed -> VnCe
     (re.compile(r'([aeou]r[cgsv])e[dn]$'), r'\1e'),  # VrCed -> VrCe ; VrCen -> VrCe
     # -VCed ; -VCen
     (re.compile(r'([aiou][^aeiou]e)[dn]$'), r'\1'),  # VCed -> VCe ; VCen -> VCe
@@ -115,8 +115,8 @@ present_verb_stemming_rules = [
     (re.compile(r'([eo]a[^aeiou])ing$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
     # -VCCing
     (re.compile(r'([ou]l[gsv])ing'), r'\1e'),  # VlCing -> VlCe
-    (re.compile(r'(cha|ra|e)nging'), r'\1nge'),  # Vnging -> Vnge
-    (re.compile(r'([ae]n[cs])ing'), r'\1e'),  # VnCing -> VnCe
+    (re.compile(r'((ch|r)a|e|fri)nging'), r'\1nge'),  # Vnging -> Vnge
+    (re.compile(r'([aei]n[cs])ing'), r'\1e'),  # VnCing -> VnCe
     (re.compile(r'([aeou]r[cgsv])ing$'), r'\1e'),  # VrCing -> VrCe
     # -VCing
     (re.compile(r'([aiou][^aeiou])ing$'), r'\1e'),  # VCes -> VCe
@@ -129,8 +129,8 @@ present_3p_verb_stemming_rules = [
     ('eezes', 'eeze'),
     # -VCCes
     (re.compile(r'([ou]l[gsv])es'), r'\1e'),  # VlCes -> VlCe
-    (re.compile(r'(cha|ra|e)nges'), r'\1e'),  # Vnges -> Vnge
-    (re.compile(r'([ae]n[cs])es'), r'\1e'),  # VnCes -> VnCe
+    (re.compile(r'((ch|r)a|e|fri)nges'), r'\1e'),  # Vnges -> Vnge
+    (re.compile(r'([aei]n[cs])es'), r'\1e'),  # VnCes -> VnCe
     (re.compile(r'([aeou]r[cgsv])es'), r'\1e'),  # VrCes -> VrCe
     # -VCes
     (re.compile(r'([aiou][^aeiou]e)s$'), r'\1'),  # VCes -> VCe
