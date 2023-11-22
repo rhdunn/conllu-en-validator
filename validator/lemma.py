@@ -472,6 +472,7 @@ lemma_exceptions = {
         'laid': 'lay',
         'lay': 'lie',
         'led': 'lead',
+        'leant': 'lean',
         'learnt': 'learn',
         'left': 'leave',
         'lit': 'light',
