@@ -500,6 +500,7 @@ lemma_exceptions = {
         'sent': 'send',
         'shone': 'shine',
         'shot': 'shoot',
+        'shrunk': 'shrink',
         'slept': 'sleep',
         'sold': 'sell',
         'sought': 'seek',
