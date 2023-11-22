@@ -451,6 +451,7 @@ lemma_exceptions = {
         'knew': 'know',
         'led': 'lead',
         'left': 'leave',
+        'lit': 'light',
         'made': 'make',
         'rose': 'rise',
         'said': 'say',
