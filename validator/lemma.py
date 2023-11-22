@@ -430,6 +430,7 @@ lemma_exceptions = {
         'built': 'build',
         'caught': 'catch',
         'came': 'come',
+        'chose': 'choose',
         'did': 'do',
         'drew': 'draw',
         'drove': 'drive',
