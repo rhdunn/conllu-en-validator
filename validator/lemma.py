@@ -452,6 +452,7 @@ lemma_exceptions = {
         'led': 'lead',
         'left': 'leave',
         'lit': 'light',
+        'lost': 'lose',
         'made': 'make',
         'rose': 'rise',
         'said': 'say',
