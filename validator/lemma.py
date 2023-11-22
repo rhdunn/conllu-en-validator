@@ -96,7 +96,6 @@ plural_noun_stemming_rules = [
 past_verb_stemming_rules = [
     # -VVCed ; -VVCen
     (re.compile(r'((ee|oo)z)ed$'), r'\1e'),  # VVzed -> VVze
-    ('ozen', 'eeze'),
     (re.compile(r'(([aeiou])\2[^aeiou]?)ed$'), r'\1'),  # VVC?ed -> VVC? ~ doubled vowel
     (re.compile(r'((ai|ea|io|o[ai])[^aeious])ed$'), r'\1'),  # VVCed -> VVC
     # -VCCed ; -VCCen
@@ -114,6 +113,9 @@ past_verb_stemming_rules = [
     ('ued', 'ue'),
     # -ed
     ('ed', ''),
+    # -en
+    ('ozen', 'eeze'),
+    ('en', ''),
 ]
 
 present_verb_stemming_rules = [
