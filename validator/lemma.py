@@ -497,6 +497,7 @@ lemma_exceptions = {
         'spent': 'spend',
         'spoke': 'speak',
         'sprang': 'spring',
+        'stuck': 'stick',
         'taught': 'teach',
         'thought': 'think',
         'told': 'tell',
