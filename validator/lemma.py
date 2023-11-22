@@ -423,6 +423,7 @@ lemma_exceptions = {
         'did': 'do',
         'fought': 'fight',
         'had': 'have',
+        'rose': 'rise',
         'taught': 'teach',
         'was': 'be',
         'were': 'be',
