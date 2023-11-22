@@ -502,6 +502,7 @@ lemma_exceptions = {
         'shot': 'shoot',
         'shrunk': 'shrink',
         'slept': 'sleep',
+        'slung': 'sling',
         'sold': 'sell',
         'sought': 'seek',
         'sped': 'speed',
