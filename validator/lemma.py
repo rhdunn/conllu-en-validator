@@ -445,6 +445,7 @@ lemma_exceptions = {
         'drank': 'drink',
         'drew': 'draw',
         'drove': 'drive',
+        'dwelt': 'dwell',
         'fell': 'fall',
         'felt': 'feel',
         'fled': 'flee',
