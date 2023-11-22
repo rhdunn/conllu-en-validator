@@ -498,6 +498,7 @@ lemma_exceptions = {
         'sat': 'sit',
         'saw': 'see',
         'sent': 'send',
+        'shone': 'shine',
         'shot': 'shoot',
         'slept': 'sleep',
         'sold': 'sell',
