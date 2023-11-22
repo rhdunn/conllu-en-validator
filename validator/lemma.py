@@ -476,6 +476,7 @@ lemma_exceptions = {
         'thought': 'think',
         'told': 'tell',
         'took': 'take',
+        'understood': 'understand',
         'underwent': 'undergo',
         'was': 'be',
         'went': 'go',
