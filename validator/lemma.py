@@ -457,6 +457,7 @@ lemma_exceptions = {
         'took': 'take',
         'underwent': 'undergo',
         'was': 'be',
+        'went': 'go',
         'were': 'be',
         # -ed exceptions
         'coalesced': 'coalesce',
