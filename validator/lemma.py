@@ -499,6 +499,7 @@ lemma_exceptions = {
         'saw': 'see',
         'sent': 'send',
         'shone': 'shine',
+        'shook': 'shake',
         'shot': 'shoot',
         'shrunk': 'shrink',
         'slept': 'sleep',
