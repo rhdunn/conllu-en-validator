@@ -426,6 +426,7 @@ lemma_exceptions = {
         'became': 'become',
         'began': 'begin',
         'betook': 'betake',
+        'bit': 'bite',
         'blew': 'blow',
         'bought': 'buy',
         'broke': 'break',
