@@ -481,6 +481,7 @@ lemma_exceptions = {
         'was': 'be',
         'went': 'go',
         'were': 'be',
+        'won': 'win',
         'wore': 'wear',
         'wrote': 'write',
         'wrought': 'wring',
