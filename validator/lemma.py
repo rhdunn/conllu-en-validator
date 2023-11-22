@@ -455,6 +455,7 @@ lemma_exceptions = {
         'thought': 'think',
         'told': 'tell',
         'took': 'take',
+        'underwent': 'undergo',
         'was': 'be',
         'were': 'be',
         # -ed exceptions
