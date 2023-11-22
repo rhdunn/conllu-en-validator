@@ -431,6 +431,7 @@ lemma_exceptions = {
         'caught': 'catch',
         'came': 'come',
         'chose': 'choose',
+        'co-wrote': 'co-write',
         'did': 'do',
         'drew': 'draw',
         'drove': 'drive',
