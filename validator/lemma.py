@@ -445,6 +445,7 @@ lemma_exceptions = {
         'fled': 'flee',
         'flew': 'fly',
         'flung': 'fling',
+        'forbade': 'forbid',
         'fought': 'fight',
         'found': 'find',
         'gave': 'give',
