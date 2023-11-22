@@ -109,6 +109,7 @@ past_verb_stemming_rules = [
     # -Xed
     (re.compile(r'([^aeiourlw]l)ed$'), r'\1e'),  # Cled -> Cle
     ('ied', 'y'),
+    ('ued', 'ue'),
     # -ed
     ('ed', ''),
 ]
@@ -128,6 +129,7 @@ present_verb_stemming_rules = [
     (re.compile(r'([aiou][^aeiou])ing$'), r'\1e'),  # VCes -> VCe
     # -Xing
     (re.compile(r'([^aeiourlw]l)ing$'), r'\1e'),  # Cling -> Cle
+    ('uing', 'ue'),
     # -ing
     ('ing', ''),
 ]
@@ -146,6 +148,7 @@ present_3p_verb_stemming_rules = [
     # -Xes
     (re.compile(r'([^aeiourlw]l)es$'), r'\1e'),  # Cles -> Cle
     ('ies', 'y'),
+    ('ues', 'ue'),
     # -es
     ('es', ''),
     ('s', ''),
