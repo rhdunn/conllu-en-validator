@@ -419,6 +419,7 @@ lemma_exceptions = {
         '\'d': ['do', 'have'],  # did, had
         # irregular
         'arose': 'arise',
+        'bore': 'bear',
         'caught': 'catch',
         'did': 'do',
         'fought': 'fight',
