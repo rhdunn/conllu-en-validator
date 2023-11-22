@@ -438,6 +438,7 @@ lemma_exceptions = {
         'clung': 'cling',
         'co-wrote': 'co-write',
         'crept': 'creep',
+        'cross-bred': 'cross-breed',
         'dealt': 'deal',
         'did': 'do',
         'died': 'die',
