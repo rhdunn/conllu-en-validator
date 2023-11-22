@@ -463,6 +463,7 @@ lemma_exceptions = {
         'rose': 'rise',
         'said': 'say',
         'sat': 'sit',
+        'saw': 'see',
         'sent': 'send',
         'stood': 'stand',
         'spoke': 'speak',
