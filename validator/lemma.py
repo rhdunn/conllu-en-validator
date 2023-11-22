@@ -517,6 +517,7 @@ lemma_exceptions = {
         'swam': 'swim',
         'swept': 'sweep',
         'swore': 'swear',
+        'swung': 'swing',
         'taught': 'teach',
         'thought': 'think',
         'threw': 'throw',
