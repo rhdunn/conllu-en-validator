@@ -431,6 +431,7 @@ lemma_exceptions = {
         'drove': 'drive',
         'felt': 'feel',
         'fought': 'fight',
+        'found': 'find',
         'had': 'have',
         'rose': 'rise',
         'taught': 'teach',
