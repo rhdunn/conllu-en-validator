@@ -97,7 +97,7 @@ past_verb_stemming_rules = [
     # -VVCed ; -VVCen
     ('eezed', 'eeze'), ('ozen', 'eeze'),
     (re.compile(r'(([aeiou])\2[^aeiou]?)ed$'), r'\1'),  # VVC?ed -> VVC? ~ doubled vowel
-    (re.compile(r'([eo]a[^aeiou])ed$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
+    (re.compile(r'([eo]a[^aeious])ed$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
     # -VCCed ; -VCCen
     (re.compile(r'([aeiou]([bdgmnprt]))\2ed$'), r'\1'),  # VCCed -> VC ~ doubled consonants
     (re.compile(r'([ou]l[gsv])ed$'), r'\1e'),  # VlCed -> VlCe
@@ -119,7 +119,7 @@ present_verb_stemming_rules = [
     # -VVCing
     ('eezing', 'eeze'),
     (re.compile(r'(([aeiou])\2[^aeiou]?)ing$'), r'\1'),  # VVC?ed -> VVC? ~ doubled vowel
-    (re.compile(r'([eo]a[^aeiou])ing$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
+    (re.compile(r'([eo]a[^aeious])ing$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
     # -VCCing
     (re.compile(r'([aeiou]([bdgmnprt]))\2ing$'), r'\1'),  # VCCing -> VC ~ doubled consonants
     (re.compile(r'([ou]l[gsv])ing$'), r'\1e'),  # VlCing -> VlCe
