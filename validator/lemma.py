@@ -458,6 +458,7 @@ lemma_exceptions = {
         'met': 'meet',
         'overthrew': 'overthrow',
         'overtook': 'overtake',
+        'paid': 'pay',
         'rose': 'rise',
         'said': 'say',
         'sat': 'sit',
