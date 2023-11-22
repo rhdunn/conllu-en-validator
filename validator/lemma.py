@@ -490,6 +490,7 @@ lemma_exceptions = {
         'slept': 'sleep',
         'sold': 'sell',
         'sought': 'seek',
+        'sped': 'speed',
         'stole': 'steal',
         'stood': 'stand',
         'struck': 'strike',
