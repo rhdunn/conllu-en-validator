@@ -95,7 +95,8 @@ plural_noun_stemming_rules = [
 
 past_verb_stemming_rules = [
     # -VVCed ; -VVCen
-    ('eezed', 'eeze'), ('ozen', 'eeze'),
+    (re.compile(r'((ee|oo)z)ed$'), r'\1e'),  # VVzed -> VVze
+    ('ozen', 'eeze'),
     (re.compile(r'(([aeiou])\2[^aeiou]?)ed$'), r'\1'),  # VVC?ed -> VVC? ~ doubled vowel
     (re.compile(r'([eo]a[^aeious])ed$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
     # -VCCed ; -VCCen
@@ -117,7 +118,7 @@ past_verb_stemming_rules = [
 
 present_verb_stemming_rules = [
     # -VVCing
-    ('eezing', 'eeze'),
+    (re.compile(r'((ee|oo)z)ing$'), r'\1e'),  # VVzing -> VVze
     (re.compile(r'(([aeiou])\2[^aeiou]?)ing$'), r'\1'),  # VVC?ed -> VVC? ~ doubled vowel
     (re.compile(r'([eo]a[^aeious])ing$'), r'\1'),  # oaCed -> oaC ; eaCed -> eaC
     # -VCCing
@@ -138,7 +139,7 @@ present_verb_stemming_rules = [
 
 present_3p_verb_stemming_rules = [
     # -VVCes
-    ('eezes', 'eeze'),
+    (re.compile(r'((ee|oo)z)es$'), r'\1e'),  # VVzes -> VVze
     # -VCCes
     (re.compile(r'([ou]l[gsv])es$'), r'\1e'),  # VlCes -> VlCe
     (re.compile(r'((ch|r)a|e|fri|u)nges$'), r'\1e'),  # Vnges -> Vnge
