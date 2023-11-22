@@ -452,6 +452,7 @@ lemma_exceptions = {
         'stood': 'stand',
         'spoke': 'speak',
         'taught': 'teach',
+        'thought': 'think',
         'took': 'take',
         'was': 'be',
         'were': 'be',
