@@ -422,6 +422,7 @@ lemma_exceptions = {
         'bore': 'bear',
         'bent': 'bend',
         'became': 'become',
+        'began': 'begin',
         'betook': 'betake',
         'blew': 'blow',
         'brought': 'bring',
