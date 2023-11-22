@@ -449,6 +449,7 @@ lemma_exceptions = {
         'held': 'hold',
         'kept': 'keep',
         'knew': 'know',
+        'led': 'lead',
         'made': 'make',
         'rose': 'rise',
         'said': 'say',
