@@ -440,6 +440,7 @@ lemma_exceptions = {
         'happend': 'happen',
         'heard': 'hear',
         'held': 'hold',
+        'kept': 'keep',
         'rose': 'rise',
         'taught': 'teach',
         'took': 'take',
