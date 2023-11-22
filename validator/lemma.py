@@ -453,6 +453,7 @@ lemma_exceptions = {
         'flung': 'fling',
         'forbade': 'forbid',
         'foresaw': 'foresee',
+        'forgave': 'forgive',
         'forgot': 'forget',
         'fought': 'fight',
         'found': 'find',
