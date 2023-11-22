@@ -464,6 +464,7 @@ lemma_exceptions = {
         'went': 'go',
         'were': 'be',
         'wore': 'wear',
+        'wrote': 'write',
         'wrought': 'wring',
         # -ed exceptions
         'coalesced': 'coalesce',
