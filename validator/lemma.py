@@ -502,6 +502,7 @@ lemma_exceptions = {
         'swept': 'sweep',
         'taught': 'teach',
         'thought': 'think',
+        'threw': 'throw',
         'told': 'tell',
         'took': 'take',
         'understood': 'understand',
