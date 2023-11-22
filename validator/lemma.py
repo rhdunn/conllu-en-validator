@@ -107,11 +107,10 @@ past_verb_stemming_rules = [
     (re.compile(r'([ptw]ast)ed$'), r'\1e'),  # asted -> aste
     # -VCed ; -VCen
     (re.compile(r'([aiou][^aeiou]e)[dn]$'), r'\1'),  # VCed -> VCe ; VCen -> VCe
-    # -Xed
-    (re.compile(r'([^aeiourlw]l)ed$'), r'\1e'),  # Cled -> Cle
-    ('ied', 'y'),
-    ('ued', 'ue'),
     # -ed
+    (re.compile(r'([^aeiourlw]l)ed$'), r'\1e'),  # Cled -> Cle
+    (re.compile(r'([ue])ed$'), r'\1e'),  # Ved -> Ve
+    ('ied', 'y'),
     ('ed', ''),
     # -en
     ('ozen', 'eeze'),
@@ -132,10 +131,9 @@ present_verb_stemming_rules = [
     (re.compile(r'([ptw]ast)ing$'), r'\1e'),  # asting -> aste
     # -VCing
     (re.compile(r'([aiou][^aeiou])ing$'), r'\1e'),  # VCing -> VCe
-    # -Xing
-    (re.compile(r'([^aeiourlw]l)ing$'), r'\1e'),  # Cling -> Cle
-    ('uing', 'ue'),
     # -ing
+    (re.compile(r'([^aeiourlw]l)ing$'), r'\1e'),  # Cling -> Cle
+    (re.compile(r'([ue])ing$'), r'\1e'),  # Ving -> Ve
     ('ing', ''),
 ]
 
@@ -150,10 +148,10 @@ present_3p_verb_stemming_rules = [
     (re.compile(r'([ptw]ast)es$'), r'\1e'),  # astes -> aste
     # -VCes
     (re.compile(r'([aiou][^aeiou]e)s$'), r'\1'),  # VCes -> VCe
-    # -Xes
+    # -es
     (re.compile(r'([^aeiourlw]l)es$'), r'\1e'),  # Cles -> Cle
+    (re.compile(r'([ue])es$'), r'\1e'),  # Ves -> Ve
     ('ies', 'y'),
-    ('ues', 'ue'),
     # -es
     ('es', ''),
     ('s', ''),
