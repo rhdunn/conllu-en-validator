@@ -436,6 +436,7 @@ lemma_exceptions = {
         'crept': 'creep',
         'dealt': 'deal',
         'did': 'do',
+        'died': 'die',
         'drew': 'draw',
         'drove': 'drive',
         'fell': 'fall',
