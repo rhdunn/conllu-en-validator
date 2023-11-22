@@ -461,6 +461,7 @@ lemma_exceptions = {
         'hung': 'hang',
         'kept': 'keep',
         'knew': 'know',
+        'laid': 'lay',
         'led': 'lead',
         'left': 'leave',
         'lit': 'light',
