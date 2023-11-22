@@ -433,6 +433,7 @@ lemma_exceptions = {
         'flung': 'fling',
         'fought': 'fight',
         'found': 'find',
+        'gave': 'give',
         'got': 'get',
         'had': 'have',
         'rose': 'rise',
