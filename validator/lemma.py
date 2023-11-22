@@ -422,6 +422,7 @@ lemma_exceptions = {
         'bore': 'bear',
         'bent': 'bend',
         'betook': 'betake',
+        'blew': 'blow',
         'caught': 'catch',
         'did': 'do',
         'fought': 'fight',
