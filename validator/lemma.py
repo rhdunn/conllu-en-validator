@@ -454,6 +454,7 @@ lemma_exceptions = {
         'lit': 'light',
         'lost': 'lose',
         'made': 'make',
+        'meant': 'mean',
         'rose': 'rise',
         'said': 'say',
         'sat': 'sit',
