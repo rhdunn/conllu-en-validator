@@ -476,6 +476,7 @@ lemma_exceptions = {
         'overtook': 'overtake',
         'paid': 'pay',
         'ran': 'run',
+        'rang': 'ring',
         'rose': 'rise',
         'said': 'say',
         'sat': 'sit',
