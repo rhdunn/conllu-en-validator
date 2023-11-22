@@ -428,6 +428,7 @@ lemma_exceptions = {
         'came': 'come',
         'did': 'do',
         'drew': 'draw',
+        'drove': 'drive',
         'fought': 'fight',
         'had': 'have',
         'rose': 'rise',
