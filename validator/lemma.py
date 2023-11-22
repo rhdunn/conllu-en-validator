@@ -456,6 +456,7 @@ lemma_exceptions = {
         'made': 'make',
         'meant': 'mean',
         'met': 'meet',
+        'overthrew': 'overthrow',
         'overtook': 'overtake',
         'rose': 'rise',
         'said': 'say',
