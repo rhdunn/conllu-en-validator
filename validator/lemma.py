@@ -449,6 +449,7 @@ lemma_exceptions = {
         'said': 'say',
         'sat': 'sit',
         'sent': 'send',
+        'stood': 'stand',
         'taught': 'teach',
         'took': 'take',
         'was': 'be',
