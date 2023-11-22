@@ -145,7 +145,7 @@ present_3p_verb_stemming_rules = [
     (re.compile(r'([^v]ie[^aeioufk])es$'), r'\1e'),  # VVCes -> VVCe
     # -VCCes
     (re.compile(r'([ou]l[gsv])es$'), r'\1e'),  # VlCes -> VlCe
-    (re.compile(r'((ch|r)a|e|fri|u)nges$'), r'\1e'),  # Vnges -> Vnge
+    (re.compile(r'((ch|r)a|e|fri|u)nges$'), r'\1nge'),  # Vnges -> Vnge
     (re.compile(r'([aeiu]n[cs])es$'), r'\1e'),  # VnCes -> VnCe
     (re.compile(r'([aeou]r[cgsv])es$'), r'\1e'),  # VrCes -> VrCe
     (re.compile(r'([ptw]ast)es$'), r'\1e'),  # astes -> aste
