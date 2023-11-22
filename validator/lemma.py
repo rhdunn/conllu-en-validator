@@ -425,6 +425,7 @@ lemma_exceptions = {
         'blew': 'blow',
         'brought': 'bring',
         'caught': 'catch',
+        'came': 'come',
         'did': 'do',
         'fought': 'fight',
         'had': 'have',
