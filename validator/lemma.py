@@ -478,6 +478,7 @@ lemma_exceptions = {
         'ran': 'run',
         'rang': 'ring',
         'retook': 'retake',
+        'rode': 'ride',
         'rose': 'rise',
         'said': 'say',
         'sat': 'sit',
