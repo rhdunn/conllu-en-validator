@@ -450,6 +450,7 @@ lemma_exceptions = {
         'kept': 'keep',
         'knew': 'know',
         'led': 'lead',
+        'left': 'leave',
         'made': 'make',
         'rose': 'rise',
         'said': 'say',
