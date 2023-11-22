@@ -468,6 +468,7 @@ lemma_exceptions = {
         'shot': 'shoot',
         'sought': 'seek',
         'stood': 'stand',
+        'spent': 'spend',
         'spoke': 'speak',
         'taught': 'teach',
         'thought': 'think',
