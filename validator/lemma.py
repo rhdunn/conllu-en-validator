@@ -435,6 +435,7 @@ lemma_exceptions = {
         'found': 'find',
         'gave': 'give',
         'got': 'get',
+        'grew': 'grow',
         'had': 'have',
         'rose': 'rise',
         'taught': 'teach',
