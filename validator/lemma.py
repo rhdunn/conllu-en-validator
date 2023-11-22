@@ -420,6 +420,7 @@ lemma_exceptions = {
         # irregular
         'arose': 'arise',
         'ate': 'eat',
+        'bade': 'bid',
         'bore': 'bear',
         'bent': 'bend',
         'became': 'become',
