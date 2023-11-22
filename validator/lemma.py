@@ -418,6 +418,7 @@ lemma_exceptions = {
         # clitics
         '\'d': ['do', 'have'],  # did, had
         # irregular
+        'arose': 'arise',
         'caught': 'catch',
         'did': 'do',
         'fought': 'fight',
