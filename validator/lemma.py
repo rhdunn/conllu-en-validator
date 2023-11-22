@@ -447,6 +447,7 @@ lemma_exceptions = {
         'made': 'make',
         'rose': 'rise',
         'said': 'say',
+        'sat': 'sit',
         'taught': 'teach',
         'took': 'take',
         'was': 'be',
