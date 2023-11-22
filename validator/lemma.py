@@ -435,6 +435,7 @@ lemma_exceptions = {
         'did': 'do',
         'drew': 'draw',
         'drove': 'drive',
+        'fell': 'fall',
         'felt': 'feel',
         'flung': 'fling',
         'fought': 'fight',
