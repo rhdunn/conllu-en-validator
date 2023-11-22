@@ -499,6 +499,7 @@ lemma_exceptions = {
         'sprang': 'spring',
         'stuck': 'stick',
         'stunk': 'stink',
+        'swept': 'sweep',
         'taught': 'teach',
         'thought': 'think',
         'told': 'tell',
