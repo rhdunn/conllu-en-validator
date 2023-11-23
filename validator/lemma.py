@@ -571,13 +571,7 @@ lemma_exceptions = {
     'VBN': {  # verb, past participle
         # irregular
         'been': 'be',
-        'caught': 'catch',
         'done': 'do',
-        'fought': 'fight',
-        'had': 'have',
-        'taught': 'teach',
-        # -ed exceptions
-        'coalesced': 'coalesce',
     },
     'VBP': {  # verb, singular present
         # clitics
@@ -658,6 +652,9 @@ class TokenLemmaValidator(Validator):
             if form.endswith('en') and expected_lemma in lemma_exceptions['VBD']:
                 # VBN + -en => VBD => VB : e.g. hidden => hid => hide
                 expected_lemma = lemma_exceptions['VBD'][expected_lemma]
+            elif normalized_form in lemma_exceptions['VBD']:
+                # use VBD for other lemma exceptions
+                expected_lemma = lemma_exceptions['VBD'][normalized_form]
         if lemma_type in lemma_exceptions and normalized_form in lemma_exceptions[lemma_type]:
             # use the exception lemma instead of the rule-based lemma
             expected_lemma = lemma_exceptions[lemma_type][normalized_form]
