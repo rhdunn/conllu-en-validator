@@ -532,6 +532,7 @@ lemma_exceptions = {
         'sold': 'sell',
         'sought': 'seek',
         'sped': 'speed',
+        'squoze': 'squeeze',
         'stole': 'steal',
         'stood': 'stand',
         'struck': 'strike',
