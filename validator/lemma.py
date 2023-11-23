@@ -182,6 +182,7 @@ present_3p_verb_stemming_rules = [
 ]
 
 lemmatization_rule_names = {
+# https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html
     'CC': 'lowercase-form',  # coordinating conjunction
     'CD/NumForm=Combi': 'normalized-form',  # cardinal number, digits with a suffix
     'CD/NumForm=Digit/NumType=Card': 'cardinal-number',  # cardinal number, integer
@@ -695,3 +696,5 @@ class TokenLemmaValidator(Validator):
         if lemma_type in lemmatization_rule_names:
             rule = lemmatization_rule_names[lemma_type]
             self.validate_lemma(sent, token, rule, form, lemma, lemma_type)
+        elif lemma_type != 'FW':  # ignore foreign word lemmas
+            pass
