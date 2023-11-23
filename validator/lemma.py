@@ -458,6 +458,7 @@ lemma_exceptions = {
         'chose': 'choose',
         'clung': 'cling',
         'co-wrote': 'co-write',
+        'cowrit': 'cowrite',
         'crept': 'creep',
         'cross-bred': 'cross-breed',
         'de-froze': 'de-freeze',
