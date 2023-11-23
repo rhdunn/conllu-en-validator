@@ -478,6 +478,7 @@ lemma_exceptions = {
         'forgot': 'forget',
         'fought': 'fight',
         'found': 'find',
+        'froze': 'freeze',
         'gave': 'give',
         'got': 'get',
         'grew': 'grow',
