@@ -514,6 +514,7 @@ lemma_exceptions = {
         'rang': 'ring',
         'rebuilt': 'rebuild',
         'retook': 'retake',
+        'rid': ['rid', 'ride'],
         'rode': 'ride',
         'rose': 'rise',
         'said': 'say',
