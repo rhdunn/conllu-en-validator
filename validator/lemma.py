@@ -98,7 +98,7 @@ past_participle_verb_stemming_rules = [
     # -VVCe[dn]
     (re.compile(r'((ee|oo)z)ed$'), r'\1e'),  # VVzed -> VVze
     (re.compile(r'(([aeiou])\2[^aeiou]?)ed$'), r'\1'),  # VVC?ed -> VVC? ~ doubled vowel
-    (re.compile(r'((ai|ea|io|o[aiu])[^aeious])ed$'), r'\1'),  # VVCed -> VVC
+    (re.compile(r'((ai|ea|io|o[aiu])[^aeious])e[dn]$'), r'\1'),  # VVCed -> VVC
     (re.compile(r'([^v]ie[^aeioufk])ed$'), r'\1e'),  # VVCed -> VVCe
     # -VCCe[dn]
     (re.compile(r'([aeiou]([bdgmnprt]))\2e[dn]$'), r'\1'),  # VCCed -> VC ~ doubled consonants
