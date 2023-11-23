@@ -522,6 +522,7 @@ lemma_exceptions = {
         'sank': 'sink',
         'sat': 'sit',
         'saw': 'see',
+        'seen': 'see',  # past participle or non-standard past tense
         'sent': 'send',
         'shone': 'shine',
         'shook': 'shake',
