@@ -109,13 +109,11 @@ past_participle_verb_stemming_rules = [
     (re.compile(r'([ptw]ast)ed$'), r'\1e'),  # asted -> aste
     # -VCe[dn]
     (re.compile(r'([aiou][^aeiouwy])e[dn]$'), r'\1e'),  # VCe[dn] -> VCe
-    # -ed
+    # -e[dn]
     (re.compile(r'([^aeiourlw]l)ed$'), r'\1e'),  # Cled -> Cle
     (re.compile(r'([ue])ed$'), r'\1e'),  # Ved -> Ve
     ('ied', 'y'),
     ('ed', ''),
-    # -en
-    ('ozen', 'eeze'),
     ('en', ''),
 ]
 
@@ -656,9 +654,14 @@ class TokenLemmaValidator(Validator):
 
     def validate_lemma(self, sent, token, rule, form, lemma, lemma_type):
         normalized_form, expected_lemma = lemmatization_rules[rule](form)
+        if lemma_type == 'VBN':
+            if form.endswith('en') and expected_lemma in lemma_exceptions['VBD']:
+                # VBN + -en => VBD => VB : e.g. hidden => hid => hide
+                expected_lemma = lemma_exceptions['VBD'][expected_lemma]
         if lemma_type in lemma_exceptions and normalized_form in lemma_exceptions[lemma_type]:
             # use the exception lemma instead of the rule-based lemma
             expected_lemma = lemma_exceptions[lemma_type][normalized_form]
+
         if self.match_lemma(lemma, expected_lemma):
             pass  # matched via lemmatization rule
         else:
