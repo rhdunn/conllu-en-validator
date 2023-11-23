@@ -460,6 +460,7 @@ lemma_exceptions = {
         'co-wrote': 'co-write',
         'crept': 'creep',
         'cross-bred': 'cross-breed',
+        'de-froze': 'de-freeze',
         'dealt': 'deal',
         'did': 'do',
         'died': 'die',
