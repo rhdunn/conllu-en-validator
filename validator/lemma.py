@@ -52,7 +52,8 @@ lemmatization_rules = {
     'fractional-number': fractional_number_lemma,
     'lowercase-form': lowercase_form_lemma,
     'normalized-form': normalized_form_lemma,
-    'past-verb': lambda form: stemmed(form, lowercase_form_lemma, past_verb_stemming_rules),  # -ed
+    'past-participle-verb': lambda form: stemmed(form, lowercase_form_lemma, past_participle_verb_stemming_rules),  # -en/-ed
+    'past-tense-verb': lambda form: stemmed(form, lowercase_form_lemma, past_tense_verb_stemming_rules),  # -ed
     'plural-common-noun': lambda form: stemmed(form, lowercase_form_lemma, plural_noun_stemming_rules),  # -s
     'plural-proper-noun': lambda form: stemmed(form, capitalized_form_lemma, plural_noun_stemming_rules),  # -s
     'present-verb': lambda form: stemmed(form, lowercase_form_lemma, present_verb_stemming_rules),  # -ing
@@ -93,21 +94,21 @@ plural_noun_stemming_rules = [
     ('ae', 'a'),
 ]
 
-past_verb_stemming_rules = [
-    # -VVCed ; -VVCen
+past_participle_verb_stemming_rules = [
+    # -VVCe[dn]
     (re.compile(r'((ee|oo)z)ed$'), r'\1e'),  # VVzed -> VVze
     (re.compile(r'(([aeiou])\2[^aeiou]?)ed$'), r'\1'),  # VVC?ed -> VVC? ~ doubled vowel
     (re.compile(r'((ai|ea|io|o[aiu])[^aeious])ed$'), r'\1'),  # VVCed -> VVC
     (re.compile(r'([^v]ie[^aeioufk])ed$'), r'\1e'),  # VVCed -> VVCe
-    # -VCCed ; -VCCen
+    # -VCCe[dn]
     (re.compile(r'([aeiou]([bdgmnprt]))\2ed$'), r'\1'),  # VCCed -> VC ~ doubled consonants
     (re.compile(r'([ou]l[gsv])ed$'), r'\1e'),  # VlCed -> VlCe
     (re.compile(r'((ch|r)a|e|fri|u)nged$'), r'\1nge'),  # Vnged -> Vnge
     (re.compile(r'([aeiu]n[cs])ed$'), r'\1e'),  # VnCed -> VnCe
-    (re.compile(r'([aeou]r[cgsv])e[dn]$'), r'\1e'),  # VrCed -> VrCe ; VrCen -> VrCe
+    (re.compile(r'([aeou]r[cgsv])e[dn]$'), r'\1e'),  # VrCe[dn] -> VrCe
     (re.compile(r'([ptw]ast)ed$'), r'\1e'),  # asted -> aste
-    # -VCed ; -VCen
-    (re.compile(r'([aiou][^aeiouwy]e)[dn]$'), r'\1'),  # VCed -> VCe ; VCen -> VCe
+    # -VCe[dn]
+    (re.compile(r'([aiou][^aeiouwy])e[dn]$'), r'\1e'),  # VCe[dn] -> VCe
     # -ed
     (re.compile(r'([^aeiourlw]l)ed$'), r'\1e'),  # Cled -> Cle
     (re.compile(r'([ue])ed$'), r'\1e'),  # Ved -> Ve
@@ -116,6 +117,28 @@ past_verb_stemming_rules = [
     # -en
     ('ozen', 'eeze'),
     ('en', ''),
+]
+
+past_tense_verb_stemming_rules = [
+    # -VVCed
+    (re.compile(r'((ee|oo)z)ed$'), r'\1e'),  # VVzed -> VVze
+    (re.compile(r'(([aeiou])\2[^aeiou]?)ed$'), r'\1'),  # VVC?ed -> VVC? ~ doubled vowel
+    (re.compile(r'((ai|ea|io|o[aiu])[^aeious])ed$'), r'\1'),  # VVCed -> VVC
+    (re.compile(r'([^v]ie[^aeioufk])ed$'), r'\1e'),  # VVCed -> VVCe
+    # -VCCed
+    (re.compile(r'([aeiou]([bdgmnprt]))\2ed$'), r'\1'),  # VCCed -> VC ~ doubled consonants
+    (re.compile(r'([ou]l[gsv])ed$'), r'\1e'),  # VlCed -> VlCe
+    (re.compile(r'((ch|r)a|e|fri|u)nged$'), r'\1nge'),  # Vnged -> Vnge
+    (re.compile(r'([aeiu]n[cs])ed$'), r'\1e'),  # VnCed -> VnCe
+    (re.compile(r'([aeou]r[cgsv])ed$'), r'\1e'),  # VrCed -> VrCe
+    (re.compile(r'([ptw]ast)ed$'), r'\1e'),  # asted -> aste
+    # -VCed
+    (re.compile(r'([aiou][^aeiouwy])ed$'), r'\1e'),  # VCed -> VCe
+    # -ed
+    (re.compile(r'([^aeiourlw]l)ed$'), r'\1e'),  # Cled -> Cle
+    (re.compile(r'([ue])ed$'), r'\1e'),  # Ved -> Ve
+    ('ied', 'y'),
+    ('ed', ''),
 ]
 
 present_verb_stemming_rules = [
@@ -196,9 +219,9 @@ lemmatization_rule_names = {
     'TO': 'lowercase-form',  # "to"
     'UH': 'lowercase-form',  # interjection
     'VB': 'lowercase-form',  # verb, base form
-    'VBD': 'past-verb',  # verb, past tense [-ed]
+    'VBD': 'past-tense-verb',  # verb, past tense [-ed]
     'VBG': 'present-verb',  # verb, gerund or present tense [-ing]
-    'VBN': 'past-verb',  # verb, past participle [-ed]
+    'VBN': 'past-participle-verb',  # verb, past participle [-en/-ed]
     'VBP': 'lowercase-form',  # verb, singular present
     'VBZ': 'present-3p-verb',  # verb, singular present, third person [-s/-es]
     'WDT': 'lowercase-form',  # determiner, wh-
