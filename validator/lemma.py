@@ -553,6 +553,7 @@ lemma_exceptions = {
         'threw': 'throw',
         'told': 'tell',
         'took': 'take',
+        'trod': ['trod', 'tread'],
         'understood': 'understand',
         'undertook': 'undertake',
         'underwent': 'undergo',
