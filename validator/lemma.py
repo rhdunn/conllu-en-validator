@@ -581,6 +581,7 @@ lemma_exceptions = {
     'VBN': {  # verb, past participle
         # irregular
         'been': 'be',
+        'begun': 'begin',
         'done': 'do',
     },
     'VBP': {  # verb, singular present
