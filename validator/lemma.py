@@ -46,19 +46,24 @@ def stemmed(form, normalize_lemma, stemming_rules):
 
 
 lemmatization_rules = {
-    'capitalized-form': capitalized_form_lemma,
-    'cardinal-number': cardinal_number_lemma,
-    'comparative': lambda form: stemmed(form, lowercase_form_lemma, comparative_stemming_rules),  # -er
-    'fractional-number': fractional_number_lemma,
-    'lowercase-form': lowercase_form_lemma,
     'normalized-form': normalized_form_lemma,
-    'past-participle-verb': lambda form: stemmed(form, lowercase_form_lemma, past_participle_verb_stemming_rules),  # -en/-ed
-    'past-tense-verb': lambda form: stemmed(form, lowercase_form_lemma, past_tense_verb_stemming_rules),  # -ed
+    # casing
+    'capitalized-form': capitalized_form_lemma,
+    'lowercase-form': lowercase_form_lemma,
+    # degree
+    'comparative': lambda form: stemmed(form, lowercase_form_lemma, comparative_stemming_rules),  # -er
+    'superlative': lambda form: stemmed(form, lowercase_form_lemma, superlative_stemming_rules),  # -est
+    # numbers
+    'cardinal-number': cardinal_number_lemma,
+    'fractional-number': fractional_number_lemma,
+    # nouns
     'plural-common-noun': lambda form: stemmed(form, lowercase_form_lemma, plural_noun_stemming_rules),  # -s
     'plural-proper-noun': lambda form: stemmed(form, capitalized_form_lemma, plural_noun_stemming_rules),  # -s
+    # verbs
+    'past-participle-verb': lambda form: stemmed(form, lowercase_form_lemma, past_participle_verb_stemming_rules),  # -en/-ed
+    'past-tense-verb': lambda form: stemmed(form, lowercase_form_lemma, past_tense_verb_stemming_rules),  # -ed
     'present-verb': lambda form: stemmed(form, lowercase_form_lemma, present_verb_stemming_rules),  # -ing
     'present-3p-verb': lambda form: stemmed(form, lowercase_form_lemma, present_3p_verb_stemming_rules),  # -s/-es
-    'superlative': lambda form: stemmed(form, lowercase_form_lemma, superlative_stemming_rules),  # -est
 }
 
 comparative_stemming_rules = [
