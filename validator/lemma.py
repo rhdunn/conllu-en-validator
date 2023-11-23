@@ -7,6 +7,10 @@ from validator.validator import Validator
 from validator.logger import log, LogLevel
 
 
+def unmodified_form_lemma(form):
+    return form, form
+
+
 def normalized_form_lemma(form):
     for _from, _to in normalization_rules:
         form = form.replace(_from, _to)
@@ -47,6 +51,7 @@ def stemmed(form, normalize_lemma, stemming_rules):
 
 lemmatization_rules = {
     'normalized-form': normalized_form_lemma,
+    'unmodified-form': unmodified_form_lemma,
     # casing
     'capitalized-form': capitalized_form_lemma,
     'lowercase-form': lowercase_form_lemma,
@@ -232,6 +237,9 @@ lemmatization_rule_names = {
     'WP': 'lowercase-form',  # pronoun, wh-
     'WP$': 'lowercase-form',  # pronoun, possessive wh-
     'WRB': 'lowercase-form',  # adverb, wh-
+# https://universaldependencies.org/tagset-conversion/en-penn-uposf.html
+# https://www.ldc.upenn.edu/sites/www.ldc.upenn.edu/files/etb-supplementary-guidelines-2009-addendum.pdf
+    '-RRB-': 'unmodified-form',  # right parenthesis or bracket
 }
 
 lemma_exceptions = {
