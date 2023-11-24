@@ -250,6 +250,7 @@ lemmatization_rule_names = {
     'ADD': 'lowercase-form',  # web address
     'AFX': 'lowercase-form',  # non-hyphenated affix
     'HYPH': 'unmodified-form',  # hyphen
+    'NFP': 'lowercase-form',  # non-functional punctuation
 }
 
 lemma_exceptions = {
