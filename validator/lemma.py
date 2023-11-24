@@ -247,6 +247,7 @@ lemmatization_rule_names = {
     '``': 'unmodified-form',  # left (start) quote
     '-LRB-': 'unmodified-form',  # left parenthesis or bracket
     '-RRB-': 'unmodified-form',  # right parenthesis or bracket
+    'ADD': 'lowercase-form',  # web address
 }
 
 lemma_exceptions = {
