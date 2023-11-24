@@ -240,6 +240,7 @@ lemmatization_rule_names = {
 # https://universaldependencies.org/tagset-conversion/en-penn-uposf.html
 # https://www.ldc.upenn.edu/sites/www.ldc.upenn.edu/files/etb-supplementary-guidelines-2009-addendum.pdf
     '\'\'': 'unmodified-form',  # right (end) quote
+    '$': 'unmodified-form',  # currency symbol
     '``': 'unmodified-form',  # left (start) quote
     '-LRB-': 'unmodified-form',  # left parenthesis or bracket
     '-RRB-': 'unmodified-form',  # right parenthesis or bracket
