@@ -24,7 +24,10 @@ form
   for example if punctuation tokens contains a single punctuation character.
 
 lemma
-: Check that the token and word `LEMMA` field is consistent with the assigned `XPOS`.
+: Check that the token and word `LEMMA` field is consistent with the assigned `XPOS`
+  and relevant `MISC` features. __Note:__ If the token has a `CorrectForm`, the corrected
+  lemma should be in a [`CorrectLemma`](https://universaldependencies.org/misc.html#correctfeature)
+  annotation per the [guideline for typos](https://universaldependencies.org/u/overview/typos.html).
 
 mwt-tokens
 : Check that `SpaceAfter` is not used within multi-word tokens. This will flag the use

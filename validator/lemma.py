@@ -704,7 +704,7 @@ class TokenLemmaValidator(Validator):
                 f"{lemma_type} lemma '{lemma}' does not match {rule} applied to form '{form}', expected '{expected_lemma}'")
 
     def validate_token(self, sent, token):
-        form = conllutil.normalized_form(token)
+        form = token['form']
         lemma = token['lemma']
         if lemma is None or lemma == '_':
             if token['upos'] == 'X' and token['deprel'] == 'goeswith':
