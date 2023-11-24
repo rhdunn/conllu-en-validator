@@ -720,5 +720,5 @@ class TokenLemmaValidator(Validator):
         if lemma_type in lemmatization_rule_names:
             rule = lemmatization_rule_names[lemma_type]
             self.validate_lemma(sent, token, rule, form, lemma, lemma_type)
-        elif lemma_type != 'FW':  # ignore foreign word lemmas
-            pass
+        elif lemma_type not in ['FW', 'GW']:  # ignore foreign word (FW) and grouped word (GW) lemmas
+            log(LogLevel.WARN, sent, token, f"{lemma_type} lemma '{lemma}' does not have a validation rule for form '{form}'")
