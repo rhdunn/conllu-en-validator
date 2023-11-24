@@ -249,6 +249,7 @@ lemmatization_rule_names = {
     '-RRB-': 'unmodified-form',  # right parenthesis or bracket
     'ADD': 'lowercase-form',  # web address
     'AFX': 'lowercase-form',  # non-hyphenated affix
+    'HYPH': 'unmodified-form',  # hyphen
 }
 
 lemma_exceptions = {
