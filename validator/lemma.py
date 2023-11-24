@@ -242,6 +242,7 @@ lemmatization_rule_names = {
     '\'\'': 'unmodified-form',  # right (end) quote
     '$': 'unmodified-form',  # currency symbol
     ',': 'unmodified-form',  # mid-sentence punctuation -- comma, semicolon, or ellipsis
+    '.': 'unmodified-form',  # sentence-final punctuation -- full stop, exclamation mark, or question mark
     '``': 'unmodified-form',  # left (start) quote
     '-LRB-': 'unmodified-form',  # left parenthesis or bracket
     '-RRB-': 'unmodified-form',  # right parenthesis or bracket
