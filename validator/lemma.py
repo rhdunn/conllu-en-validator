@@ -344,6 +344,7 @@ lemma_exceptions = {
         'MRS': 'Mistress',
         'MT': 'Mount',
         'OP': 'Opus',
+        'PROF': 'Professor',
         'ST': ['Saint', 'Street'],  # before noun; after noun
         # days of the week
         'MON': 'Monday',
