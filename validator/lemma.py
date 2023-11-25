@@ -21,6 +21,10 @@ def lowercase_form_lemma(form):
     return normalized_form_lemma(form.lower())
 
 
+def uppercase_form_lemma(form):
+    return normalized_form_lemma(form.upper())
+
+
 def capitalized_form_lemma(form):
     return normalized_form_lemma(form.capitalize())
 
@@ -55,6 +59,7 @@ lemmatization_rules = {
     # casing
     'capitalized-form': capitalized_form_lemma,
     'lowercase-form': lowercase_form_lemma,
+    'uppercase-form': uppercase_form_lemma,
     # degree
     'comparative': lambda form: stemmed(form, lowercase_form_lemma, comparative_stemming_rules),  # -er
     'superlative': lambda form: stemmed(form, lowercase_form_lemma, superlative_stemming_rules),  # -est
@@ -210,6 +215,7 @@ lemmatization_rule_names = {
     'LS': 'normalized-form',  # list item marker
     'MD': 'lowercase-form',  # verb, modal
     'NN': 'lowercase-form',  # noun
+    'NN/Abbr=Yes': 'uppercase-form',  # noun abbreviations
     'NNP': 'capitalized-form',  # proper noun
     'NNPS/Number=Coll': 'capitalized-form',  # proper noun, collective / singulare tantum (singular form as plural)
     'NNPS/Number=Plur': 'plural-proper-noun',  # proper noun, plural
