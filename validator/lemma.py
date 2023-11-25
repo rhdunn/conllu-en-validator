@@ -254,6 +254,9 @@ lemmatization_rule_names = {
 }
 
 lemma_exceptions = {
+    ':': {  # colon or dash
+        '...': '\u2026',  # HORIZONTAL ELLIPSIS
+    },
     'CD/NumForm=Word': {  # cardinal numbers, word
         'b': 'billion',
         'bn': 'billion',
