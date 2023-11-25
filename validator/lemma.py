@@ -334,6 +334,7 @@ lemma_exceptions = {
     },
     'NNP/Abbr=Yes': {  # proper noun abbreviations
         'AVE': 'Avenue',
+        'CAL': 'California',
         # days of the week
         'MON': 'Monday',
         'TUE': 'Tuesday',
