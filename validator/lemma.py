@@ -256,6 +256,7 @@ lemmatization_rule_names = {
 lemma_exceptions = {
     ':': {  # colon or dash
         '\u2013': '-',  # EN DASH
+        '\u2014': '-',  # EM DASH
         '...': '\u2026',  # HORIZONTAL ELLIPSIS
     },
     'CD/NumForm=Word': {  # cardinal numbers, word
