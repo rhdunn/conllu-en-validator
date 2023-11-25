@@ -239,6 +239,7 @@ lemmatization_rule_names = {
     'RP': 'lowercase-form',  # particle
     'SYM': 'normalized-form',  # symbol
     'TO': 'lowercase-form',  # "to"
+    'TO/Abbr=Yes': 'lowercase-form',  # "to" abbreviations
     'UH': 'lowercase-form',  # interjection
     'VB': 'lowercase-form',  # verb, base form
     'VBD': 'past-tense-verb',  # verb, past tense [-ed]
@@ -511,7 +512,7 @@ lemma_exceptions = {
         '\u2013': '\u002D',  # EN DASH -> HYPHEN-MINUS
         '\u2014': '\u002D',  # EM DASH -> HYPHEN-MINUS
     },
-    'TO': { # PART+TO -- "to"
+    'TO/Abbr=Yes': { # PART+TO -- "to"
         'na': 'to',  # wan|na, etc.
         'ta': 'to',  # got|ta, etc.
     },
