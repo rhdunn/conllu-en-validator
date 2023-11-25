@@ -332,6 +332,20 @@ lemma_exceptions = {
         'A.M.': 'a.m.',  # ante meridiem (before noon)
         'P.M.': 'p.m.',  # post meridiem (after noon)
     },
+    'NNP/Abbr=Yes': {  # proper noun abbreviations
+        # months of the year
+        'JAN': 'January',
+        'FEB': 'February',
+        'MAR': 'March',
+        'APR': 'April',
+        'JUN': 'June',
+        'JUL': 'July',
+        'AUG': 'August',
+        'SEP': 'September',
+        'OCT': 'October',
+        'NOV': 'November',
+        'DEC': 'December',
+    },
     'NNS/Number=Plur': { # plural nouns
         # irregular
         'alumni': 'alumnus',
