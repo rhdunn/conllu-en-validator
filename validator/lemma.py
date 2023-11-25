@@ -332,9 +332,15 @@ lemma_exceptions = {
         'NO.': 'number',
         'P.': 'page',
         'VOL.': 'volume',
+        # units
+        'cm': 'centimeter',
         # multi-word
         'A.M.': 'a.m.',  # ante meridiem (before noon)
         'P.M.': 'p.m.',  # post meridiem (after noon)
+    },
+    'NNS/Number=Plur/Abbr=Yes': {  # noun abbreviations, plural
+        # units
+        'cm': 'centimeter',
     },
     'NNP/Abbr=Yes': {  # proper noun abbreviations
         'AVE': 'Avenue',
