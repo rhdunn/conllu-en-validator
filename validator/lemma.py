@@ -323,6 +323,7 @@ lemma_exceptions = {
     },
     'NN/Abbr=Yes': {  # noun abbreviations
         'A.M.': 'a.m.',  # ante meridiem (before noon)
+        'P.M.': 'p.m.',  # post meridiem (after noon)
     },
     'NNS/Number=Plur': { # plural nouns
         # irregular
