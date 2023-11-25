@@ -324,6 +324,7 @@ lemma_exceptions = {
     'NN/Abbr=Yes': {  # noun abbreviations
         'ED.': ['edition', 'editor'],
         'NO.': 'number',
+        'VOL.': 'volume',
         # multi-word
         'A.M.': 'a.m.',  # ante meridiem (before noon)
         'P.M.': 'p.m.',  # post meridiem (after noon)
