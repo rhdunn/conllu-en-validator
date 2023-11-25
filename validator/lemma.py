@@ -274,6 +274,7 @@ lemma_exceptions = {
     },
     'FW/Abbr=Yes': {  # foreign word abbreviations
         'etc': 'etc.',
+        'mlle.': 'Mlle.',
     },
     'JJR': {  # adjectives, comparative
         # irregular
