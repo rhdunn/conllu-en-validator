@@ -335,13 +335,14 @@ lemma_exceptions = {
     'NNP/Abbr=Yes': {  # proper noun abbreviations
         'AVE': 'Avenue',
         'CAL': 'California',
-        'DR': ['Doctor', 'Drive'],
+        'DR': ['Doctor', 'Drive'],  # before noun; after noun
         'INC': 'Incorporated',
         'JR': 'Junior',
         'MR': 'Mister',
         'MRS': 'Mistress',
         'MT': 'Mount',
         'OP': 'Opus',
+        'ST': ['Saint', 'Street'],  # before noun; after noun
         # days of the week
         'MON': 'Monday',
         'TUE': 'Tuesday',
