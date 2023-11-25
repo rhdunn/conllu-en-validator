@@ -349,6 +349,7 @@ lemma_exceptions = {
         'TUES': 'Tuesday',
         'WED': 'Wednesday',
         'THU': 'Thursday',
+        'THUR': 'Thursday',
         'FRI': 'Friday',
         'SAT': 'Saturday',
         'SUN': 'Sunday',
