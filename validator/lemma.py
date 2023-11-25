@@ -272,6 +272,9 @@ lemma_exceptions = {
         'these': 'this',
         'those': 'that',
     },
+    'FW/Abbr=Yes': {  # foreign word abbreviations
+        'etc': 'etc.',
+    },
     'JJR': {  # adjectives, comparative
         # irregular
         'better': 'good',
