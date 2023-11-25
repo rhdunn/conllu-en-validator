@@ -346,6 +346,7 @@ lemma_exceptions = {
         'hrs': 'hour',
         'min': 'minute',
         'mins': 'minute',
+        'ppl': 'person',
     },
     'NNP/Abbr=Yes': {  # proper noun abbreviations
         'AVE': 'Avenue',
