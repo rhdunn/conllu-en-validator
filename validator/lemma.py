@@ -339,6 +339,7 @@ lemma_exceptions = {
         'INC': 'Incorporated',
         'JR': 'Junior',
         'MR': 'Mister',
+        'MRS': 'Mistress',
         'MT': 'Mount',
         # days of the week
         'MON': 'Monday',
