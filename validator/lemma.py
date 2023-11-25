@@ -232,6 +232,7 @@ lemmatization_rule_names = {
     'PRP': 'lowercase-form',  # pronoun, personal
     'PRP$': 'lowercase-form',  # pronoun, possessive
     'RB': 'lowercase-form',  # adverb
+    'RB/Abbr=Yes': 'uppercase-form',  # adverb abbreviations
     'RBR': 'comparative',  # adverb, comparative (second degree) [-er]
     'RBS': 'superlative',  # adverb, superlative (third degree) [-est]
     'RP': 'lowercase-form',  # particle
@@ -468,23 +469,9 @@ lemma_exceptions = {
         'n\'t': 'not',
         'n`t': 'not',
         'nt': 'not',
-        # uppercase abbreviations
-        'ad': 'AD',  # Anno Domini
-        'asap': 'ASAP',  # as soon as possible
-        'bc': 'BC',  # Before Christ
-        'bce': 'BCE',  # Before the Common/Current/Christian Era
-        'btw': 'BTW',  # by the way
-        'ce': 'CE',  # Common/Current/Christian Era
-        'e': 'E',  # east
-        'iirc': 'IIRC',  # if I remember correctly
-        'imo': 'IMO',  # in my opinion
-        'irl': 'IRL',  # in real life
-        'n': 'N',  # north
-        'ps': 'PS',  # postscript
-        's': 'S',  # south
-        'w': 'W',  # west
-        # dotted abbreviations
-        'aka': 'a.k.a.',  # also known as
+    },
+    'RB/Abbr=Yes': {  # adverb abbreviations
+        'AKA': 'a.k.a.',  # also known as
     },
     'RBR': {  # adverb, comparative
         # irregular
