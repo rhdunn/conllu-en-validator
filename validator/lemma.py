@@ -341,6 +341,7 @@ lemma_exceptions = {
         'MR': 'Mister',
         'MRS': 'Mistress',
         'MT': 'Mount',
+        'OP': 'Opus',
         # days of the week
         'MON': 'Monday',
         'TUE': 'Tuesday',
