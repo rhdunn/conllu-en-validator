@@ -333,6 +333,14 @@ lemma_exceptions = {
         'P.M.': 'p.m.',  # post meridiem (after noon)
     },
     'NNP/Abbr=Yes': {  # proper noun abbreviations
+        # days of the week
+        'MON': 'Monday',
+        'TUE': 'Tuesday',
+        'WED': 'Wednesday',
+        'THU': 'Thursday',
+        'FRI': 'Friday',
+        'SAT': 'Saturday',
+        'SUN': 'Sunday',
         # months of the year
         'JAN': 'January',
         'FEB': 'February',
