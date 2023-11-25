@@ -321,6 +321,9 @@ lemma_exceptions = {
         'ca': 'can',
         'wo': 'will',  # would
     },
+    'NN/Abbr=Yes': {  # noun abbreviations
+        'A.M.': 'a.m.',  # ante meridiem (before noon)
+    },
     'NNS/Number=Plur': { # plural nouns
         # irregular
         'alumni': 'alumnus',
