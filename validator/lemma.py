@@ -204,6 +204,7 @@ lemmatization_rule_names = {
     'CD/NumForm=Digit/NumType=Frac': 'fractional-number',  # cardinal number, fraction
     'CD/NumForm=Roman': 'normalized-form',  # cardinal number, roman numerals
     'CD/NumForm=Word': 'lowercase-form',  # cardinal number, words
+    'CD/NumForm=Word/Abbr=Yes': 'lowercase-form',  # cardinal number, word abbreviations
     'CD+PRON': 'lowercase-form',  # cardinal number, reciprocal pronoun -- "one/PRON+CD another"
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
@@ -266,7 +267,7 @@ lemma_exceptions = {
         '\u2014': '-',  # EM DASH
         '...': '\u2026',  # HORIZONTAL ELLIPSIS
     },
-    'CD/NumForm=Word': {  # cardinal numbers, word
+    'CD/NumForm=Word/Abbr=Yes': {  # cardinal numbers, word
         'b': 'billion',
         'bn': 'billion',
         'k': 'thousand',
