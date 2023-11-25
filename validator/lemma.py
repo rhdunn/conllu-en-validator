@@ -360,6 +360,7 @@ lemma_exceptions = {
         'JUL': 'July',
         'AUG': 'August',
         'SEP': 'September',
+        'SEPT': 'September',
         'OCT': 'October',
         'NOV': 'November',
         'DEC': 'December',
