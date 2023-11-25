@@ -663,24 +663,34 @@ class TokenLemmaValidator(Validator):
     def get_lemma_type(self, token):
         upos = token['upos']
         xpos = token['xpos']
+        lemma_type = xpos
+
         if xpos in ['NNS', 'NNPS']:
             # https://universaldependencies.org/u/feat/Number.html
             number = conllutil.get_feat(token, 'Number', None)
             if number is not None:
-                return f"{xpos}/Number={number}"
+                lemma_type = f"{lemma_type}/Number={number}"
         elif xpos == 'CD':
             # https://universaldependencies.org/u/feat/NumForm.html
             # https://universaldependencies.org/u/feat/NumType.html
             num_form = conllutil.get_feat(token, 'NumForm', None)
             num_type = conllutil.get_feat(token, 'NumType', None)
             if num_form == 'Digit' and num_type is not None:
-                return f"{xpos}/NumForm={num_form}/NumType={num_type}"
+                lemma_type = f"{lemma_type}/NumForm={num_form}/NumType={num_type}"
             elif num_form is not None:
-                return f"{xpos}/NumForm={num_form}"
+                lemma_type = f"{lemma_type}/NumForm={num_form}"
             elif num_form is None and num_type is None:
                 # https://universaldependencies.org/en/pos/PRON.html#reciprocal-pronouns
-                return f"{xpos}+{upos}"
-        return xpos
+                lemma_type = f"{lemma_type}+{upos}"
+
+        # https://universaldependencies.org/u/feat/Abbr.html
+        # https://universaldependencies.org/misc.html#correctform
+        abbr = conllutil.get_feat(token, 'Abbr', None)
+        correct_form = conllutil.get_misc(token, 'CorrectForm', None)
+        if abbr is not None and (correct_form is None or correct_form == '_'):
+            lemma_type = f"{lemma_type}/Abbr={abbr}"
+
+        return lemma_type
 
     def match_lemma(self, lemma, expected_lemma):
         if isinstance(expected_lemma, list):
