@@ -322,6 +322,8 @@ lemma_exceptions = {
         'wo': 'will',  # would
     },
     'NN/Abbr=Yes': {  # noun abbreviations
+        'ED.': ['edition', 'editor'],
+        # multi-word
         'A.M.': 'a.m.',  # ante meridiem (before noon)
         'P.M.': 'p.m.',  # post meridiem (after noon)
     },
