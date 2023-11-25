@@ -218,6 +218,7 @@ lemmatization_rule_names = {
     'NN': 'lowercase-form',  # noun
     'NN/Abbr=Yes': 'uppercase-form',  # noun abbreviations
     'NNP': 'capitalized-form',  # proper noun
+    'NNP/Abbr=Yes': 'uppercase-form',  # proper noun abbreviations
     'NNPS/Number=Coll': 'capitalized-form',  # proper noun, collective / singulare tantum (singular form as plural)
     'NNPS/Number=Plur': 'plural-proper-noun',  # proper noun, plural
     'NNPS/Number=Ptan': 'capitalized-form',  # proper noun, plurale tantum (plural form lemma)
