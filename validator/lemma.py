@@ -337,6 +337,7 @@ lemma_exceptions = {
         'CAL': 'California',
         'DR': ['Doctor', 'Drive'],
         'INC': 'Incorporated',
+        'JR': 'Junior',
         # days of the week
         'MON': 'Monday',
         'TUE': 'Tuesday',
