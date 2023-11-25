@@ -202,6 +202,7 @@ lemmatization_rule_names = {
     'CD+PRON': 'lowercase-form',  # cardinal number, reciprocal pronoun -- "one/PRON+CD another"
     'DT': 'lowercase-form',  # determiner
     'EX': 'lowercase-form',  # existential "there"
+    'FW/Abbr=Yes': 'lowercase-form',  # foreign word abbreviation
     'IN': 'lowercase-form',  # preposition, subordinating conjunction
     'JJ': 'lowercase-form',  # adjective, positive (first degree)
     'JJR': 'comparative',  # adjective, comparative (second degree) [-er]
