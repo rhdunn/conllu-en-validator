@@ -513,6 +513,7 @@ lemma_exceptions = {
         '\u2014': '\u002D',  # EM DASH -> HYPHEN-MINUS
     },
     'TO/Abbr=Yes': { # PART+TO -- "to"
+        'a': 'to',  # ought|a, etc.
         'na': 'to',  # wan|na, etc.
         'ta': 'to',  # got|ta, etc.
     },
