@@ -346,6 +346,7 @@ lemma_exceptions = {
         # days of the week
         'MON': 'Monday',
         'TUE': 'Tuesday',
+        'TUES': 'Tuesday',
         'WED': 'Wednesday',
         'THU': 'Thursday',
         'FRI': 'Friday',
