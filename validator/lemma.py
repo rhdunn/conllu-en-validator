@@ -226,6 +226,7 @@ lemmatization_rule_names = {
     'NNPS/Number=Ptan': 'capitalized-form',  # proper noun, plurale tantum (plural form lemma)
     'NNS/Number=Coll': 'lowercase-form',  # noun, collective / singulare tantum (singular form as plural)
     'NNS/Number=Plur': 'plural-common-noun',  # noun, plural
+    'NNS/Number=Plur/Abbr=Yes': 'plural-common-noun',  # noun, plural abbreviation
     'NNS/Number=Ptan': 'lowercase-form',  # noun, plurale tantum (plural form lemma)
     'PDT': 'lowercase-form',  # predeterminer
     'POS': 'lowercase-form',  # possessive
