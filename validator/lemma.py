@@ -669,6 +669,7 @@ lemma_exceptions = {
     },
     'VBG': {  # verb, gerund or present tense
         # -ing exceptions
+        'being': 'be',
         'having': 'have',
         'coalescing': 'coalesce',
     },
