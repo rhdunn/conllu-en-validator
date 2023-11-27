@@ -678,6 +678,7 @@ lemma_exceptions = {
         'been': 'be',
         'begun': 'begin',
         'done': 'do',
+        'grown': 'grow',
     },
     'VBP': {  # verb, singular present
         # clitics
