@@ -680,6 +680,7 @@ lemma_exceptions = {
         'done': 'do',
         'flown': 'fly',
         'grown': 'grow',
+        'shown': 'show',
     },
     'VBP': {  # verb, singular present
         # clitics
