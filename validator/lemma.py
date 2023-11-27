@@ -767,19 +767,23 @@ class TokenLemmaValidator(Validator):
         if lemma_type == 'VBN':
             if form.endswith('en') and expected_lemma in lemma_exceptions['VBD']:
                 # VBN + -en => VBD => VB : e.g. hidden => hid => hide
+                rule = 'lemma-exception'
                 expected_lemma = lemma_exceptions['VBD'][expected_lemma]
             elif normalized_form in lemma_exceptions['VBD']:
                 # use VBD for other lemma exceptions
+                rule = 'lemma-exception'
                 expected_lemma = lemma_exceptions['VBD'][normalized_form]
 
         if lemma_type in lemma_exceptions and normalized_form in lemma_exceptions[lemma_type]:
             # use the exception lemma instead of the rule-based lemma
+            rule = 'lemma-exception'
             expected_lemma = lemma_exceptions[lemma_type][normalized_form]
 
         if 'Abbr=Yes' in lemma_type and form.endswith('.'):
             abbr_form = normalized_form[:-1]
             # check the abbreviation without the trailing '.'
             if lemma_type in lemma_exceptions and abbr_form in lemma_exceptions[lemma_type]:
+                rule = 'lemma-exception'
                 expected_lemma = lemma_exceptions[lemma_type][abbr_form]
 
         if self.match_lemma(lemma, expected_lemma):
