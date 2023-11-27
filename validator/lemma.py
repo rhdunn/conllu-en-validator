@@ -678,6 +678,7 @@ lemma_exceptions = {
         'been': 'be',
         'begun': 'begin',
         'done': 'do',
+        'flown': 'fly',
         'grown': 'grow',
     },
     'VBP': {  # verb, singular present
