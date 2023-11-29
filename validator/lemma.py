@@ -221,6 +221,7 @@ lemmatization_rule_names = {
     'EX': 'lowercase-form',  # existential "there"
     'FW/Abbr=Yes': 'lowercase-form',  # foreign word abbreviation
     'IN': 'lowercase-form',  # preposition, subordinating conjunction
+    'IN/Abbr=Yes': 'lowercase-form',  # abbreviation of a preposition or subordinating conjunction
     'JJ': 'lowercase-form',  # adjective, positive (first degree)
     'JJR': 'comparative',  # adjective, comparative (second degree) [-er]
     'JJS': 'superlative',  # adjective, superlative (third degree) [-est]
@@ -298,6 +299,9 @@ lemma_exceptions = {
     'FW/Abbr=Yes': {  # foreign word abbreviations
         'etc': 'etc.',
         'mlle.': 'Mlle.',
+    },
+    'IN/Abbr=Yes': {  # preposition, subordinating conjunction
+        'vs': 'versus',
     },
     'JJR': {  # adjectives, comparative
         # irregular
