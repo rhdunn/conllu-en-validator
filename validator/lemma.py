@@ -679,6 +679,7 @@ lemma_exceptions = {
         # irregular
         'been': 'be',
         'begun': 'begin',
+        'born': 'bear',
         'done': 'do',
         'flown': 'fly',
         'foretold': 'foretell',
