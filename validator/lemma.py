@@ -125,6 +125,7 @@ past_participle_verb_stemming_rules = [
     (re.compile(r'([aeou]r[cgsv])e[dn]$'), r'\1e'),  # VrCe[dn] -> VrCe
     (re.compile(r'([ptw]ast)ed$'), r'\1e'),  # asted -> aste
     # -VCe[dn]
+    (re.compile(r'(i[^aeiou]it)e[dn]$'), r'\1'),  # VCite[dn] -> VCit
     (re.compile(r'([aiou][^aeiouwy])e[dn]$'), r'\1e'),  # VCe[dn] -> VCe
     # -e[dn]
     (re.compile(r'([^aeiourlw]l)ed$'), r'\1e'),  # Cled -> Cle
@@ -151,6 +152,7 @@ past_tense_verb_stemming_rules = [
     (re.compile(r'([aeou]r[cgsv])ed$'), r'\1e'),  # VrCed -> VrCe
     (re.compile(r'([ptw]ast)ed$'), r'\1e'),  # asted -> aste
     # -VCed
+    (re.compile(r'(i[^aeiou]it)ed$'), r'\1'),  # VCited -> VCit
     (re.compile(r'([aiou][^aeiouwy])ed$'), r'\1e'),  # VCed -> VCe
     # -ed
     (re.compile(r'([^aeiourlw]l)ed$'), r'\1e'),  # Cled -> Cle
@@ -174,6 +176,7 @@ present_verb_stemming_rules = [
     (re.compile(r'([aeou]r[cgsv])ing$'), r'\1e'),  # VrCing -> VrCe
     (re.compile(r'([ptw]ast)ing$'), r'\1e'),  # asting -> aste
     # -VCing
+    (re.compile(r'(i[^aeiou]it)ing$'), r'\1'),  # VCited -> VCit
     (re.compile(r'([aiou][^aeiouwy])ing$'), r'\1e'),  # VCing -> VCe
     # -ing
     (re.compile(r'([^aeiourlw]l)ing$'), r'\1e'),  # Cling -> Cle
@@ -193,6 +196,7 @@ present_3p_verb_stemming_rules = [
     (re.compile(r'([aeou]r[cgsv])es$'), r'\1e'),  # VrCes -> VrCe
     (re.compile(r'([ptw]ast)es$'), r'\1e'),  # astes -> aste
     # -VCes
+    (re.compile(r'(i[^aeiou]it)es$'), r'\1'),  # VCites -> VCit
     (re.compile(r'([aiou][^aeiouwy]e)s$'), r'\1'),  # VCes -> VCe
     # -es
     (re.compile(r'([^aeiourlw]l)es$'), r'\1e'),  # Cles -> Cle
