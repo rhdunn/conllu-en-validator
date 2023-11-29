@@ -115,6 +115,7 @@ past_participle_verb_stemming_rules = [
     (re.compile(r'((ee|oo)z)ed$'), r'\1e'),  # VVzed -> VVze
     (re.compile(r'(([aeiou])\2[^aeiou]?)ed$'), r'\1'),  # VVC?ed -> VVC? ~ doubled vowel
     (re.compile(r'((crea|[^v]ie)[^aeioufk])ed$'), r'\1e'),  # VVCed -> VVCe
+    ('leaved', 'leave'),
     (re.compile(r'((ai|ea|io|o[aiu])[^aeious])e[dn]$'), r'\1'),  # VVCed -> VVC
     # -VCCe[dn]
     (re.compile(r'([aeiou]([bdgmnprt]))\2e[dn]$'), r'\1'),  # VCCed -> VC ~ doubled consonants
@@ -140,6 +141,7 @@ past_tense_verb_stemming_rules = [
     (re.compile(r'((ee|oo)z)ed$'), r'\1e'),  # VVzed -> VVze
     (re.compile(r'(([aeiou])\2[^aeiou]?)ed$'), r'\1'),  # VVC?ed -> VVC? ~ doubled vowel
     (re.compile(r'((crea|[^v]ie)[^aeioufk])ed$'), r'\1e'),  # VVCed -> VVCe
+    ('leaved', 'leave'),
     (re.compile(r'((ai|ea|io|o[aiu])[^aeious])ed$'), r'\1'),  # VVCed -> VVC
     # -VCCed
     (re.compile(r'([aeiou]([bdgmnprt]))\2ed$'), r'\1'),  # VCCed -> VC ~ doubled consonants
@@ -162,6 +164,7 @@ present_verb_stemming_rules = [
     (re.compile(r'((ee|oo)z)ing$'), r'\1e'),  # VVzing -> VVze
     (re.compile(r'(([aeiou])\2[^aeiou]?)ing$'), r'\1'),  # VVC?ing -> VVC? ~ doubled vowel
     (re.compile(r'((crea|[^v]ie)[^aeioufk])ing$'), r'\1e'),  # VVCing -> VVCe
+    ('leaving', 'leave'),
     (re.compile(r'((ai|ea|io|o[aiu])[^aeious])ing$'), r'\1'),  # VVCing -> VVC
     # -VCCing
     (re.compile(r'([aeiou]([bdgmnprt]))\2ing$'), r'\1'),  # VCCing -> VC ~ doubled consonants
@@ -182,6 +185,7 @@ present_3p_verb_stemming_rules = [
     # -VVCes
     (re.compile(r'((ee|oo)z)es$'), r'\1e'),  # VVzes -> VVze
     (re.compile(r'((crea|[^v]ie)[^aeioufk])es$'), r'\1e'),  # VVCes -> VVCe
+    ('leaves', 'leave'),
     # -VCCes
     (re.compile(r'([ou]l[gsv])es$'), r'\1e'),  # VlCes -> VlCe
     (re.compile(r'((ch|r)a|e|fri|u)nges$'), r'\1nge'),  # Vnges -> Vnge
