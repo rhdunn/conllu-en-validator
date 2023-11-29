@@ -132,7 +132,7 @@ past_participle_verb_stemming_rules = [
     ('ed', ''),
     ('en', ''),
     # -n
-    ('own', 'ow'),
+    (re.compile(r'([ao]w)n$'), r'\1'),  # Vwn -> Vw
 ]
 
 past_tense_verb_stemming_rules = [
