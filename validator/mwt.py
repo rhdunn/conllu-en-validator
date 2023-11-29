@@ -9,23 +9,24 @@ from validator.logger import log, LogLevel
 
 mwt_suffixes = {
     '\'d': {
-        'everyone': [Token(form='everyone', lemma='everyone'), Token(form='\'d', lemma=['have', 'will'])],  # everyone had, everyone would
-        'he': [Token(form='he', lemma='he'), Token(form='\'d', lemma=['have', 'will'])],  # he had, he would
-        'how': [Token(form='how', lemma='how'), Token(form='\'d', lemma=['have', 'will'])],  # how had, how would
-        'I': [Token(form='I', lemma='I'), Token(form='\'d', lemma=['have', 'will'])],  # I had, I would
-        'it': [Token(form='it', lemma='it'), Token(form='\'d', lemma=['have', 'will'])],  # it had, it would
-        'she': [Token(form='she', lemma='she'), Token(form='\'d', lemma=['have', 'will'])],  # she had, she would
-        'that': [Token(form='that', lemma='that'), Token(form='\'d', lemma=['have', 'will'])],  # that had, that would
-        'there': [Token(form='there', lemma='there'), Token(form='\'d', lemma=['have', 'will'])],  # there had, there would
-        'they': [Token(form='they', lemma='they'), Token(form='\'d', lemma=['have', 'will'])],  # they had, they would
-        'we': [Token(form='we', lemma='we'), Token(form='\'d', lemma=['have', 'will'])],  # we had, we would
-        'what': [Token(form='what', lemma='what'), Token(form='\'d', lemma=['do', 'have', 'will'])],  # what did, what had, what would
-        'where': [Token(form='where', lemma='where'), Token(form='\'d', lemma=['have', 'will'])],  # where had, where would
-        'who': [Token(form='who', lemma='who'), Token(form='\'d', lemma=['have', 'will'])],  # who had, who would
-        'why': [Token(form='why', lemma='why'), Token(form='\'d', lemma=['have', 'will'])],  # why had, why would
-        'y': [Token(form='y', lemma='you'), Token(form='\'d', lemma=['have', 'will'])],  # you had, you would
-        'you': [Token(form='you', lemma='you'), Token(form='\'d', lemma=['have', 'will'])],  # you had, you would
-        None: [Token(upos=['NOUN', 'PROPN']), Token(form='\'d', lemma=['have', 'will'])],  # _ had, _ would
+        # See https://github.com/UniversalDependencies/UD_English-EWT/issues/450 for modal "would" not lemmatizing to "will".
+        'everyone': [Token(form='everyone', lemma='everyone'), Token(form='\'d', lemma=['have', 'would'])],  # everyone had, everyone would
+        'he': [Token(form='he', lemma='he'), Token(form='\'d', lemma=['have', 'would'])],  # he had, he would
+        'how': [Token(form='how', lemma='how'), Token(form='\'d', lemma=['have', 'would'])],  # how had, how would
+        'I': [Token(form='I', lemma='I'), Token(form='\'d', lemma=['have', 'would'])],  # I had, I would
+        'it': [Token(form='it', lemma='it'), Token(form='\'d', lemma=['have', 'would'])],  # it had, it would
+        'she': [Token(form='she', lemma='she'), Token(form='\'d', lemma=['have', 'would'])],  # she had, she would
+        'that': [Token(form='that', lemma='that'), Token(form='\'d', lemma=['have', 'would'])],  # that had, that would
+        'there': [Token(form='there', lemma='there'), Token(form='\'d', lemma=['have', 'would'])],  # there had, there would
+        'they': [Token(form='they', lemma='they'), Token(form='\'d', lemma=['have', 'would'])],  # they had, they would
+        'we': [Token(form='we', lemma='we'), Token(form='\'d', lemma=['have', 'would'])],  # we had, we would
+        'what': [Token(form='what', lemma='what'), Token(form='\'d', lemma=['do', 'have', 'would'])],  # what did, what had, what would
+        'where': [Token(form='where', lemma='where'), Token(form='\'d', lemma=['have', 'would'])],  # where had, where would
+        'who': [Token(form='who', lemma='who'), Token(form='\'d', lemma=['have', 'would'])],  # who had, who would
+        'why': [Token(form='why', lemma='why'), Token(form='\'d', lemma=['have', 'would'])],  # why had, why would
+        'y': [Token(form='y', lemma='you'), Token(form='\'d', lemma=['have', 'would'])],  # you had, you would
+        'you': [Token(form='you', lemma='you'), Token(form='\'d', lemma=['have', 'would'])],  # you had, you would
+        None: [Token(upos=['NOUN', 'PROPN']), Token(form='\'d', lemma=['have', 'would'])],  # _ had, _ would
     },
     '\'ll': {
         'good': [Token(form='good', lemma='good'), Token(form='\'ll', lemma='will')],  # good will

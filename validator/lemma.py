@@ -336,11 +336,11 @@ lemma_exceptions = {
     'MD': {  # verb, modal
         'wilt': 'will',
         # clitics
-        '\'d': 'will',
+        '\'d': 'would', # See https://github.com/UniversalDependencies/UD_English-EWT/issues/450 for modal "would" not lemmatizing to "will".
         '\'ll': 'will',
         # multi-word tokens
-        'ca': 'can',
-        'wo': 'will',  # would
+        'ca': 'can',  # ca|n't
+        'wo': 'will',  # wo|n't
     },
     'NN/Abbr=Yes': {  # noun abbreviations
         'ED.': ['edition', 'editor'],
