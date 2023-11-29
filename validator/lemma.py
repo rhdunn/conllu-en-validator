@@ -131,6 +131,8 @@ past_participle_verb_stemming_rules = [
     ('ied', 'y'),
     ('ed', ''),
     ('en', ''),
+    # -n
+    ('own', 'ow'),
 ]
 
 past_tense_verb_stemming_rules = [
@@ -679,8 +681,6 @@ lemma_exceptions = {
         'begun': 'begin',
         'done': 'do',
         'flown': 'fly',
-        'grown': 'grow',
-        'shown': 'show',
     },
     'VBP': {  # verb, singular present
         # clitics
