@@ -680,6 +680,7 @@ lemma_exceptions = {
         'been': 'be',
         'begun': 'begin',
         'born': 'bear',
+        'bound': 'bind',
         'done': 'do',
         'flown': 'fly',
         'foretold': 'foretell',
