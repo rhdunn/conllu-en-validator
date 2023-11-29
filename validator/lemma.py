@@ -114,8 +114,8 @@ past_participle_verb_stemming_rules = [
     # -VVCe[dn]
     (re.compile(r'((ee|oo)z)ed$'), r'\1e'),  # VVzed -> VVze
     (re.compile(r'(([aeiou])\2[^aeiou]?)ed$'), r'\1'),  # VVC?ed -> VVC? ~ doubled vowel
+    (re.compile(r'((crea|[^v]ie)[^aeioufk])ed$'), r'\1e'),  # VVCed -> VVCe
     (re.compile(r'((ai|ea|io|o[aiu])[^aeious])e[dn]$'), r'\1'),  # VVCed -> VVC
-    (re.compile(r'([^v]ie[^aeioufk])ed$'), r'\1e'),  # VVCed -> VVCe
     # -VCCe[dn]
     (re.compile(r'([aeiou]([bdgmnprt]))\2e[dn]$'), r'\1'),  # VCCed -> VC ~ doubled consonants
     (re.compile(r'([ou]l[gsv])ed$'), r'\1e'),  # VlCed -> VlCe
@@ -139,8 +139,8 @@ past_tense_verb_stemming_rules = [
     # -VVCed
     (re.compile(r'((ee|oo)z)ed$'), r'\1e'),  # VVzed -> VVze
     (re.compile(r'(([aeiou])\2[^aeiou]?)ed$'), r'\1'),  # VVC?ed -> VVC? ~ doubled vowel
+    (re.compile(r'((crea|[^v]ie)[^aeioufk])ed$'), r'\1e'),  # VVCed -> VVCe
     (re.compile(r'((ai|ea|io|o[aiu])[^aeious])ed$'), r'\1'),  # VVCed -> VVC
-    (re.compile(r'([^v]ie[^aeioufk])ed$'), r'\1e'),  # VVCed -> VVCe
     # -VCCed
     (re.compile(r'([aeiou]([bdgmnprt]))\2ed$'), r'\1'),  # VCCed -> VC ~ doubled consonants
     (re.compile(r'([ou]l[gsv])ed$'), r'\1e'),  # VlCed -> VlCe
@@ -161,8 +161,8 @@ present_verb_stemming_rules = [
     # -VVCing
     (re.compile(r'((ee|oo)z)ing$'), r'\1e'),  # VVzing -> VVze
     (re.compile(r'(([aeiou])\2[^aeiou]?)ing$'), r'\1'),  # VVC?ing -> VVC? ~ doubled vowel
+    (re.compile(r'((crea|[^v]ie)[^aeioufk])ing$'), r'\1e'),  # VVCing -> VVCe
     (re.compile(r'((ai|ea|io|o[aiu])[^aeious])ing$'), r'\1'),  # VVCing -> VVC
-    (re.compile(r'([^v]ie[^aeioufk])ing$'), r'\1e'),  # VVCing -> VVCe
     # -VCCing
     (re.compile(r'([aeiou]([bdgmnprt]))\2ing$'), r'\1'),  # VCCing -> VC ~ doubled consonants
     (re.compile(r'([ou]l[gsv])ing$'), r'\1e'),  # VlCing -> VlCe
@@ -181,7 +181,7 @@ present_verb_stemming_rules = [
 present_3p_verb_stemming_rules = [
     # -VVCes
     (re.compile(r'((ee|oo)z)es$'), r'\1e'),  # VVzes -> VVze
-    (re.compile(r'([^v]ie[^aeioufk])es$'), r'\1e'),  # VVCes -> VVCe
+    (re.compile(r'((crea|[^v]ie)[^aeioufk])es$'), r'\1e'),  # VVCes -> VVCe
     # -VCCes
     (re.compile(r'([ou]l[gsv])es$'), r'\1e'),  # VlCes -> VlCe
     (re.compile(r'((ch|r)a|e|fri|u)nges$'), r'\1nge'),  # Vnges -> Vnge
