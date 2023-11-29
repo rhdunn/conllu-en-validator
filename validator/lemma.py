@@ -533,8 +533,6 @@ lemma_exceptions = {
     },
     'UH': {  # interjection
         'christ': 'Christ',
-        'ok': 'OK',
-        'tl;dr': 'TL;DR',
     },
     'VB': {  # verb, base form
         # clitics
