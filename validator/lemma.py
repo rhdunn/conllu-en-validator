@@ -683,6 +683,7 @@ lemma_exceptions = {
         'done': 'do',
         'flown': 'fly',
         'foretold': 'foretell',
+        'forgone':'forgo',
     },
     'VBP': {  # verb, singular present
         # clitics
