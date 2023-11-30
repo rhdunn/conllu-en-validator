@@ -181,6 +181,7 @@ present_verb_stemming_rules = [
     # -ing
     (re.compile(r'([^aeiourlw]l)ing$'), r'\1e'),  # Cling -> Cle
     (re.compile(r'([ue])ing$'), r'\1e'),  # Ving -> Ve
+    (re.compile(r'^([^aeiou])ying$'), r'\1ie'),  # Cying -> Cie
     ('ing', ''),
 ]
 
