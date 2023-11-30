@@ -684,6 +684,7 @@ lemma_exceptions = {
         'wrote': 'write',
         'wrought': 'wring',
         # -ed exceptions
+        'added': 'add',
         'coalesced': 'coalesce',
         'eyed': 'eye',
     },
