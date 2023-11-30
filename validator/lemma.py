@@ -120,7 +120,7 @@ past_participle_verb_stemming_rules = [
     # -VCCe[dn]
     (re.compile(r'([aeiou]([bdgmnprt]))\2e[dn]$'), r'\1'),  # VCCed -> VC ~ doubled consonants
     (re.compile(r'([ou]l[gsv])ed$'), r'\1e'),  # VlCed -> VlCe
-    (re.compile(r'((ch|r)a|e|fri|u)nged$'), r'\1nge'),  # Vnged -> Vnge
+    (re.compile(r'((cha|ra|e|fri|u)[dn])ged$'), r'\1ge'),  # V[dn]ged -> V[dn]ge
     (re.compile(r'([aeiu]n[cs])ed$'), r'\1e'),  # VnCed -> VnCe
     (re.compile(r'([aeou]r[cgsv])e[dn]$'), r'\1e'),  # VrCe[dn] -> VrCe
     (re.compile(r'([ptw]ast)ed$'), r'\1e'),  # asted -> aste
@@ -147,7 +147,7 @@ past_tense_verb_stemming_rules = [
     # -VCCed
     (re.compile(r'([aeiou]([bdgmnprt]))\2ed$'), r'\1'),  # VCCed -> VC ~ doubled consonants
     (re.compile(r'([ou]l[gsv])ed$'), r'\1e'),  # VlCed -> VlCe
-    (re.compile(r'((ch|r)a|e|fri|u)nged$'), r'\1nge'),  # Vnged -> Vnge
+    (re.compile(r'((cha|ra|e|fri|u)[dn])ged$'), r'\1ge'),  # V[dn]ged -> V[dn]ge
     (re.compile(r'([aeiu]n[cs])ed$'), r'\1e'),  # VnCed -> VnCe
     (re.compile(r'([aeou]r[cgsv])ed$'), r'\1e'),  # VrCed -> VrCe
     (re.compile(r'([ptw]ast)ed$'), r'\1e'),  # asted -> aste
@@ -171,7 +171,7 @@ present_verb_stemming_rules = [
     # -VCCing
     (re.compile(r'([aeiou]([bdgmnprt]))\2ing$'), r'\1'),  # VCCing -> VC ~ doubled consonants
     (re.compile(r'([ou]l[gsv])ing$'), r'\1e'),  # VlCing -> VlCe
-    (re.compile(r'((ch|r)a|e|fri|u)nging$'), r'\1nge'),  # Vnging -> Vnge
+    (re.compile(r'((cha|ra|e|fri|u)[dn])ging$'), r'\1ge'),  # V[dn]ging -> V[dn]ge
     (re.compile(r'([aeiu]n[cs])ing$'), r'\1e'),  # VnCing -> VnCe
     (re.compile(r'([aeou]r[cgsv])ing$'), r'\1e'),  # VrCing -> VrCe
     (re.compile(r'([ptw]ast)ing$'), r'\1e'),  # asting -> aste
@@ -192,7 +192,7 @@ present_3p_verb_stemming_rules = [
     ('leaves', 'leave'),
     # -VCCes
     (re.compile(r'([ou]l[gsv])es$'), r'\1e'),  # VlCes -> VlCe
-    (re.compile(r'((ch|r)a|e|fri|u)nges$'), r'\1nge'),  # Vnges -> Vnge
+    (re.compile(r'((cha|ra|e|fri|u)[dn])ges$'), r'\1ge'),  # V[dn]ges -> V[dn]ge
     (re.compile(r'([aeiu]n[cs])es$'), r'\1e'),  # VnCes -> VnCe
     (re.compile(r'([aeou]r[cgsv])es$'), r'\1e'),  # VrCes -> VrCe
     (re.compile(r'([ptw]ast)es$'), r'\1e'),  # astes -> aste
