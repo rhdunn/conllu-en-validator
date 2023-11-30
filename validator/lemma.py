@@ -679,10 +679,13 @@ lemma_exceptions = {
         'wrought': 'wring',
         # -ed exceptions
         'coalesced': 'coalesce',
+        'eyed': 'eye',
     },
     'VBG': {  # verb, gerund or present tense
         # -ing exceptions
         'being': 'be',
+        'eyeing': 'eye',
+        'eying': 'eye',
         'having': 'have',
         'coalescing': 'coalesce',
     },
@@ -727,6 +730,7 @@ lemma_exceptions = {
         'ai': 'be',  # is
         # -es exceptions
         'coalesces': 'coalesce',
+        'eyes': 'eye',
     },
     'WP': {  # pronoun, possessive wh-
         # https://universaldependencies.org/en/pos/PRON.html#relativeinterrogative-wh-pronouns
