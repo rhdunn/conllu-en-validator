@@ -423,6 +423,7 @@ lemma_exceptions = {
         'species': 'species',
         # uncountable -- not plural only (plurale tantum), so shouldn't use Number=Ptan
         'economics': 'economics',
+        'news': 'news',
         # -s exceptions
         'analyses': 'analysis',
         'appendices': 'appendix',
