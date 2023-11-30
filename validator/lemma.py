@@ -435,7 +435,6 @@ lemma_exceptions = {
         'corpora': 'corpus',
         'crises': 'crisis',
         'gases': 'gas',
-        'genitalia': 'genitale',  # unused; should be annotated as Number=Ptan
         'geniuses': 'genius',
         'halves': 'half',
         'hooves': 'hoof',
