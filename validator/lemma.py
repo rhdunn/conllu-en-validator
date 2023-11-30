@@ -418,6 +418,8 @@ lemma_exceptions = {
         'phenomena': 'phenomenon',
         'stimuli': 'stimulus',
         'teeth': 'tooth',
+        # singular and plural, or uncountable -- not plural only (plurale tantum), so shouldn't use Number=Ptan
+        'species': 'species',
         # -s exceptions
         'analyses': 'analysis',
         'appendices': 'appendix',
@@ -447,7 +449,6 @@ lemma_exceptions = {
         'quizzes': 'quiz',
         'shelves': 'shelf',
         'sinuses': 'sinus',
-        'species': 'specie',  # should be annotated as Number=Ptan in most cases
         'surpluses': 'surplus',
         'syntheses': 'synthesis',
         'taxes': ['tax', 'taxis'],
