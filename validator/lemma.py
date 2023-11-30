@@ -130,6 +130,7 @@ past_participle_verb_stemming_rules = [
     # -e[dn]
     (re.compile(r'([^aeiourlw]l)ed$'), r'\1e'),  # Cled -> Cle
     (re.compile(r'([ue])ed$'), r'\1e'),  # Ved -> Ve
+    (re.compile(r'^([^aeiou])ied$'), r'\1ie'),  # Cied -> Cie
     ('ied', 'y'),
     ('ed', ''),
     ('en', ''),
@@ -157,6 +158,7 @@ past_tense_verb_stemming_rules = [
     # -ed
     (re.compile(r'([^aeiourlw]l)ed$'), r'\1e'),  # Cled -> Cle
     (re.compile(r'([ue])ed$'), r'\1e'),  # Ved -> Ve
+    (re.compile(r'^([^aeiou])ied$'), r'\1ie'),  # Cied -> Cie
     ('ied', 'y'),
     ('ed', ''),
 ]
@@ -202,6 +204,7 @@ present_3p_verb_stemming_rules = [
     # -es
     (re.compile(r'([^aeiourlw]l)es$'), r'\1e'),  # Cles -> Cle
     (re.compile(r'([ue])es$'), r'\1e'),  # Ves -> Ve
+    (re.compile(r'^([^aeiou])ies$'), r'\1ie'),  # Cies -> Cie
     ('ies', 'y'),
     # -es
     ('es', ''),
