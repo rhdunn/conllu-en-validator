@@ -418,7 +418,8 @@ lemma_exceptions = {
         'phenomena': 'phenomenon',
         'stimuli': 'stimulus',
         'teeth': 'tooth',
-        # singular and plural, or uncountable -- not plural only (plurale tantum), so shouldn't use Number=Ptan
+        # singular and plural -- not plural only (plurale tantum), so shouldn't use Number=Ptan
+        'series': 'series',
         'species': 'species',
         # -s exceptions
         'analyses': 'analysis',
