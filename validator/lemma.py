@@ -421,6 +421,8 @@ lemma_exceptions = {
         # singular and plural -- not plural only (plurale tantum), so shouldn't use Number=Ptan
         'series': 'series',
         'species': 'species',
+        # uncountable -- not plural only (plurale tantum), so shouldn't use Number=Ptan
+        'economics': 'economics',
         # -s exceptions
         'analyses': 'analysis',
         'appendices': 'appendix',
