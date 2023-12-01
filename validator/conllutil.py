@@ -36,6 +36,19 @@ def get_misc(token, attr, default):
     return misc[attr]
 
 
+def correct_form(token):
+    form = token['form']
+    if get_feat(token, 'Typo', 'No') == 'Yes':
+        return get_misc(token, 'CorrectForm', form)
+    if get_feat(token, 'Abbr', 'No') == 'Yes':
+        return get_misc(token, 'CorrectForm', form)
+    if get_feat(token, 'Style', 'None') in ['Coll', 'Expr', 'Vrnc']:  # colloquial, expressive, vernacular
+        return get_misc(token, 'CorrectForm', form)
+    if get_misc(token, 'SpecialEncoding', 'No') == 'Yes':  # soft hyphen, etc.
+        return get_misc(token, 'CorrectForm', form)
+    return form
+
+
 def normalized_form(token):
     form = token['form']
     if get_feat(token, 'Typo', 'No') == 'Yes':
