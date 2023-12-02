@@ -519,7 +519,7 @@ lemma_exceptions = {
         'further': 'far',
         'less': 'little',
         'lesser': 'little',
-        'worse': 'badly',
+        'worse': 'bad',
         # -er exceptions
         'closer': 'close',
     },
@@ -529,7 +529,7 @@ lemma_exceptions = {
         'farthest': 'far',
         'furthest': 'far',
         'least': 'little',
-        'worst': 'badly',
+        'worst': 'bad',
     },
     'SYM': {  # symbol
         '\u2013': '\u002D',  # EN DASH -> HYPHEN-MINUS
