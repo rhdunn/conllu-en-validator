@@ -354,6 +354,7 @@ lemma_exceptions = {
         # units
         'cm': 'centimeter',
         'hr': 'hour',
+        'mcg': 'microgram',
         'mg': 'milligram',
         'min': 'minutes',
         'yr': 'year',
