@@ -803,6 +803,7 @@ lemma_exceptions = {
         'foretold': 'foretell',
         'forgone':'forgo',
         'gone': 'go',
+        'spoilt': 'spoil',
         'sprung': 'spring',
         'sung': 'sing',
         'sworn': 'swear',
