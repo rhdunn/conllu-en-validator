@@ -807,6 +807,7 @@ lemma_exceptions = {
         'sung': 'sing',
         'sworn': 'swear',
         'undergone': 'undergo',
+        'worn': 'wear',
         'wrung': 'wring',
     },
     'VBP': {  # verb, singular present
