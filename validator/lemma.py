@@ -802,6 +802,7 @@ lemma_exceptions = {
         'forgone':'forgo',
         'gone': 'go',
         'sprung': 'spring',
+        'sung': 'sing',
     },
     'VBP': {  # verb, singular present
         # clitics
