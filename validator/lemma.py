@@ -349,6 +349,7 @@ lemma_exceptions = {
         'islamist': 'Islamist',
         'israeli': 'Israeli',
         'italian': 'Italian',
+        'jamaican': 'Jamaican',
         'japanese': 'Japanese',
         'jewish': 'Jewish',
         'jordanian': 'Jordanian',
