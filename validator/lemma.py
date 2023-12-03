@@ -804,6 +804,7 @@ lemma_exceptions = {
         'gone': 'go',
         'sprung': 'spring',
         'sung': 'sing',
+        'sworn': 'swear',
         'undergone': 'undergo',
         'wrung': 'wring',
     },
