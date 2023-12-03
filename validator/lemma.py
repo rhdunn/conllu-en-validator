@@ -595,6 +595,7 @@ lemma_exceptions = {
     },
     'RB': {  # adverbs
         # PART
+        'n': 'not',
         'n\'t': 'not',
         'n`t': 'not',
         'nt': 'not',
