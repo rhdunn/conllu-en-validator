@@ -657,6 +657,7 @@ lemma_exceptions = {
         'bit': 'bite',
         'blew': 'blow',
         'bought': 'buy',
+        'bred': 'breed',
         'broke': 'break',
         'brought': 'bring',
         'built': 'build',
