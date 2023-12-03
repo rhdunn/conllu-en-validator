@@ -345,6 +345,7 @@ lemma_exceptions = {
         'norwegian': 'Norwegian',
         'pakistani': 'Pakistani',
         'palestinian': 'Palestinian',
+        'pashtun': 'Pashtun',
         'republican': ['republican', 'Republican'],
         'russian': 'Russian',
         'saudi': 'Saudi',
