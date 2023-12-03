@@ -276,7 +276,7 @@ lemmatization_rule_names = {
     '``': 'unmodified-form',  # left (start) quote
     '-LRB-': 'unmodified-form',  # left parenthesis or bracket
     '-RRB-': 'unmodified-form',  # right parenthesis or bracket
-    'ADD': 'lowercase-form',  # web address
+    'ADD': 'unmodified-form',  # web address
     'AFX': 'lowercase-form',  # non-hyphenated affix
     'HYPH': 'unmodified-form',  # hyphen
     'NFP': 'lowercase-form',  # non-functional punctuation
