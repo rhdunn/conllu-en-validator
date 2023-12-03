@@ -577,8 +577,9 @@ lemma_exceptions = {
         '\'': '\'s',
     },
     'PRP': {  # pronoun, personal
-        'i': 'I',
+        '\'s': 'we',  # let's -> let us
         # Nominative : https://universaldependencies.org/en/pos/PRON.html#personal-pronouns
+        'i': 'I',
         'me': 'I',
         'us': 'we',
         'thee': 'thou',
