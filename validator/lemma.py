@@ -327,6 +327,7 @@ lemma_exceptions = {
         'israeli': 'Israeli',
         'italian': 'Italian',
         'japanese': 'Japanese',
+        'jordanian': 'Jordanian',
         'lebanese': 'Lebanese',
         'mediterranean': 'Mediterranean',
         'mexican': 'Mexican',
