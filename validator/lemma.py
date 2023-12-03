@@ -310,6 +310,7 @@ lemma_exceptions = {
     'JJ': {  # adjectives
         # proper noun adjectives
         'arab': 'Arab',
+        'sunni': 'Sunni',
     },
     'JJR': {  # adjectives, comparative
         # irregular
