@@ -350,6 +350,7 @@ lemma_exceptions = {
         'sunni': 'Sunni',
         'swedish': 'Swedish',
         'syrian': 'Syrian',
+        'taiwanese': 'Taiwanese',
         'thai': 'Thai',
         'wahhabi': 'Wahhabi',
     },
