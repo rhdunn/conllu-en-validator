@@ -322,6 +322,7 @@ lemma_exceptions = {
         'baathist': 'Baathist',
         'bangladeshi': 'Bangladeshi',
         'british': 'British',
+        'canadian': 'Canadian',
         'chilean': 'Chilean',
         'chinese': 'Chinese',
         'christian': 'Christian',
