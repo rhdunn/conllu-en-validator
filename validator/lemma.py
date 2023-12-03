@@ -713,6 +713,7 @@ lemma_exceptions = {
         'met': 'meet',
         'mistook': 'mistake',
         'outshone': 'outshine',
+        'overheard': 'overhear',
         'overran': 'overrun',
         'overseen': 'oversee',  # past participle or non-standard past tense
         'overthrew': 'overthrow',
