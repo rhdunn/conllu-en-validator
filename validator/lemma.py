@@ -371,6 +371,7 @@ lemma_exceptions = {
         'russian': 'Russian',
         'satanic': 'Satanic',
         'saudi': 'Saudi',
+        'saxon': 'Saxon',
         'scottish': 'Scottish',
         'shakespearean': 'Shakespearean',
         'shiite': 'Shiite',
