@@ -315,6 +315,7 @@ lemma_exceptions = {
         'indian': 'Indian',
         'iranian': 'Iranian',
         'iraqi': 'Iraqi',
+        'irish': 'Irish',
         'israeli': 'Israeli',
         'japanese': 'Japanese',
         'lebanese': 'Lebanese',
