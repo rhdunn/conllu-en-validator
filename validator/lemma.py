@@ -317,6 +317,7 @@ lemma_exceptions = {
         'asian': 'Asian',
         'british': 'British',
         'chilean': 'Chilean',
+        'chinese': 'Chinese',
         'egyptian': 'Egyptian',
         'french': 'French',
         'german': 'German',
