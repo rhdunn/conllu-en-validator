@@ -307,6 +307,10 @@ lemma_exceptions = {
     'IN/Abbr=Yes': {  # preposition, subordinating conjunction
         'vs': 'versus',
     },
+    'JJ': {  # adjectives
+        # proper noun adjectives
+        'arab': 'Arab',
+    },
     'JJR': {  # adjectives, comparative
         # irregular
         'better': 'good',
