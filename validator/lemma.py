@@ -323,6 +323,7 @@ lemma_exceptions = {
         'egyptian': 'Egyptian',
         'french': 'French',
         'german': 'German',
+        'greek': 'Greek',
         'indian': 'Indian',
         'iranian': 'Iranian',
         'iraqi': 'Iraqi',
