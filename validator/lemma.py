@@ -341,6 +341,7 @@ lemma_exceptions = {
         'mediterranean': 'Mediterranean',
         'mexican': 'Mexican',
         'muslim': 'Muslim',
+        'nepalese': 'Nepalese',
         'norwegian': 'Norwegian',
         'pakistani': 'Pakistani',
         'palestinian': 'Palestinian',
