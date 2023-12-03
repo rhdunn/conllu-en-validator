@@ -320,6 +320,7 @@ lemma_exceptions = {
         'spanish': 'Spanish',
         'sunni': 'Sunni',
         'swedish': 'Swedish',
+        'thai': 'Thai',
     },
     'JJR': {  # adjectives, comparative
         # irregular
