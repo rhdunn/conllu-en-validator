@@ -311,6 +311,7 @@ lemma_exceptions = {
         # proper noun adjectives
         'american': 'American',
         'arab': 'Arab',
+        'argentinian': 'Argentinian',
         'indian': 'Indian',
         'iranian': 'Iranian',
         'iraqi': 'Iraqi',
