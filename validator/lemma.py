@@ -338,6 +338,7 @@ lemma_exceptions = {
         'iraqi': 'Iraqi',
         'irish': 'Irish',
         'islamic': 'Islamic',
+        'islamist': 'Islamist',
         'israeli': 'Israeli',
         'italian': 'Italian',
         'japanese': 'Japanese',
