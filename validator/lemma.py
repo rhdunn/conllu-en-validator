@@ -326,6 +326,7 @@ lemma_exceptions = {
         'christian': 'Christian',
         'democratic': ['democratic', 'Democratic'],
         'egyptian': 'Egyptian',
+        'european': 'European',
         'french': 'French',
         'german': 'German',
         'greek': 'Greek',
