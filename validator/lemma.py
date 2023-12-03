@@ -678,6 +678,7 @@ lemma_exceptions = {
         'drew': 'draw',
         'drove': 'drive',
         'dwelt': 'dwell',
+        'fed': 'feed',
         'fell': 'fall',
         'felt': 'feel',
         'fled': 'flee',
