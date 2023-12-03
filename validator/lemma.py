@@ -390,6 +390,7 @@ lemma_exceptions = {
         'taiwanese': 'Taiwanese',
         'tamil': 'Tamil',
         'thai': 'Thai',
+        'trinidadian': 'Trinidadian',
         'turkish': 'Turkish',
         'venezuelan': 'Venezuelan',
         'vietnamese': 'Vietnamese',
