@@ -317,6 +317,7 @@ lemma_exceptions = {
         'palestinian': 'Palestinian',
         'shiite': 'Shiite',
         'sunni': 'Sunni',
+        'swedish': 'Swedish',
     },
     'JJR': {  # adjectives, comparative
         # irregular
