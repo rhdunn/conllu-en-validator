@@ -315,6 +315,7 @@ lemma_exceptions = {
         'alexandrine': 'Alexandrine',
         'american': 'American',
         'arab': 'Arab',
+        'arabian': 'Arabian',
         'argentinian': 'Argentinian',
         'aryan': 'Aryan',
         'asian': 'Asian',
