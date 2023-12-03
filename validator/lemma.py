@@ -309,6 +309,7 @@ lemma_exceptions = {
     },
     'JJ': {  # adjectives
         # proper noun adjectives
+        'american': 'American',
         'arab': 'Arab',
         'iraqi': 'Iraqi',
         'israeli': 'Israeli',
