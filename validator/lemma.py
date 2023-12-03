@@ -383,6 +383,7 @@ lemma_exceptions = {
         'thai': 'Thai',
         'turkish': 'Turkish',
         'venezuelan': 'Venezuelan',
+        'vietnamese': 'Vietnamese',
         'wahhabi': 'Wahhabi',
     },
     'JJR': {  # adjectives, comparative
