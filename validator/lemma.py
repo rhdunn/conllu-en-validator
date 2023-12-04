@@ -354,6 +354,7 @@ lemma_exceptions = {
         'french': 'French',
         'german': 'German',
         'greek': 'Greek',
+        'illyrian': 'Illyrian',
         'indian': 'Indian',
         'iranian': 'Iranian',
         'iraqi': 'Iraqi',
