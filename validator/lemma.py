@@ -409,6 +409,7 @@ lemma_exceptions = {
         'trinidadian': 'Trinidadian',
         'turkish': 'Turkish',
         'venezuelan': 'Venezuelan',
+        'victorian': 'Victorian',
         'vietnamese': 'Vietnamese',
         'wahhabi': 'Wahhabi',
     },
