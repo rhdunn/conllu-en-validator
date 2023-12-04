@@ -317,6 +317,7 @@ lemma_exceptions = {
         'arab': 'Arab',
         'arabian': 'Arabian',
         'argentinian': 'Argentinian',
+        'aristotelian': 'Aristotelian',
         'aryan': 'Aryan',
         'asian': 'Asian',
         'atlantic': 'Atlantic',
