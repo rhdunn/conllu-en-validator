@@ -363,6 +363,7 @@ lemma_exceptions = {
         'italian': 'Italian',
         'jamaican': 'Jamaican',
         'japanese': 'Japanese',
+        'jesuit': 'Jesuit',
         'jewish': 'Jewish',
         'jóola': 'Jóola',
         'jordanian': 'Jordanian',
