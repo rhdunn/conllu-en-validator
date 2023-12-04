@@ -385,6 +385,7 @@ lemma_exceptions = {
         'norwegian': 'Norwegian',
         'olondrian': 'Olondrian',
         'ottoman': 'Ottoman',
+        'pachomian': 'Pachomian',
         'pakistani': 'Pakistani',
         'palestinian': 'Palestinian',
         'parisian': 'Parisian',
