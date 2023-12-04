@@ -406,6 +406,7 @@ lemma_exceptions = {
         'sinhala': 'Sinhala',
         'sinhalese': 'Sinhalese',
         'spanish': 'Spanish',
+        'stuart': 'Stuart',
         'sunni': 'Sunni',
         'swedish': 'Swedish',
         'swiss': 'Swiss',
