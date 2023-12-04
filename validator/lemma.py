@@ -354,6 +354,7 @@ lemma_exceptions = {
         'jamaican': 'Jamaican',
         'japanese': 'Japanese',
         'jewish': 'Jewish',
+        'jóola': 'Jóola',
         'jordanian': 'Jordanian',
         'kurdish': 'Kurdish',
         'latin': 'Latin',
