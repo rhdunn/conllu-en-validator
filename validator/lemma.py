@@ -335,6 +335,7 @@ lemma_exceptions = {
         'chinese': 'Chinese',
         'christian': 'Christian',
         'cuban': 'Cuban',
+        'czech': 'Czech',
         'democratic': ['democratic', 'Democratic'],
         'dutch': 'Dutch',
         'egyptian': 'Egyptian',
