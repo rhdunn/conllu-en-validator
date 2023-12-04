@@ -373,6 +373,7 @@ lemma_exceptions = {
         'kurdish': 'Kurdish',
         'latin': 'Latin',
         'lebanese': 'Lebanese',
+        'libertarian': 'Libertarian',
         'libyan': 'Libyan',
         'malaysian': 'Malaysian',
         'masonic': 'Masonic',
