@@ -416,6 +416,7 @@ lemma_exceptions = {
         'syrian': 'Syrian',
         'taiwanese': 'Taiwanese',
         'tamil': 'Tamil',
+        'tarahumara': 'Tarahumara',
         'thai': 'Thai',
         'trinidadian': 'Trinidadian',
         'turkish': 'Turkish',
