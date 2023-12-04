@@ -336,6 +336,7 @@ lemma_exceptions = {
         'calvinist': 'Calvinist',
         'canadian': 'Canadian',
         'carribean': 'Carribean',
+        'catholic': 'Catholic',
         'caucasian': 'Caucasian',
         'chilean': 'Chilean',
         'chinese': 'Chinese',
