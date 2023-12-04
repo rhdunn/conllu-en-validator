@@ -410,6 +410,7 @@ lemma_exceptions = {
         'sicilian': 'Sicilian',
         'sinhala': 'Sinhala',
         'sinhalese': 'Sinhalese',
+        'slovenian': 'Slovenian',
         'soviet': 'Soviet',
         'spanish': 'Spanish',
         'stuart': 'Stuart',
