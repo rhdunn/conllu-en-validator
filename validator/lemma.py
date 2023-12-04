@@ -373,6 +373,7 @@ lemma_exceptions = {
         'pashtun': 'Pashtun',
         'peruvian': 'Peruvian',
         'portugese': 'Portugese',
+        'protestant': 'Protestant',
         'republican': ['republican', 'Republican'],
         'russian': 'Russian',
         'satanic': 'Satanic',
